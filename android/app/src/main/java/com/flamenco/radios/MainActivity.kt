@@ -24,6 +24,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.flamenco.radios.ui.GenreTheme
 import com.flamenco.radios.ui.PlayerScreen
 import com.flamenco.radios.ui.RadioListScreen
 import com.flamenco.radios.ui.RadiosViewModel
@@ -55,6 +56,7 @@ private fun FlamencoRadiosApp(viewModel: RadiosViewModel = viewModel()) {
             onToggleFavorite = viewModel::toggleFavorite,
             onTogglePlayPause = viewModel::togglePlayPause,
             onOpenPlayer = { showPlayer = true },
+            onSelectGenre = viewModel::selectGenre,
         )
 
         val station = state.currentStation
@@ -65,15 +67,17 @@ private fun FlamencoRadiosApp(viewModel: RadiosViewModel = viewModel()) {
         ) {
             if (station != null) {
                 BackHandler { showPlayer = false }
-                PlayerScreen(
-                    station = station,
-                    state = state,
-                    onClose = { showPlayer = false },
-                    onTogglePlayPause = viewModel::togglePlayPause,
-                    onStop = viewModel::stop,
-                    onToggleFavorite = { viewModel.toggleFavorite(station) },
-                    onVolumeChange = viewModel::setVolume,
-                )
+                GenreTheme(viewModel.genreColor(station)) {
+                    PlayerScreen(
+                        station = station,
+                        state = state,
+                        onClose = { showPlayer = false },
+                        onTogglePlayPause = viewModel::togglePlayPause,
+                        onStop = viewModel::stop,
+                        onToggleFavorite = { viewModel.toggleFavorite(station) },
+                        onVolumeChange = viewModel::setVolume,
+                    )
+                }
             }
         }
     }

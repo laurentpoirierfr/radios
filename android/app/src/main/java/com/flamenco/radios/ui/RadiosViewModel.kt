@@ -18,13 +18,25 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.text.Normalizer
 
-data class Section(val title: String, val stations: List<Station>)
+/**
+ * Bloc de la liste. [genreHeader] non nul : afficher le nom du genre avant ce bloc
+ * (vue « Tous » ou recherche). [color] : couleur ARGB du genre (null pour les favoris).
+ */
+data class Section(
+    val title: String,
+    val stations: List<Station>,
+    val color: Int? = null,
+    val genreHeader: String? = null,
+)
 
 data class RadiosUiState(
     val loading: Boolean = true,
     val sections: List<Section> = emptyList(),
     val favorites: Set<String> = emptySet(),
     val query: String = "",
+    val genres: List<GenreOption> = emptyList(),
+    /** Genre sélectionné ; `null` = tous. */
+    val selectedGenre: String? = null,
     /** Station affichée dans le mini-lecteur : en cours, sinon la dernière écoutée. */
     val currentStation: Station? = null,
     val player: PlayerState = PlayerState(),
@@ -40,19 +52,26 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
 
     private val allStations = flow { emit(stationsRepo.stations) }.flowOn(Dispatchers.IO)
 
+    private data class Prefs(val favorites: Set<String>, val lastId: String?, val genre: String?)
+
+    private val prefsState = combine(prefs.favorites, prefs.lastStationId, prefs.selectedGenre, ::Prefs)
+
     val uiState: StateFlow<RadiosUiState> = combine(
         allStations,
-        prefs.favorites,
-        prefs.lastStationId,
+        prefsState,
         query,
         player.state,
-    ) { stations, favorites, lastId, q, playerState ->
-        val currentId = playerState.stationId ?: lastId
+    ) { stations, p, q, playerState ->
+        val currentId = playerState.stationId ?: p.lastId
+        // Un genre retiré de la configuration ne doit pas laisser une liste vide.
+        val selected = p.genre?.takeIf { it in stationsRepo.genres }
         RadiosUiState(
             loading = false,
-            sections = buildSections(stations, favorites, q),
-            favorites = favorites,
+            sections = buildSections(stations, p.favorites, q, selected),
+            favorites = p.favorites,
             query = q,
+            genres = genreOptions,
+            selectedGenre = selected,
             currentStation = stations.firstOrNull { it.id == currentId },
             player = playerState,
         )
@@ -61,6 +80,13 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
     fun onQueryChange(value: String) {
         query.value = value
     }
+
+    fun selectGenre(genreId: String?) {
+        viewModelScope.launch { prefs.setSelectedGenre(genreId) }
+    }
+
+    /** Couleur ARGB du genre d'une station (écran lecteur). */
+    fun genreColor(station: Station): Int? = genreOptions.firstOrNull { it.id == station.genre }?.color
 
     fun toggleFavorite(station: Station) {
         viewModelScope.launch { prefs.toggleFavorite(station.id) }
@@ -95,21 +121,48 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
         player.release()
     }
 
-    private fun buildSections(stations: List<Station>, favorites: Set<String>, q: String): List<Section> {
+    private val genreOptions: List<GenreOption> by lazy {
+        stationsRepo.genres.map { (id, genre) ->
+            GenreOption(id, genre.name, runCatching { android.graphics.Color.parseColor(genre.color) }.getOrDefault(0))
+        }
+    }
+
+    /**
+     * Sections affichées. Une recherche porte sur tous les genres (une radio n'est
+     * jamais introuvable) ; sinon seul le genre sélectionné est affiché.
+     */
+    private fun buildSections(
+        stations: List<Station>,
+        favorites: Set<String>,
+        q: String,
+        selectedGenre: String?,
+    ): List<Section> {
         val needle = q.normalized()
-        val filtered = if (needle.isEmpty()) stations else stations.filter { s ->
-            val genreName = stationsRepo.genre(s.genre)?.name.orEmpty()
-            listOf(s.name, s.region.orEmpty(), s.description, genreName, s.tags.joinToString(" "))
-                .any { it.normalized().contains(needle) }
+        val filtered = when {
+            needle.isNotEmpty() -> stations.filter { s ->
+                val genreName = stationsRepo.genre(s.genre)?.name.orEmpty()
+                listOf(s.name, s.region.orEmpty(), s.description, genreName, s.tags.joinToString(" "))
+                    .any { it.normalized().contains(needle) }
+            }
+            selectedGenre != null -> stations.filter { it.genre == selectedGenre }
+            else -> stations
         }
         val sections = mutableListOf<Section>()
         val favs = filtered.filter { it.id in favorites }
         if (favs.isNotEmpty()) sections += Section(FAVORITES_TITLE, favs)
+
+        // Plusieurs genres visibles : on affiche le nom du genre en tête de son bloc.
+        val showGenreHeaders = filtered.map { it.genre }.distinct().size > 1
         // Genre puis catégorie, dans l'ordre déclaré par la configuration.
-        stationsRepo.genres.values.forEach { genre ->
+        stationsRepo.genres.forEach { (genreId, genre) ->
+            val color = genreOptions.firstOrNull { it.id == genreId }?.color
+            var first = true
             genre.categories.forEach { (categoryId, label) ->
-                val list = filtered.filter { it.category == categoryId }
-                if (list.isNotEmpty()) sections += Section(label, list)
+                val list = filtered.filter { it.genre == genreId && it.category == categoryId }
+                if (list.isNotEmpty()) {
+                    sections += Section(label, list, color, genre.name.takeIf { showGenreHeaders && first })
+                    first = false
+                }
             }
         }
         return sections

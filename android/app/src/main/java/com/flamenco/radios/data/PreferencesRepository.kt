@@ -22,6 +22,16 @@ class PreferencesRepository(private val context: Context) {
 
     suspend fun lastStationIdNow(): String? = lastStationId.first()
 
+    /** Genre choisi dans le sélecteur ; `null` = tous les genres. */
+    val selectedGenre: Flow<String?> =
+        context.dataStore.data.map { it[SELECTED_GENRE] }
+
+    suspend fun setSelectedGenre(genreId: String?) {
+        context.dataStore.edit { prefs ->
+            if (genreId == null) prefs.remove(SELECTED_GENRE) else prefs[SELECTED_GENRE] = genreId
+        }
+    }
+
     suspend fun toggleFavorite(stationId: String) {
         context.dataStore.edit { prefs ->
             val current = prefs[FAVORITES] ?: emptySet()
@@ -36,5 +46,6 @@ class PreferencesRepository(private val context: Context) {
     private companion object {
         val FAVORITES = stringSetPreferencesKey("favorites")
         val LAST_STATION = stringPreferencesKey("last_station")
+        val SELECTED_GENRE = stringPreferencesKey("selected_genre")
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flamenco Radios</string>
+    <string name="app_name">Radios</string>
+    <string name="all_genres">Tous</string>
     <string name="favorites">Favoris</string>
     <string name="search_hint">Rechercher une radio</string>
     <string name="no_result">Aucune radio ne correspond.</string>

@@ -32,6 +32,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -52,101 +53,130 @@ fun RadioListScreen(
     onToggleFavorite: (Station) -> Unit,
     onTogglePlayPause: () -> Unit,
     onOpenPlayer: () -> Unit,
+    onSelectGenre: (String?) -> Unit,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-    Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {
-            TopAppBar(
-                title = {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Image(
-                            painter = painterResource(R.drawable.logo_radio),
-                            contentDescription = null, // décoratif : le titre suit
-                            modifier = Modifier.size(width = 30.dp, height = 36.dp),
-                        )
-                        Spacer(Modifier.width(12.dp))
-                        Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold)
-                    }
-                },
-                scrollBehavior = scrollBehavior,
-            )
-        },
-        bottomBar = {
-            state.currentStation?.let { station ->
-                MiniPlayer(
-                    station = station,
-                    state = state,
-                    onTogglePlayPause = onTogglePlayPause,
-                    onClick = onOpenPlayer,
-                )
-            }
-        },
-    ) { padding ->
-        if (state.loading) {
-            Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
-            return@Scaffold
-        }
-        val listState = rememberLazyListState()
-        Box(Modifier.fillMaxSize()) {
-        LazyColumn(
-            state = listState,
-            contentPadding = PaddingValues(
-                top = padding.calculateTopPadding(),
-                bottom = padding.calculateBottomPadding() + 8.dp,
-            ),
-            // Marge à droite pour que l'ascenseur ne recouvre pas le bouton favori.
-            modifier = Modifier.fillMaxSize().padding(end = 20.dp),
-        ) {
-            item(key = "search") {
-                SearchField(
-                    query = state.query,
-                    onQueryChange = onQueryChange,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
-            if (state.sections.isEmpty()) {
-                item(key = "empty") {
-                    Text(
-                        stringResource(R.string.no_result),
-                        modifier = Modifier.padding(24.dp),
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    val selectedColor = state.genres.firstOrNull { it.id == state.selectedGenre }?.color
+    GenreTheme(selectedColor) {
+        Scaffold(
+            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+            topBar = {
+                Column {
+                    TopAppBar(
+                        title = {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Image(
+                                    painter = painterResource(R.drawable.logo_radio),
+                                    contentDescription = null, // décoratif : le titre suit
+                                    modifier = Modifier.size(width = 30.dp, height = 36.dp),
+                                )
+                                Spacer(Modifier.width(12.dp))
+                                Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold)
+                            }
+                        },
+                        scrollBehavior = scrollBehavior,
                     )
-                }
-            }
-            state.sections.forEach { section ->
-                stickyHeader(key = "header-${section.title}") {
-                    Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxWidth()) {
-                        Text(
-                            section.title,
-                            style = MaterialTheme.typography.titleSmall,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
-                        )
+                    if (state.genres.size > 1) {
+                        Surface(color = MaterialTheme.colorScheme.background) {
+                            GenreSelector(
+                                genres = state.genres,
+                                selected = state.selectedGenre,
+                                onSelect = onSelectGenre,
+                                modifier = Modifier.padding(bottom = 4.dp),
+                            )
+                        }
                     }
                 }
-                items(section.stations, key = { "${section.title}-${it.id}" }) { station ->
-                    StationRow(
+            },
+            bottomBar = {
+                state.currentStation?.let { station ->
+                    MiniPlayer(
                         station = station,
-                        isFavorite = station.id in state.favorites,
-                        isCurrent = state.player.stationId == station.id,
-                        isActive = state.player.stationId == station.id &&
-                            (state.player.isPlaying || state.player.isBuffering),
-                        isBuffering = state.player.stationId == station.id && state.player.isBuffering,
-                        onClick = { onStationClick(station) },
-                        onToggleFavorite = { onToggleFavorite(station) },
+                        state = state,
+                        onTogglePlayPause = onTogglePlayPause,
+                        onClick = onOpenPlayer,
                     )
                 }
+            },
+        ) { padding ->
+            if (state.loading) {
+                Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+                return@Scaffold
             }
-        }
-        VerticalScrollbar(
-            state = listState,
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(top = padding.calculateTopPadding() + 4.dp, bottom = padding.calculateBottomPadding() + 4.dp),
-        )
+            val listState = rememberLazyListState()
+            // Changement de genre : repartir du haut de la liste.
+            LaunchedEffect(state.selectedGenre) { listState.scrollToItem(0) }
+            Box(Modifier.fillMaxSize()) {
+                LazyColumn(
+                    state = listState,
+                    contentPadding = PaddingValues(
+                        top = padding.calculateTopPadding(),
+                        bottom = padding.calculateBottomPadding() + 8.dp,
+                    ),
+                    // Marge à droite pour que l'ascenseur ne recouvre pas le bouton favori.
+                    modifier = Modifier.fillMaxSize().padding(end = 20.dp),
+                ) {
+                    item(key = "search") {
+                        SearchField(
+                            query = state.query,
+                            onQueryChange = onQueryChange,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        )
+                    }
+                    if (state.sections.isEmpty()) {
+                        item(key = "empty") {
+                            Text(
+                                stringResource(R.string.no_result),
+                                modifier = Modifier.padding(24.dp),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                    state.sections.forEach { section ->
+                        section.genreHeader?.let { genreName ->
+                            item(key = "genre-$genreName") {
+                                Text(
+                                    genreName,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = genreAccent(section.color),
+                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 20.dp, bottom = 2.dp),
+                                )
+                            }
+                        }
+                        stickyHeader(key = "header-${section.title}") {
+                            Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxWidth()) {
+                                Text(
+                                    section.title,
+                                    style = MaterialTheme.typography.titleSmall,
+                                    color = genreAccent(section.color),
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+                                )
+                            }
+                        }
+                        items(section.stations, key = { "${section.title}-${it.id}" }) { station ->
+                            StationRow(
+                                station = station,
+                                isFavorite = station.id in state.favorites,
+                                isCurrent = state.player.stationId == station.id,
+                                isActive = state.player.stationId == station.id &&
+                                    (state.player.isPlaying || state.player.isBuffering),
+                                isBuffering = state.player.stationId == station.id && state.player.isBuffering,
+                                onClick = { onStationClick(station) },
+                                onToggleFavorite = { onToggleFavorite(station) },
+                            )
+                        }
+                    }
+                }
+                VerticalScrollbar(
+                    state = listState,
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(top = padding.calculateTopPadding() + 4.dp, bottom = padding.calculateBottomPadding() + 4.dp),
+                )
+            }
         }
     }
 }
