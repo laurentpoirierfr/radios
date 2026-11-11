@@ -1,0 +1,16 @@
+# Gradle / Android Studio
+.gradle/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# IntelliJ / Android Studio : on partage uniquement les run configurations (.run/)
+.idea/
+*.iml
+.kotlin/

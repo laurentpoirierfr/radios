@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Plusieurs radios (Radio Art, Radio Sevillanas, Radio Unión Catalunya)
+         ne diffusent qu'en HTTP clair. -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- onda-sevilla / onda-mencia : le serveur n'envoie pas le certificat
+         intermédiaire « Sectigo Public Server Authentication CA DV R36 ».
+         On l'embarque comme ancre de confiance, uniquement pour ce domaine. -->
+    <domain-config>
+        <domain includeSubdomains="true">elitecomunicacion.es</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/sectigo_dv_r36" />
+        </trust-anchors>
+    </domain-config>
+</network-security-config>

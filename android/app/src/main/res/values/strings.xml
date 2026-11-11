@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flamenco Radios</string>
+    <string name="favorites">Favoris</string>
+    <string name="search_hint">Rechercher une radio</string>
+    <string name="no_result">Aucune radio ne correspond.</string>
+    <string name="play">Lecture</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Arrêter</string>
+    <string name="buffering">Connexion…</string>
+    <string name="live">En direct</string>
+    <string name="add_favorite">Ajouter aux favoris</string>
+    <string name="remove_favorite">Retirer des favoris</string>
+    <string name="close_player">Fermer le lecteur</string>
+    <string name="clear_search">Effacer</string>
+    <string name="volume">Volume</string>
+    <string name="playback_error">Flux indisponible : %1$s</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="flamenco_red">#FFB3122E</color>
+    <color name="flamenco_black">#FF1A1012</color>
+    <color name="ic_launcher_background">#FF1D2B45</color>
+
+    <style name="Theme.FlamencoRadios" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+</resources>
