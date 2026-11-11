@@ -69,6 +69,9 @@ consommer `radios.json`.
 | `jazz` | `jazz-reference` | Grandes radios jazz — standards, swing, be-bop, actuel | 7 |
 | | `jazz-thematique` | Manouche, latin & piano — webradios thématiques | 4 |
 | | `jazz-lounge` | Smooth jazz, nu jazz & lounge | 3 |
+| `techno` | `techno-reference` | Grandes radios techno — Detroit, Berlin, clubs | 6 |
+| | `techno-minimal-dub` | Minimal, dub & deep — styles atmosphériques | 5 |
+| | `techno-hard` | Hard, acid & schranz — styles rapides et sombres | 4 |
 
 La cohérence genre ↔ catégorie (une station ne peut pas utiliser la catégorie
 d'un autre genre) n'est pas exprimable en JSON Schema : elle est vérifiée par
@@ -82,6 +85,8 @@ les tests unitaires (`make test`).
 
 ### Historique
 
+- **2.1.0** — ajout du genre techno (15 radios). Logos génériques pour Minimal Mix
+  et Radio Caprice (aucun logo officiel récupérable, signalé dans `notes`).
 - **2.0.0** — introduction des genres : `categories` racine → `genres.<id>.categories`,
   station `genres[]` → `tags[]`, ajout de `genre` ; catégories renommées
   `flamenco` → `flamenco-pur`, `radios-locales` → `flamenco-local` ; ajout de 14 radios jazz.
@@ -95,6 +100,7 @@ les tests unitaires (`make test`).
   11/11/2026, en-têtes ICY + réception audio confirmées) et des logos.
 - **radio.net** — logos Canal Flamenco et Canal Fiesta (absents du site RTVA),
   FIP et France Musique.
+- **myTuner** — logo FG Techno.
 
 ## Valider la configuration
 

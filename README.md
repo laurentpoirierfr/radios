@@ -1,12 +1,12 @@
 # 📻 Radios
 
-Application Android d'écoute de webradios classées par genre (flamenco, jazz…),
+Application Android d'écoute de webradios classées par genre (flamenco, jazz, techno…),
 pilotée par un fichier de configuration (`config/radios.json`) contenant les
 genres, leurs catégories, la liste des radios, leurs flux et leurs logos en base64.
 
 ---
 
-## 1. Les 28 radios recensées (flux vérifiés le 11/11/2026)
+## 1. Les 43 radios recensées (flux vérifiés le 11/11/2026)
 
 ## 🎸 Flamenco — 14 radios
 
@@ -70,6 +70,37 @@ genres, leurs catégories, la liste des radios, leurs flux et leurs logos en bas
 | **The Jazz Groove** | `https://mp3-128.streamthejazzgroove.com/stream` | 128 kbps MP3 | États-Unis |
 | **SomaFM — Sonic Universe** | `https://ice6.somafm.com/sonicuniverse-128-mp3` | 128 kbps MP3 | Californie — San Francisco |
 
+## 🎛️ Techno — 15 radios
+
+### Grandes radios techno — Detroit, Berlin, clubs
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **Radio FG — FG Techno** | `https://stream.rcs.revma.com/1z19ak79n98uv` | 192 kbps MP3 | Île-de-France — Paris |
+| **Sunshine Live — Techno** | `https://stream.sunshine-live.de/techno/mp3-192/stream.sunshine-live.de/` | 192 kbps MP3 | Bade-Wurtemberg — Mannheim |
+| **Intergalactic FM — Cybernetic Broadcasting System** | `https://radio.intergalactic.fm/1` | 192 kbps MP3 | Hollande-Méridionale — La Haye |
+| **Pure FM — Berlin** | `https://s4.radionetz.de/purefm-bln.mp3` | 128 kbps MP3 | Berlin |
+| **RauteMusik — Techno** | `https://streams.rautemusik.fm/techno/mp3-192/` | 192 kbps MP3 | Allemagne |
+| **Techno.FM** | `http://stream.techno.fm/radio.mp3` | 192 kbps MP3 | Royaume-Uni |
+
+### Minimal, dub & deep — styles atmosphériques
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **Technolovers — Minimal** | `https://stream.technolovers.fm/minimal` | 192 kbps MP3 | Allemagne |
+| **Traxx FM — Tech Minimal** | `https://traxx020.ice.infomaniak.ch/traxx020-low.mp3` | 128 kbps MP3 | Suisse |
+| **Minimal Mix Radio** | `http://orion.shoutca.st:8750/` | 320 kbps MP3 | Pologne |
+| **Deep Radio** | `https://stream.deep.radio/hd` | 320 kbps MP3 | Pays-Bas |
+| **Radio Caprice — Dub Techno** | `http://79.120.39.202:8000/dubtechno` | 320 kbps AAC | Russie |
+
+### Hard, acid & schranz — styles rapides et sombres
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **Technolovers — Hypertechno** | `https://stream.technolovers.fm/hypertechno` | 192 kbps MP3 | Allemagne |
+| **Sunshine Live — Schranz** | `https://stream.sunshine-live.de/schranz/mp3-192/stream.sunshine-live.de/` | 192 kbps MP3 | Bade-Wurtemberg — Mannheim |
+| **EILO — Hard Techno Radio** | `https://eilo.org/streamer.php?ch=hard` | 128 kbps MP3 | internationale |
+| **Radio Caprice — Acid** | `http://79.111.119.111:8000/acid` | 320 kbps AAC | Russie |
 Détails complets (descriptions, étiquettes, logos base64 128×128, sources) :
 [`config/radios.json`](config/radios.json) — documentation :
 [`config/README.md`](config/README.md).

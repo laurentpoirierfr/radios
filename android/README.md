@@ -64,7 +64,7 @@ app/src/main/java/fr/lpoirier/radios/
 - Radios avec titre en direct (ICY) : le morceau s'affiche dans le mini-lecteur et l'écran lecteur.
 - Favoris : cœur sur une radio → section « ★ Favoris » en tête, conservée au redémarrage.
 - Recherche : « radiole » trouve « Radiolé » (insensible aux accents).
-- Genres : puces *Tous / Flamenco / Jazz* sous le titre ; la couleur du genre s'applique
+- Genres : puces *Tous / Flamenco / Jazz / Techno* sous le titre ; la couleur du genre s'applique
   à la liste et à l'écran lecteur, le choix est conservé au redémarrage. Une recherche
   porte toujours sur tous les genres.
 - Vue *Tous* : favoris puis un carrousel horizontal par genre (tous visibles d'emblée) ;
