@@ -67,3 +67,5 @@ app/src/main/java/fr/lpoirier/radios/
 - Genres : puces *Tous / Flamenco / Jazz* sous le titre ; la couleur du genre s'applique
   à la liste et à l'écran lecteur, le choix est conservé au redémarrage. Une recherche
   porte toujours sur tous les genres.
+- Vue *Tous* : favoris puis un carrousel horizontal par genre (tous visibles d'emblée) ;
+  toucher un logo lance/met en pause la radio, « Voir tout → » ouvre la liste du genre.

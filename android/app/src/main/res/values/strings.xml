@@ -2,6 +2,11 @@
 <resources>
     <string name="app_name">Radios</string>
     <string name="all_genres">Tous</string>
+    <string name="see_all">Voir tout →</string>
+    <plurals name="radio_count">
+        <item quantity="one">%d radio</item>
+        <item quantity="other">%d radios</item>
+    </plurals>
     <string name="favorites">Favoris</string>
     <string name="search_hint">Rechercher une radio</string>
     <string name="no_result">Aucune radio ne correspond.</string>

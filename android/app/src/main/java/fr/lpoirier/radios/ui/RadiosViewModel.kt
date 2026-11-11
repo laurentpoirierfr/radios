@@ -29,9 +29,20 @@ data class Section(
     val genreHeader: String? = null,
 )
 
+/** Rangée horizontale de la vue « Tous » : un genre (ou les favoris si [genreId] est nul). */
+data class Carousel(
+    val genreId: String?,
+    val title: String,
+    val color: Int?,
+    val stations: List<Station>,
+)
+
 data class RadiosUiState(
     val loading: Boolean = true,
+    /** Liste détaillée : vue d'un genre ou résultats de recherche. */
     val sections: List<Section> = emptyList(),
+    /** Vue « Tous » sans recherche : favoris puis un carrousel par genre (sinon vide). */
+    val carousels: List<Carousel> = emptyList(),
     val favorites: Set<String> = emptySet(),
     val query: String = "",
     val genres: List<GenreOption> = emptyList(),
@@ -67,7 +78,8 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
         val selected = p.genre?.takeIf { it in stationsRepo.genres }
         RadiosUiState(
             loading = false,
-            sections = buildSections(stations, p.favorites, q, selected),
+            sections = if (showCarousels(q, selected)) emptyList() else buildSections(stations, p.favorites, q, selected),
+            carousels = if (showCarousels(q, selected)) buildCarousels(stations, p.favorites) else emptyList(),
             favorites = p.favorites,
             query = q,
             genres = genreOptions,
@@ -124,6 +136,18 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
     private val genreOptions: List<GenreOption> by lazy {
         stationsRepo.genres.map { (id, genre) ->
             GenreOption(id, genre.name, runCatching { android.graphics.Color.parseColor(genre.color) }.getOrDefault(0))
+        }
+    }
+
+    private fun showCarousels(q: String, selectedGenre: String?) = selectedGenre == null && q.isBlank()
+
+    /** Vue « Tous » : favoris (s'il y en a) puis un carrousel par genre, dans l'ordre de la configuration. */
+    private fun buildCarousels(stations: List<Station>, favorites: Set<String>): List<Carousel> = buildList {
+        val favs = stations.filter { it.id in favorites }
+        if (favs.isNotEmpty()) add(Carousel(null, FAVORITES_TITLE, null, favs))
+        genreOptions.forEach { genre ->
+            val list = stations.filter { it.genre == genre.id }
+            if (list.isNotEmpty()) add(Carousel(genre.id, genre.name, genre.color, list))
         }
     }
 

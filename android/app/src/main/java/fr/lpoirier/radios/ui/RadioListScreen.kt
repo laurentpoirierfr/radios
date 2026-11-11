@@ -115,8 +115,11 @@ fun RadioListScreen(
                         top = padding.calculateTopPadding(),
                         bottom = padding.calculateBottomPadding() + 8.dp,
                     ),
-                    // Marge à droite pour que l'ascenseur ne recouvre pas le bouton favori.
-                    modifier = Modifier.fillMaxSize().padding(end = 20.dp),
+                    // Liste détaillée : marge à droite pour que l'ascenseur ne recouvre pas le bouton favori.
+                    // Carrousels : pleine largeur (ils défilent horizontalement jusqu'au bord).
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(end = if (state.carousels.isEmpty()) 20.dp else 0.dp),
                 ) {
                     item(key = "search") {
                         SearchField(
@@ -125,7 +128,17 @@ fun RadioListScreen(
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                         )
                     }
-                    if (state.sections.isEmpty()) {
+                    // Vue « Tous » : un carrousel par genre (tous visibles dès le premier écran).
+                    items(state.carousels, key = { "carousel-${it.genreId ?: "favorites"}" }) { carousel ->
+                        CarouselBlock(
+                            carousel = carousel,
+                            genres = state.genres,
+                            player = state.player,
+                            onStationClick = onStationClick,
+                            onSeeAll = onSelectGenre,
+                        )
+                    }
+                    if (state.sections.isEmpty() && state.carousels.isEmpty()) {
                         item(key = "empty") {
                             Text(
                                 stringResource(R.string.no_result),
