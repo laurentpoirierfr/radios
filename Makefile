@@ -12,11 +12,14 @@ EMULATOR := $(ANDROID_SDK)/emulator/emulator
 GRADLE   := JAVA_HOME=$(JAVA_HOME) ./gradlew --console=plain
 APP_ID   := fr.lpoirier.radios
 APK_DIR  := android/app/build/outputs/apk
+# Version lue dans android/app/build.gradle.kts (versionName = "x.y.z")
+VERSION  := $(shell sed -n 's/.*versionName = "\(.*\)".*/\1/p' android/app/build.gradle.kts)
+DIST_APK := dist/radios-$(VERSION)-debug.apk
 
 export JAVA_HOME
 
 .DEFAULT_GOAL := help
-.PHONY: help build release install run test test-device check-config emulator logcat stop clean
+.PHONY: help build apk release install run test test-device check-config emulator logcat stop clean
 
 help: ## Affiche cette aide
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | \
@@ -25,6 +28,11 @@ help: ## Affiche cette aide
 build: ## Compile l'APK debug
 	$(GRADLE) assembleDebug
 	@echo "→ $(APK_DIR)/debug/app-debug.apk"
+
+apk: build ## Copie l'APK debug dans dist/ (prêt à envoyer par mail ou cloud)
+	@mkdir -p dist
+	cp $(APK_DIR)/debug/app-debug.apk $(DIST_APK)
+	@echo "→ $(DIST_APK) ($$(du -h $(DIST_APK) | cut -f1))"
 
 release: ## Compile l'APK release (minifié, non signé)
 	$(GRADLE) assembleRelease

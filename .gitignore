@@ -7,6 +7,9 @@ captures/
 .cxx/
 *.apk
 *.aab
+
+# APK prêts à distribuer (make apk)
+dist/
 *.keystore
 *.jks
 
