@@ -1,4 +1,4 @@
-# Flamenco Radios — raccourcis de build.
+# Radios — raccourcis de build.
 # `make` ou `make help` affiche la liste des cibles.
 
 # JDK utilisé par Gradle : le JBR d'Android Studio (le JDK 28-ea du PATH n'est pas supporté).
@@ -10,7 +10,7 @@ AVD         ?= Medium_Phone
 ADB      := $(ANDROID_SDK)/platform-tools/adb
 EMULATOR := $(ANDROID_SDK)/emulator/emulator
 GRADLE   := JAVA_HOME=$(JAVA_HOME) ./gradlew --console=plain
-APP_ID   := com.flamenco.radios
+APP_ID   := fr.lpoirier.radios
 APK_DIR  := android/app/build/outputs/apk
 
 export JAVA_HOME

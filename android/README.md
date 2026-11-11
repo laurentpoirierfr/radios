@@ -1,10 +1,10 @@
-# Flamenco Radios — application Android
+# Radios — application Android
 
 Kotlin · Jetpack Compose (Material 3) · Media3 ExoPlayer + MediaSessionService · Coil · DataStore.
 
 ## Ouvrir dans Android Studio
 
-1. **File ▸ Open…** → sélectionner la **racine du dépôt** `flamenco-radios/`
+1. **File ▸ Open…** → sélectionner la **racine du dépôt**
    (c'est elle qui contient `settings.gradle.kts` ; le module `app` est dans `android/app/`).
 2. Laisser la synchro Gradle se terminer. Gradle JDK : le **JBR embarqué**
    d'Android Studio (*Settings ▸ Build Tools ▸ Gradle ▸ Gradle JDK*).
@@ -13,7 +13,7 @@ Kotlin · Jetpack Compose (Material 3) · Media3 ExoPlayer + MediaSessionService
 
 | Run configuration (`.run/` à la racine) | Ce qu'elle fait |
 |---|---|
-| **Flamenco Radios** | installe et lance l'app |
+| **Radios** | installe et lance l'app |
 | **Tests unitaires (config)** | valide `config/radios.json` sur la JVM, sans émulateur |
 | **Tests instrumentés (émulateur)** | tests sur l'appareil : assets, logos, TLS + accès réseau à tous les flux |
 | **Tests instrumentés (Gradle)** | mêmes tests via `connectedDebugAndroidTest` (rapport HTML) |
@@ -41,8 +41,8 @@ export JAVA_HOME=~/Community/android-studio/jbr
 ## Structure
 
 ```
-app/src/main/java/com/flamenco/radios/
-├── FlamencoApp.kt              conteneur de dépendances
+app/src/main/java/fr/lpoirier/radios/
+├── RadiosApp.kt                conteneur de dépendances
 ├── MainActivity.kt             point d'entrée Compose, permission notifications
 ├── data/                       Station (modèle), StationRepository (assets), PreferencesRepository (favoris)
 ├── player/                     RadioPlaybackService (Media3), RadioPlayer (titre ICY), PlayerConnection (MediaController)

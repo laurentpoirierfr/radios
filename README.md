@@ -1,4 +1,4 @@
-# 🎸 Flamenco Radios
+# 📻 Radios
 
 Application Android d'écoute de webradios classées par genre (flamenco, jazz…),
 pilotée par un fichier de configuration (`config/radios.json`) contenant les
@@ -128,7 +128,7 @@ quelle dans une app Swift/iOS.
 ### Architecture cible
 
 ```
-flamenco-radios/                   ← racine du projet Gradle (à ouvrir dans Android Studio)
+<racine du dépôt>/                ← racine du projet Gradle (à ouvrir dans Android Studio)
 ├── settings.gradle.kts, gradlew, gradle/, .run/
 ├── config/                        ← source de vérité
 │   ├── radios.json
@@ -137,7 +137,7 @@ flamenco-radios/                   ← racine du projet Gradle (à ouvrir dans A
 └── android/                       ← voir android/README.md
     └── app/src/main/
         ├── assets/radios.json     ← copie du config/ via une tâche Gradle
-        └── java/com/flamenco/radios/
+        └── java/fr/lpoirier/radios/
             ├── data/              ← parsing config + repository (Flow)
             ├── player/            ← RadioPlaybackService (Media3), ICY, reconnexion
             └── ui/                ← écrans Compose (liste, lecteur, favoris)

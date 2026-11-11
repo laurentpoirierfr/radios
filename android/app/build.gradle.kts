@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.flamenco.radios"
+    namespace = "fr.lpoirier.radios"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.flamenco.radios"
+        applicationId = "fr.lpoirier.radios"
         minSdk = 26
         targetSdk = 37
         versionCode = 1

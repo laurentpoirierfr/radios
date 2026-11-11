@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FlamencoRadios"
+rootProject.name = "Radios"
 include(":app")
 project(":app").projectDir = file("android/app")

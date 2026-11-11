@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://flamenco-radios.example/schemas/radios.schema.json",
+  "$id": "https://radios.example/schemas/radios.schema.json",
   "title": "Configuration des webradios par genre",
   "description": "Webradios regroupées par genre musical (flamenco, jazz…) puis par catégorie, avec leur flux et leur logo embarqué en base64.",
   "type": "object",
