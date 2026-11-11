@@ -30,8 +30,22 @@ class RadioConfigTest {
     }
 
     @Test
-    fun `la configuration contient les 14 radios`() {
-        assertEquals(14, config.stations.size)
+    fun `le genre flamenco contient les 14 radios d'origine`() {
+        assertEquals(14, config.stations.count { it.genre == "flamenco" })
+    }
+
+    @Test
+    fun `chaque genre a au moins une station et une couleur valide`() {
+        config.genres.forEach { (id, genre) ->
+            assertTrue("genre $id sans station", config.stations.any { it.genre == id })
+            assertTrue("genre $id : couleur ${genre.color}", genre.color.matches(Regex("^#[0-9A-Fa-f]{6}$")))
+        }
+    }
+
+    @Test
+    fun `les identifiants de categorie sont uniques tous genres confondus`() {
+        val ids = config.genres.values.flatMap { it.categories.keys }
+        assertEquals("catégories dupliquées : $ids", ids.size, ids.toSet().size)
     }
 
     @Test
@@ -42,9 +56,14 @@ class RadioConfigTest {
     }
 
     @Test
-    fun `chaque station appartient a une categorie declaree`() {
+    fun `chaque station a un genre declare et une categorie de ce genre`() {
         config.stations.forEach {
-            assertTrue("${it.id} : catégorie inconnue ${it.category}", it.category in config.categories)
+            val genre = config.genres[it.genre]
+            assertTrue("${it.id} : genre inconnu ${it.genre}", genre != null)
+            assertTrue(
+                "${it.id} : catégorie ${it.category} absente du genre ${it.genre}",
+                it.category in genre!!.categories,
+            )
         }
     }
 

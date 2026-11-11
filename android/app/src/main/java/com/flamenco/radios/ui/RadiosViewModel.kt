@@ -98,14 +98,19 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
     private fun buildSections(stations: List<Station>, favorites: Set<String>, q: String): List<Section> {
         val needle = q.normalized()
         val filtered = if (needle.isEmpty()) stations else stations.filter { s ->
-            listOf(s.name, s.region.orEmpty(), s.description, s.genres.joinToString(" "))
+            val genreName = stationsRepo.genre(s.genre)?.name.orEmpty()
+            listOf(s.name, s.region.orEmpty(), s.description, genreName, s.tags.joinToString(" "))
                 .any { it.normalized().contains(needle) }
         }
         val sections = mutableListOf<Section>()
         val favs = filtered.filter { it.id in favorites }
         if (favs.isNotEmpty()) sections += Section(FAVORITES_TITLE, favs)
-        filtered.groupBy { it.category }.forEach { (category, list) ->
-            sections += Section(stationsRepo.categoryLabel(category), list)
+        // Genre puis catégorie, dans l'ordre déclaré par la configuration.
+        stationsRepo.genres.values.forEach { genre ->
+            genre.categories.forEach { (categoryId, label) ->
+                val list = filtered.filter { it.category == categoryId }
+                if (list.isNotEmpty()) sections += Section(label, list)
+            }
         }
         return sections
     }

@@ -1,25 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://flamenco-radios.example/schemas/radios.schema.json",
-  "title": "Configuration des radios flamenco",
-  "description": "Liste des webradios flamenco avec leur flux et leur logo embarqué en base64.",
+  "title": "Configuration des webradios par genre",
+  "description": "Webradios regroupées par genre musical (flamenco, jazz…) puis par catégorie, avec leur flux et leur logo embarqué en base64.",
   "type": "object",
-  "required": ["version", "generated", "categories", "stations"],
+  "required": ["version", "generated", "genres", "stations"],
   "properties": {
+    "$schema": { "type": "string" },
     "version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "description": "Version sémantique de la configuration."
+      "description": "Version sémantique de la configuration (majeure = changement de structure)."
     },
     "generated": {
       "type": "string",
       "format": "date",
       "description": "Date de génération (ISO 8601)."
     },
-    "categories": {
+    "genres": {
       "type": "object",
-      "description": "Libellés lisibles des catégories de radios.",
-      "additionalProperties": { "type": "string" }
+      "description": "Genres musicaux, indexés par identifiant (slug). L'ordre des clés est l'ordre d'affichage.",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/$defs/slug" },
+      "additionalProperties": { "$ref": "#/$defs/genre" }
     },
     "sources": {
       "type": "array",
@@ -33,21 +36,49 @@
       "items": { "$ref": "#/$defs/station" }
     }
   },
+  "additionalProperties": false,
   "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "genre": {
+      "type": "object",
+      "required": ["name", "description", "color", "categories"],
+      "properties": {
+        "name": { "type": "string", "description": "Nom affiché du genre." },
+        "description": { "type": "string", "maxLength": 300, "description": "Courte description en français." },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Couleur d'accent du genre dans l'application (#RRGGBB)."
+        },
+        "categories": {
+          "type": "object",
+          "description": "Catégories du genre : identifiant (slug, unique tous genres confondus) → libellé. L'ordre des clés est l'ordre d'affichage.",
+          "minProperties": 1,
+          "propertyNames": { "$ref": "#/$defs/slug" },
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
     "station": {
       "type": "object",
-      "required": ["id", "name", "category", "description", "stream", "homepage", "country", "codec", "bitrateKbps", "genres", "logo"],
+      "required": ["id", "name", "genre", "category", "description", "stream", "homepage", "country", "codec", "bitrateKbps", "tags", "logo"],
       "properties": {
         "id": {
-          "type": "string",
-          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
-          "description": "Identifiant stable (slug), utilisé comme clé par l'application."
+          "$ref": "#/$defs/slug",
+          "description": "Identifiant stable, utilisé comme clé par l'application (favoris…)."
         },
         "name": { "type": "string", "description": "Nom affiché." },
+        "genre": {
+          "$ref": "#/$defs/slug",
+          "description": "Genre principal : clé de l'objet racine `genres`."
+        },
         "category": {
-          "type": "string",
-          "enum": ["flamenco", "sevillanas-rumba", "radios-locales"],
-          "description": "Catégorie de classement dans l'application."
+          "$ref": "#/$defs/slug",
+          "description": "Catégorie : clé de `genres.<genre>.categories` (cohérence vérifiée par les tests)."
         },
         "description": { "type": "string", "maxLength": 300, "description": "Courte description en français." },
         "stream": {
@@ -60,7 +91,12 @@
         "region": { "type": "string", "description": "Région / ville d'émission." },
         "codec": { "type": "string", "enum": ["MP3", "AAC", "OGG", "HLS"] },
         "bitrateKbps": { "type": "integer", "minimum": 16, "maximum": 320 },
-        "genres": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Étiquettes libres (sous-genres, instruments, ambiance) utilisées par la recherche."
+        },
         "language": { "type": "string", "description": "Langue principale (ou 'instrumental')." },
         "logo": {
           "type": "string",

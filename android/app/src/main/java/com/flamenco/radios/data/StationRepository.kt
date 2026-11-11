@@ -21,7 +21,12 @@ class StationRepository(private val context: Context) {
 
     fun station(id: String): Station? = stations.firstOrNull { it.id == id }
 
-    fun categoryLabel(category: String): String = config.categories[category] ?: category
+    val genres: Map<String, Genre> get() = config.genres
+
+    fun genre(id: String): Genre? = config.genres[id]
+
+    fun categoryLabel(category: String): String =
+        config.genres.values.firstNotNullOfOrNull { it.categories[category] } ?: category
 
     private companion object {
         const val ASSET_NAME = "radios.json"

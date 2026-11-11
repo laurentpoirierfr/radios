@@ -109,7 +109,7 @@ class RadioPlaybackService : MediaSessionService() {
             mediaItems: List<MediaItem>,
         ): ListenableFuture<List<MediaItem>> {
             val resolved = mediaItems.mapNotNull { item ->
-                app.stations.station(item.mediaId)?.toMediaItem()
+                app.stations.station(item.mediaId)?.let { it.toMediaItem(app.stations.genre(it.genre)?.name) }
             }
             return Futures.immediateFuture(resolved)
         }
@@ -126,7 +126,7 @@ class RadioPlaybackService : MediaSessionService() {
                     ?: app.stations.stations.first()
                 future.set(
                     MediaSession.MediaItemsWithStartPosition(
-                        listOf(station.toMediaItem()),
+                        listOf(station.toMediaItem(app.stations.genre(station.genre)?.name)),
                         /* startIndex = */ 0,
                         /* startPositionMs = */ C.TIME_UNSET,
                     ),

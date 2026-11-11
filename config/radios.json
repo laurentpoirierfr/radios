@@ -1,16 +1,34 @@
 {
   "$schema": "./radios.schema.json",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "generated": "2026-11-11",
-  "categories": {
-    "flamenco": "Flamenco pur — cante, toque, palmas",
-    "sevillanas-rumba": "Sevillanas, rumba et flamenco-pop",
-    "radios-locales": "Radios locales au programme flamenco"
+  "genres": {
+    "flamenco": {
+      "name": "Flamenco",
+      "description": "Cante, toque et baile : du flamenco pur aux sevillanas et à la rumba.",
+      "color": "#B3122E",
+      "categories": {
+        "flamenco-pur": "Flamenco pur — cante, toque, palmas",
+        "sevillanas-rumba": "Sevillanas, rumba et flamenco-pop",
+        "flamenco-local": "Radios locales au programme flamenco"
+      }
+    },
+    "jazz": {
+      "name": "Jazz",
+      "description": "Du swing de La Nouvelle-Orléans au jazz contemporain, en passant par le jazz manouche et le latin jazz.",
+      "color": "#B5832A",
+      "categories": {
+        "jazz-reference": "Grandes radios jazz — standards, swing, be-bop, actuel",
+        "jazz-thematique": "Manouche, latin & piano — webradios thématiques",
+        "jazz-lounge": "Smooth jazz, nu jazz & lounge"
+      }
+    }
   },
   "sources": [
     "API Radio Browser (api.radio-browser.info) — recensement communautaire des webradios",
     "Sites officiels des radios (flux et logos)",
-    "radio.net (logos Canal Flamenco / Canal Fiesta)"
+    "radio.net (logos Canal Flamenco / Canal Fiesta)",
+    "Jazz : flux vérifiés le 11/11/2026 (en-têtes ICY + réception audio), logos des sites officiels et de radio.net (FIP, France Musique)"
   ],
   "license": {
     "stations": "Flux publics diffusés par chaque radio ; logos © leurs propriétaires respectifs",
@@ -20,7 +38,8 @@
     {
       "id": "canal-flamenco",
       "name": "Flamenco Radio — Canal Sur (RTVA)",
-      "category": "flamenco",
+      "genre": "flamenco",
+      "category": "flamenco-pur",
       "description": "Webradio flamenco officielle de la RTVA (radio-télévision publique d'Andalousie) : cante, toque et baile, 24h/24.",
       "stream": "https://rtva-live-radio.flumotion.com/rtva/flamenco.mp3",
       "homepage": "https://www.canalsur.es/radio/flamencoradio-1313.html",
@@ -28,7 +47,7 @@
       "region": "Andalousie — Séville",
       "codec": "MP3",
       "bitrateKbps": 320,
-      "genres": [
+      "tags": [
         "flamenco",
         "cante",
         "guitare"
@@ -40,7 +59,8 @@
     {
       "id": "radio-art-flamenco",
       "name": "Radio Art — Flamenco",
-      "category": "flamenco",
+      "genre": "flamenco",
+      "category": "flamenco-pur",
       "description": "Webradio du réseau international Radio Art : flamenco instrumental et fusions jazz/flamenco, sans publicité.",
       "stream": "http://air.radioart.com/fFlamenco.mp3",
       "homepage": "https://www.radioart.com/",
@@ -48,7 +68,7 @@
       "region": "internationale",
       "codec": "MP3",
       "bitrateKbps": 96,
-      "genres": [
+      "tags": [
         "flamenco",
         "instrumental",
         "fusion"
@@ -60,7 +80,8 @@
     {
       "id": "energia-flamenca",
       "name": "Energía Flamenca",
-      "category": "flamenco",
+      "genre": "flamenco",
+      "category": "flamenco-pur",
       "description": "Radio flamenco de la comarque de l'Axarquía (Málaga) : grands classiques et flamenco rétro.",
       "stream": "https://axarquia.emisiononline.es/radio/8020/radio.mp3",
       "homepage": "https://energiaflamenca.com/",
@@ -68,7 +89,7 @@
       "region": "Andalousie — Axarquía (Málaga)",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco",
         "classiques",
         "rétro"
@@ -80,7 +101,8 @@
     {
       "id": "la-flamenca",
       "name": "La Flamenca",
-      "category": "flamenco",
+      "genre": "flamenco",
+      "category": "flamenco-pur",
       "description": "Webradio du groupe Emisoras Musicales (Alicante) : flamenco, rumba et musique espagnole.",
       "stream": "https://stream.emisorasmusicales.net/listen/la_flamenca/laflamenca.mp3",
       "homepage": "https://www.emisorasmusicales.net/emisoras/la-flamenca/",
@@ -88,7 +110,7 @@
       "region": "Communauté valencienne — Alicante",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco",
         "rumba",
         "musique espagnole"
@@ -100,7 +122,8 @@
     {
       "id": "flamenco-fm",
       "name": "Flamenco FM",
-      "category": "flamenco",
+      "genre": "flamenco",
+      "category": "flamenco-pur",
       "description": "Webradio 100 % flamenco : cante jondo, guitare et palmas en continu.",
       "stream": "https://sonic.mediatelekom.net/8534/;",
       "homepage": "https://flamencofm.es",
@@ -108,7 +131,7 @@
       "region": "Espagne",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco"
       ],
       "language": "es",
@@ -118,7 +141,8 @@
     {
       "id": "frontera-radio",
       "name": "Frontera Radio",
-      "category": "flamenco",
+      "genre": "flamenco",
+      "category": "flamenco-pur",
       "description": "Radio communautaire et culturelle de Jerez de la Frontera, berceau du flamenco.",
       "stream": "https://relay.stream.enacast-cloud.com:30284/fronteraradioHD.mp3",
       "homepage": "https://www.fronteraradio.org/",
@@ -126,7 +150,7 @@
       "region": "Andalousie — Jerez de la Frontera (Cádiz)",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco",
         "culture",
         "communautaire"
@@ -138,6 +162,7 @@
     {
       "id": "canal-fiesta",
       "name": "Canal Fiesta Radio — RTVA",
+      "genre": "flamenco",
       "category": "sevillanas-rumba",
       "description": "Radio publique andalouse dédiée à la fiesta : sevillanas, flamenco-pop et musiques traditionnelles d'Andalousie.",
       "stream": "https://rtva-live-radio.flumotion.com/rtva/cfr.mp3",
@@ -146,7 +171,7 @@
       "region": "Andalousie — Séville",
       "codec": "MP3",
       "bitrateKbps": 320,
-      "genres": [
+      "tags": [
         "sevillanas",
         "flamenco-pop",
         "fiesta andaluza"
@@ -158,6 +183,7 @@
     {
       "id": "radio-sevillanas",
       "name": "Radio Sevillanas",
+      "genre": "flamenco",
       "category": "sevillanas-rumba",
       "description": "Webradio spécialisée dans les sevillanas : les grands classiques et les nouveautés du genre.",
       "stream": "http://radio.wesped.com:8000/stream",
@@ -166,7 +192,7 @@
       "region": "Espagne",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "sevillanas",
         "flamenco"
       ],
@@ -177,6 +203,7 @@
     {
       "id": "radiole",
       "name": "Radiolé",
+      "genre": "flamenco",
       "category": "sevillanas-rumba",
       "description": "Radio nationale espagnole (groupe PRISA) : rumba, flamenco-pop et musique espagnole festive.",
       "stream": "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIOLE.mp3",
@@ -185,7 +212,7 @@
       "region": "nationale",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "rumba",
         "flamenco-pop",
         "musique espagnole"
@@ -197,6 +224,7 @@
     {
       "id": "deluxe-flamenco-flow",
       "name": "Deluxe Radio — Flamenco Flow",
+      "genre": "flamenco",
       "category": "sevillanas-rumba",
       "description": "Webradio de Vitoria-Gasteiz : mix flamenco, rumba et bachata.",
       "stream": "https://stream.zeno.fm/z9fm6v2d6ehvv",
@@ -205,7 +233,7 @@
       "region": "Pays basque — Vitoria-Gasteiz",
       "codec": "AAC",
       "bitrateKbps": 320,
-      "genres": [
+      "tags": [
         "flamenco",
         "rumba",
         "bachata"
@@ -217,6 +245,7 @@
     {
       "id": "flamenco-barcelona",
       "name": "Flamenco Barcelona — Plexus Radio",
+      "genre": "flamenco",
       "category": "sevillanas-rumba",
       "description": "« Flamenco Spain » du réseau Plexus Radio : flamenco, rumba et sonorités latines.",
       "stream": "https://stream.zeno.fm/ya41fhze22quv",
@@ -225,7 +254,7 @@
       "region": "Catalogne — Barcelone",
       "codec": "AAC",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco",
         "rumba",
         "latino"
@@ -237,7 +266,8 @@
     {
       "id": "onda-sevilla",
       "name": "Onda Sevilla Radio",
-      "category": "radios-locales",
+      "genre": "flamenco",
+      "category": "flamenco-local",
       "description": "Radio locale de Séville (106.2 FM) : flamenco, sevillanas, copla et zarzuela.",
       "stream": "https://streaming2.elitecomunicacion.es:8630/stream?type=.mp3",
       "homepage": "http://www.ondasevillaradio.es/",
@@ -245,7 +275,7 @@
       "region": "Andalousie — Séville",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco",
         "sevillanas",
         "copla",
@@ -259,7 +289,8 @@
     {
       "id": "onda-mencia",
       "name": "Onda Mencía Radio",
-      "category": "radios-locales",
+      "genre": "flamenco",
+      "category": "flamenco-local",
       "description": "Radio locale de Doña Mencía (Córdoba) : flamenco et programmation musicale variée.",
       "stream": "https://streaming12.elitecomunicacion.es:8146/stream",
       "homepage": "https://www.ondamenciaradio.com/",
@@ -267,7 +298,7 @@
       "region": "Andalousie — Doña Mencía (Córdoba)",
       "codec": "MP3",
       "bitrateKbps": 192,
-      "genres": [
+      "tags": [
         "flamenco",
         "variété",
         "radio locale"
@@ -280,7 +311,8 @@
     {
       "id": "radio-union-catalunya",
       "name": "Radio Unión Catalunya",
-      "category": "radios-locales",
+      "genre": "flamenco",
+      "category": "flamenco-local",
       "description": "Radio de Barcelone : musique espagnole variée avec une belle place pour le flamenco.",
       "stream": "http://srv0435.lcinternet.com:9522/stream",
       "homepage": "http://www.radiounioncatalunya.com/",
@@ -288,7 +320,7 @@
       "region": "Catalogne — Barcelone",
       "codec": "MP3",
       "bitrateKbps": 128,
-      "genres": [
+      "tags": [
         "flamenco",
         "musique espagnole",
         "variété"
@@ -296,6 +328,302 @@
       "language": "es",
       "logo": "data:image/png;base64,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",
       "logoSourceUrl": "http://www.radiounioncatalunya.com/wp-content/uploads/2012/11/logo.png"
+    },
+    {
+      "id": "tsf-jazz",
+      "name": "TSF Jazz",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "La radio 100 % jazz de Paris (89.9 FM) : standards, nouveautés, voix et grands classiques, avec l'actualité des concerts.",
+      "stream": "https://tsfjazz.ice.infomaniak.ch/tsfjazz-high.mp3",
+      "homepage": "https://www.tsfjazz.com/",
+      "country": "FR",
+      "region": "Île-de-France — Paris",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "jazz",
+        "standards",
+        "jazz vocal"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.tsfjazz.com/themes/custom/tsfjazz/images/tsfjazz-l-256.png"
+    },
+    {
+      "id": "fip-jazz",
+      "name": "FIP Jazz",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "Webradio jazz de FIP (Radio France) : une programmation éclectique et sans publicité, du swing au jazz contemporain.",
+      "stream": "https://icecast.radiofrance.fr/fipjazz-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/fip/radio-jazz",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "jazz",
+        "be-bop",
+        "jazz moderne"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/fip.png"
+    },
+    {
+      "id": "france-musique-la-jazz",
+      "name": "France Musique — La Jazz",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "Webradio jazz de France Musique : les grands noms et les enregistrements qui ont fait l'histoire du jazz, sans publicité.",
+      "stream": "https://icecast.radiofrance.fr/francemusiquelajazz-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/francemusique/radio-la-jazz",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "jazz",
+        "grands classiques",
+        "big band"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,UklGRgAKAABXRUJQVlA4IPQJAACwMQCdASqAAIAAPjEYikOiIaEUCgUAIAMEoA1mnmfoH5AbKX6H8GuW52b7u83Qc7pc+3/b3wAH6Uf6Hqc/iB7AP4X/Uv9B/TfZr/UD3H/pF/dvcA/kv9d6yf9lfYG/Tj1Uf8r+wnwOfsl/4v858A383/s//jzhrsP/svhT4gO7XsntuXoL/GfrL9Z/Kj+wftz8K9Lv6hH4t/Gf6x+R/5M8bxlP6q+oR6lfK/8R/VP2+/vPoaagWBP+gf4n8yPenvTPAPYA/mn9H/3n9S/KD6U/4r/nf4X8r/a5+a/3n/f/4j4Bf5L/RP99/ef3Y/zn//+sL2dftp7J/7Cl+YxkWhIbhdkG473IWvOaao7DM+LokAG6gPbwcxtG7W4dmb5fIfF8d7vjGSZb+PzKxo8txWsAbyW1zuyxWZytfAFdG+XQ0OtsKU63xqmNQRpZGDL2DULsrJWVudCQ7cot1XC9gsalUa99P+fPHkKJRxVnlUR8jOzVMdRExmI9zYd2c1ZtFL59SRkfTsslJM4mVMJCGRo6p4hzuH2AAP78KcZFa0VZiT+rZv1bN1ZQB+9ICNeNpyjhRPVRWAn9J13f8HDph4lQ0Q9Pj4CnUTQnOe/eX1dLWZhcFWAACQ9I5Ey22thfP+PYVu5rlp48Uztckos4tdJo84UMeNAOPEfNgllI8/iEB8LLUEwoUY1Dk17stQpW/rVCY1SoroUO3J2D5MxFmYui4BqfG3Pd+fHNKfoT4q4k2+CKFk5oxWvrg4gn89ryi5MhvlSDx426CPUAMalEbHO1hxAfDGX+9SmWwKmO88FKYzTd2w9aR3AXpSvzjyufYAZLNwWy81rp2P5UaxbrICMNVvNVraB+dCBXOph+yKkHlY9yRmYCsAVCU8o4QoFosAkrtleZH49LPsUF36wFBU+7xaoHznD9oafpaKdZLRRBfqtl6lDC/DEPZr2Wa2JKu/cAAAAb2o+o2NxWN/bOV++f7pCmB41nY/JiFvwoLnJSMrk6Bg6JCvtXIxossd7ZZC/p/p1uK2VR7GIoGt/2Vlfo8HeobxeVGXJa+YbrcjOEWwHaR14q0w5TkhyTCxbavkKklRxh/5GbHbd1uA0ovWoaukLg49lJTih5ZoK3v+0432Eun+6hc60RgfUnnT79HkSwssR8XuNzIH+F/GTySrxrtriRpPRVjHpe7ggmiZhlw1w/Z/NGRn4lCr0AbgFxtaCsK0L9SXWiz+5IDedhlRQwUZCWl9lFTfmeMuD2dAl0ijumwS7N94+DE5IBXDA9WLWAckMzidDi+KbGUJA89uHHS8R/KhWoSpL0UQ1TEW1g9+n/NEOb5IQ8nCCZTPusvckw2l6GA0sPhNG2+9N6hd1N/Q5M5jChkVxHIt0cPt+MNsv6Fwu4e3v99JX/xnePNIc6DJ4WDDUM4b/y1fgJHCCevQiyZMj76zw65/HxiqpKd/088vFspZRbAFIO1rpWhjkm0slB/6Av2ZAwJLhgsgnor+LvP2Rp/lXiMfqdY2gmG973oq/6VYP9U8ynp/hvg+0Ztg/nAXE/v/PuhjigBGmV/189zz7vfxVAOo+0SKr5YcncaPZYvyhy6iwrTk7DzPotFqe0/t2ObB1m/UhpqnphzYfPjQhdYBYWBPYKy0MRfFXlnx13ZNfjpcii+aBbPES1OjPBv3TOZy+TzQpsazuJUtnNsBpvx2vzzcYAmQkf2v1LgFHvcn5XbyaeJHRcsrMVNeshDAPz4Pi6+xguzHKR7l68B8QfuY1/7sIg6hUfXMJCniKc4Fg7vcm0EdrxHAQr0+Lp7Pp754FvDlZHO3pWEvC8Hl6z+B1NUwpMERa6YFZ2DeB9anTVgVEqGkJ3GckTFEMF4LYTell+oxDmeD8kTUBfYuPIgYHZ468vflj7d/KxLiKOr24e2oeqvf1NBOMLOqx7Oonfoi27kMHyIaQ2jhIBeeN/i3aoomCMezCZT7rAgm9H9hQsCV6rSDZrkif/48cYB//d3tgxalqH9TKEHckvVqWtivGZTvHO+o2by6eLdYlRWAeunCttKnFMQ8H4tIKSA4eePk9Ew1pnMQkFqFF5e9YAXtScJCWa6gdirRDvxof7GapE0QxqO2DynKRp2KEg/FkAB45GTrWO9BF/eNMcEpY6twnC/Fj+HswSgDHsNhQ4d7Z9oPvq2TZidq3Lr32VuanjMY+hBfLrwGE1uyMc45TWr6C9FExt8YYnQO0IFQye7gPpZslWR4RdkVoYmTz5Q//3Ve2IH98JEbPttS3C9Eaku6IHCra+3EWIVI0IpPqHX3+Y8LiG3/qudcIdu4Uf/nV3FTVpbf/zjP3gNSLy5mehwK3KLpXX4we6AONFKZKtWQgwsEXO7oMtkN4YxKS9VPi0LwfVsEP7mBKE5dXwoWefzDKkpf4C2lnlMO33Cx3S9DqjS8+8SOHt17rqPQtxlgm11pW5GryTz689iCYqyDAU2+9blrO4Y+0rW0q/uIifcv3RAPPptmXASjPipRZKHvvUCLJadajkw3iBtWOeGZL0PD43BTHqTWzn7Aqk/Ayf0LmYCGfz6S/Syg2Dz8k4erepmmPugQEUQT/N5viG3J0h0zBP+2Cm5dpDs813KwObb/3swIRrQNnPc/luy/5taxSMIPk78ScYRIayqNa3/nIeEANhn9rQK5TLoro0hJDSdtgtVgToDkqPacCJJvGLTD4smIYoAMTr2M0a4daAYahGtV3GubBDcL2j/QMCojuFDOpOnLwZ2cEqHlLsODuiMls0F5ikCZ3055vSPq0QHufNTDDidt0MvPEgW4A3D7WWGnkNhyHufRed3kr/URwt22MuBY4L+aZs5OYBLEgI/mZdua9E+33UF2AjIPy3+GzzMWHWzkWh2HQ3KmzCc4F1PQzVskdRVKlnoUnTiIJp0TNR7h/Rl04qGAqRSYbe9ypgwMXBwQOUgjSEskMKmVM60+ztUZSPdWa4fmEKmaZ5WPw7qzj2ofUjgfft+yTEESbklNxPX8pLqfF6fiHHMQ7UMVQUi6TfCI22ef8rL9z0DQCdshPRMkjrvPy/2C7+osf7yR+JWuyZHJLaK59mTEvXdk1ClWOoUU6A1XFDoxntBwROBsafJ7jyk7aki54MSB7zvbGVik13zdxWFXmNtWfwNR8w6rNuabBYK9GJvW7Dl1Tk1QT51G/Vau6mSuFvBj4IJmupk/7XPZrdTM+lWTVjgjryoJ08zC/9IxL03KtFBNrSFocwDaY89GfpCh1pz2cv4OLoH6ZtrloC0KcoQHTLaueu5hKOqgDmumnRb/in5FRDzkfrdjqpmoB4YIZ3LMkDpHX/3RsPIF007m0XnurUHadti0PNhhL5gIdbRojyOKFumtsTaHrunrpYCmkFULDKsBebhAcj57eEGncsiAAA",
+      "logoSourceUrl": "https://www.radio.net/300/francemusique.png"
+    },
+    {
+      "id": "jazz-radio",
+      "name": "Jazz Radio",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "Réseau national français consacré au jazz, à la soul et au blues, basé à Lyon.",
+      "stream": "https://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3",
+      "homepage": "https://www.jazzradio.fr/",
+      "country": "FR",
+      "region": "Auvergne-Rhône-Alpes — Lyon",
+      "codec": "MP3",
+      "bitrateKbps": 192,
+      "tags": [
+        "jazz",
+        "soul",
+        "blues"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.jazzradio.fr/media/radio/thumb/300x300_691f2311c2ed9-plan-de-travail-1.png"
+    },
+    {
+      "id": "radio-swiss-jazz",
+      "name": "Radio Swiss Jazz",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "Radio publique suisse (SRG SSR) : jazz et soul en continu et sans publicité, entre standards et nouveautés.",
+      "stream": "https://stream.srg-ssr.ch/srgssr/rsj/mp3/128",
+      "homepage": "https://www.radioswissjazz.ch/",
+      "country": "CH",
+      "region": "Suisse — Bâle (SRG SSR)",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "jazz",
+        "soul",
+        "standards"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radioswissjazz.ch/social-media/rsj-web.png"
+    },
+    {
+      "id": "wwoz",
+      "name": "WWOZ 90.7 FM — New Orleans",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "Radio communautaire de La Nouvelle-Orléans, berceau du jazz : jazz traditionnel, brass bands, blues et musiques de Louisiane.",
+      "stream": "https://wwoz-sc.streamguys1.com/wwoz-hi.mp3",
+      "homepage": "https://www.wwoz.org/",
+      "country": "US",
+      "region": "Louisiane — La Nouvelle-Orléans",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "jazz traditionnel",
+        "New Orleans",
+        "brass band",
+        "blues"
+      ],
+      "language": "en",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.wwoz.org/sites/all/themes/custom/wwozui/images/wwoz-fb-logo.png"
+    },
+    {
+      "id": "linn-jazz",
+      "name": "Linn Jazz",
+      "genre": "jazz",
+      "category": "jazz-reference",
+      "description": "Webradio du fabricant hi-fi écossais Linn : une sélection jazz exigeante diffusée en haute qualité (320 kbps).",
+      "stream": "http://radio.linn.co.uk:8000/autodj",
+      "homepage": "https://www.linn.co.uk/linn-radio",
+      "country": "GB",
+      "region": "Écosse — Glasgow",
+      "codec": "MP3",
+      "bitrateKbps": 320,
+      "tags": [
+        "jazz",
+        "haute fidélité"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,UklGRtwEAABXRUJQVlA4INAEAACQHACdASqAAIAAPjEYikOiIaETC1UAIAMEtIALalZu/be4J84/XvyVzhH2M+/flzyT7wf+R/3f8lOB35P/Tv8L+Rf9P/V3ZQf0X/Z/ktzPtAD+Xf37/SfcB8PP939t3tN/Gf7t/rPzT/p32B/x3+Zf5b+5fuV/iv//4qvQ6/VMnuoOfAqJOt8K13wHVtzJRPgH8DJC5Pjy8DD/CF+k2M836q07OO4m4lR8r5IIpRq/xEdAtFclpS3uH7+3061eybqvx47UGja/AC2Maqspj2h5j4MSob7NfzL5XKSKdxl7WnDioKwlErbZhUaeI4AA/v7QHAW+4wmwDik2SJSXZA7DEg92zlN+Hyg0iQvMdII2FN9bNyX5UsMd0Jg5CT2VjutN2Fo4sRt0ajM9C3oN190W1mYmaTjUiB4gq9adBFdDbXbpefA41v56DydzF+X6UbX8/mUlyj+SnIpUQnBOYL7+cxLiW/HO9LbfZLrcw2owtyCwcAXWkW69AdjBda6rNeHkSFw1ljmWmxkztxVugdR9ICLqE+MVHRngMVYoEWY6zScqZKuRCpQRn9acecAibx8uHjSQdXDloPC+/NK0ScATLzI4g5oyuPDtxXnm36s8PGLhpll1oakyIH6AP+LS9KmFk0QzsmyXQp1v3moA/79fQTljrLzG9H//pjY2FRsItFjmeJT7EyomnsI6f26OAvxdNFXwdjWOw659ko/RonXk0KsrbSTmQpPaDmdyzkl5z9hPZ7pmQSAmFqNr+J9ro36DFrc6W9XmfcGcX6C4nyJ//zuY07PK0mIgT6pF04imtzaUtoFjph+MbQTlqhCENC3Bc51l211P+CtWwehFkb9/eqmU3hYZZpKImp66kaaaGt+BWSHEZcoL9UaqGYx987wQMBCRDp1IUISxLdh92KE0jd3Mz9n4TVSXiSx54WrIRRaBMRNjSHNvQNXr99LqdfxowE0FhD8F5sITKdxAltLTRGpN+5xWsO3/VtZ2GxnJarscC8rDhz+yYhVwx8XB96+xMdF9JIl//pL/QH0Qzmm8wD/3Gqf4os+Gdor7uxL5K0Z+zsRdHiWEBKEz5tUVj/oSwDYDc0KpjKS1Z9mtzg+t3xciNH/1GhcU4sWyhJA/J9fQu2wawUJJHuYht//7iej5ok+KczVjkEMHWpjz/x7M4jYncZkqJxM+eepGTw8glqHoAAe/h0B1rAavwa98qpqKajeoz7ZQiRrjMsSRd0wVbH0pS9LuT8/5Z0BxF41TyWpPLq8/6Twf/18o8LrXbaYFQtIv/+RsitOD8iQCXBG+eCR2PQL/IaCeE+Av2hzg7Mq4SS4Z6oVeQapYslVQT/P6qEUZBAxoyvQrXNVQ5cUVFzG8TS8u7N5hsCZX0hlN/DoJa/ktdi1Fo3ho7srxRFyAQSmueQmkFLQOYZG8SEcABM2EqIQ6e1UaKwPrUOF9/rIdPElA9E4L7/nCQdr61P/jWfu0ZdpS/1QiuHAsobUpYYJJPRYPJywpkjyZmrddcb8/OX41zaxErW+6Zq56WQ/jb7D8W4dY1EBgrEz2f++yVMUb1gfesQA9Z8pf3W+pSmYgDTzxJ72scSTFQ5VR/euZe83CEnu6ck1QOF4pUx2KJnqRt1jQ/ONt416gAAAAAA==",
+      "logoSourceUrl": "https://small.linncdn.com/website/responsive/images/icons/linn-icon-x152.png",
+      "notes": "Flux en HTTP clair uniquement (autorisé par network_security_config)."
+    },
+    {
+      "id": "jazz-radio-manouche",
+      "name": "Jazz Radio — Manouche",
+      "genre": "jazz",
+      "category": "jazz-thematique",
+      "description": "Webradio de Jazz Radio consacrée au jazz manouche dans la lignée de Django Reinhardt : swing et guitare, proche cousin du flamenco.",
+      "stream": "https://jazz-wr02.ice.infomaniak.ch/jazz-wr02-128.mp3",
+      "homepage": "https://www.jazzradio.fr/radio/webradio/10/jazz-manouche",
+      "country": "FR",
+      "region": "Auvergne-Rhône-Alpes — Lyon",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "jazz manouche",
+        "swing",
+        "guitare",
+        "Django Reinhardt"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.jazzradio.fr/apple-touch-icon-120x120.png"
+    },
+    {
+      "id": "radio-art-gypsy-jazz",
+      "name": "Radio Art — Gypsy Jazz",
+      "genre": "jazz",
+      "category": "jazz-thematique",
+      "description": "Canal gypsy jazz de Radio Art, le même diffuseur que Radio Art — Flamenco : swing manouche instrumental en continu.",
+      "stream": "https://air.radioart.com/fGypsy_jazz.mp3",
+      "homepage": "https://www.radioart.com/",
+      "country": "GR",
+      "region": "internationale",
+      "codec": "MP3",
+      "bitrateKbps": 96,
+      "tags": [
+        "jazz manouche",
+        "gypsy swing",
+        "instrumental"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/png;base64,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",
+      "logoSourceUrl": "https://www.radioart.com/favicon.ico"
+    },
+    {
+      "id": "jazz-radio-latin",
+      "name": "Jazz Radio — Latin Jazz",
+      "genre": "jazz",
+      "category": "jazz-thematique",
+      "description": "Webradio latin jazz de Jazz Radio : bossa nova, jazz afro-cubain et rythmes latins.",
+      "stream": "https://jazz-wr09.ice.infomaniak.ch/jazz-wr09-128.mp3",
+      "homepage": "https://www.jazzradio.fr/radio/webradio/16/latin-jazz",
+      "country": "FR",
+      "region": "Auvergne-Rhône-Alpes — Lyon",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "latin jazz",
+        "bossa nova",
+        "afro-cubain"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.jazzradio.fr/apple-touch-icon-120x120.png"
+    },
+    {
+      "id": "jazz-radio-piano",
+      "name": "Jazz Radio — Piano Jazz",
+      "genre": "jazz",
+      "category": "jazz-thematique",
+      "description": "Webradio de Jazz Radio dédiée au piano jazz : solos, trios et grands pianistes.",
+      "stream": "https://jzr-piano.ice.infomaniak.ch/jzr-piano.mp3",
+      "homepage": "https://www.jazzradio.fr/radio/webradio/38/piano-jazz",
+      "country": "FR",
+      "region": "Auvergne-Rhône-Alpes — Lyon",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "piano",
+        "trio",
+        "jazz instrumental"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.jazzradio.fr/apple-touch-icon-120x120.png"
+    },
+    {
+      "id": "smoothjazz-com",
+      "name": "SmoothJazz.com",
+      "genre": "jazz",
+      "category": "jazz-lounge",
+      "description": "Webradio américaine de smooth jazz : saxophone, guitare et ambiances douces, 24 h/24.",
+      "stream": "https://smoothjazz.cdnstream1.com/2585_128.mp3",
+      "homepage": "https://www.smoothjazz.com/",
+      "country": "US",
+      "region": "États-Unis",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "smooth jazz",
+        "saxophone",
+        "chill"
+      ],
+      "language": "en",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.smoothjazz.com/sites/default/files/theme/sj-circle-logo.png"
+    },
+    {
+      "id": "jazz-groove",
+      "name": "The Jazz Groove",
+      "genre": "jazz",
+      "category": "jazz-lounge",
+      "description": "Webradio associative américaine de jazz mélodique et « laid-back » : cool jazz et mainstream, sans publicité.",
+      "stream": "https://mp3-128.streamthejazzgroove.com/stream",
+      "homepage": "https://jazzgroove.org/",
+      "country": "US",
+      "region": "États-Unis",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "cool jazz",
+        "mainstream",
+        "lounge"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://assets.jazzgroove.org/logo-circle-white1-no-org.png"
+    },
+    {
+      "id": "somafm-sonic-universe",
+      "name": "SomaFM — Sonic Universe",
+      "genre": "jazz",
+      "category": "jazz-lounge",
+      "description": "Chaîne de SomaFM (San Francisco) mêlant nu jazz, jazz contemporain et influences électro, sans publicité.",
+      "stream": "https://ice6.somafm.com/sonicuniverse-128-mp3",
+      "homepage": "https://somafm.com/sonicuniverse/",
+      "country": "US",
+      "region": "Californie — San Francisco",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "nu jazz",
+        "jazz contemporain",
+        "électro-jazz"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://somafm.com/img3/sonicuniverse-400.jpg"
     }
   ]
 }

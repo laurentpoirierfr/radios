@@ -1,7 +1,8 @@
-# `config/` — Configuration des radios flamenco
+# `config/` — Configuration des webradios par genre
 
-Ce répertoire contient **la source de vérité** de l'application : la liste des
-webradios flamenco, leurs flux et leurs logos. Il est indépendant du framework
+Ce répertoire contient **la source de vérité** de l'application : les webradios
+classées par **genre** (flamenco, jazz…) puis par **catégorie**, avec leurs flux
+et leurs logos. Il est indépendant du framework
 mobile choisi — n'importe quelle application (Android, iOS, desktop, web) peut
 consommer `radios.json`.
 
@@ -9,8 +10,31 @@ consommer `radios.json`.
 
 | Fichier | Rôle |
 |---|---|
-| `radios.json` | Liste des radios : flux, métadonnées, catégorie et **logo embarqué en base64** (data URI, 128×128 px) |
+| `radios.json` | Genres et catégories, puis la liste des radios : flux, métadonnées et **logo embarqué en base64** (data URI, 128×128 px) |
 | `radios.schema.json` | Schéma JSON (draft 2020-12) pour valider `radios.json` |
+
+## Structure (version 2.x)
+
+```jsonc
+{
+  "version": "2.0.0",
+  "generated": "2026-11-11",
+  "genres": {                                // l'ordre des clés = ordre d'affichage
+    "flamenco": {
+      "name": "Flamenco",
+      "description": "…",
+      "color": "#B3122E",                    // couleur d'accent du genre
+      "categories": {                        // id (unique tous genres confondus) → libellé
+        "flamenco-pur": "Flamenco pur — cante, toque, palmas",
+        "sevillanas-rumba": "…",
+        "flamenco-local": "…"
+      }
+    },
+    "jazz": { … }
+  },
+  "stations": [ … ]
+}
+```
 
 ## Format d'une station
 
@@ -18,7 +42,8 @@ consommer `radios.json`.
 {
   "id": "canal-flamenco",                    // slug stable, clé pour favoris etc.
   "name": "Flamenco Radio — Canal Sur (RTVA)",
-  "category": "flamenco",                   // flamenco | sevillanas-rumba | radios-locales
+  "genre": "flamenco",                       // clé de `genres`
+  "category": "flamenco-pur",                // clé de `genres.<genre>.categories`
   "description": "Webradio flamenco officielle de la RTVA…",
   "stream": "https://…/flamenco.mp3",        // URL directe du flux audio
   "homepage": "https://www.canalsur.es/…",
@@ -26,7 +51,7 @@ consommer `radios.json`.
   "region": "Andalousie — Séville",
   "codec": "MP3",                            // MP3 ou AAC
   "bitrateKbps": 320,
-  "genres": ["flamenco", "cante", "guitare"],
+  "tags": ["flamenco", "cante", "guitare"],  // étiquettes libres, utilisées par la recherche
   "language": "es",
   "logo": "data:image/png;base64,iVBORw0KG…", // 128×128, PNG ou WebP
   "logoSourceUrl": "https://…",              // logo d'origine (attribution)
@@ -34,13 +59,33 @@ consommer `radios.json`.
 }
 ```
 
-## Catégories
+## Genres et catégories
 
-| Catégorie | Contenu |
-|---|---|
-| `flamenco` | Flamenco pur — cante, toque, palmas |
-| `sevillanas-rumba` | Sevillanas, rumba et flamenco-pop |
-| `radios-locales` | Radios locales au programme flamenco |
+| Genre | Catégorie | Contenu | Radios |
+|---|---|---|---|
+| `flamenco` | `flamenco-pur` | Flamenco pur — cante, toque, palmas | 6 |
+| | `sevillanas-rumba` | Sevillanas, rumba et flamenco-pop | 5 |
+| | `flamenco-local` | Radios locales au programme flamenco | 3 |
+| `jazz` | `jazz-reference` | Grandes radios jazz — standards, swing, be-bop, actuel | 7 |
+| | `jazz-thematique` | Manouche, latin & piano — webradios thématiques | 4 |
+| | `jazz-lounge` | Smooth jazz, nu jazz & lounge | 3 |
+
+La cohérence genre ↔ catégorie (une station ne peut pas utiliser la catégorie
+d'un autre genre) n'est pas exprimable en JSON Schema : elle est vérifiée par
+les tests unitaires (`make test`).
+
+### Ajouter un genre
+
+1. Ajouter une entrée dans `genres` (nom, description, couleur, catégories).
+2. Ajouter les stations avec `"genre": "<id>"` et une catégorie de ce genre.
+3. `make check-config && make test`, puis `make test-device` pour vérifier les flux depuis Android.
+
+### Historique
+
+- **2.0.0** — introduction des genres : `categories` racine → `genres.<id>.categories`,
+  station `genres[]` → `tags[]`, ajout de `genre` ; catégories renommées
+  `flamenco` → `flamenco-pur`, `radios-locales` → `flamenco-local` ; ajout de 14 radios jazz.
+- **1.0.0** — 14 radios flamenco.
 
 ## Sources des données
 
@@ -48,7 +93,8 @@ consommer `radios.json`.
   webradios, pour la découverte initiale des flux.
 - **Sites officiels des radios** — vérification manuelle de chaque flux (testé le
   11/11/2026, en-têtes ICY + réception audio confirmées) et des logos.
-- **radio.net** — logos Canal Flamenco et Canal Fiesta (absents du site RTVA).
+- **radio.net** — logos Canal Flamenco et Canal Fiesta (absents du site RTVA),
+  FIP et France Musique.
 
 ## Valider la configuration
 

@@ -17,8 +17,9 @@ class StationRepositoryTest {
     @Test
     fun configIsBundledInAssets() {
         val repo = StationRepository(context)
-        assertEquals(14, repo.stations.size)
+        assertEquals(14, repo.stations.count { it.genre == "flamenco" })
         assertNotNull(repo.station("canal-flamenco"))
+        assertNotNull(repo.genre("flamenco"))
     }
 
     @Test

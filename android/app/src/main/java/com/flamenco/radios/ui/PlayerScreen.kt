@@ -118,7 +118,7 @@ fun PlayerScreen(
             Text(station.description, style = MaterialTheme.typography.bodyMedium, textAlign = TextAlign.Center)
             Spacer(Modifier.height(8.dp))
             Text(
-                station.genres.joinToString(" · "),
+                station.tags.joinToString(" · "),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.secondary,
             )

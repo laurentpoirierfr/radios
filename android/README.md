@@ -15,7 +15,7 @@ Kotlin · Jetpack Compose (Material 3) · Media3 ExoPlayer + MediaSessionService
 |---|---|
 | **Flamenco Radios** | installe et lance l'app |
 | **Tests unitaires (config)** | valide `config/radios.json` sur la JVM, sans émulateur |
-| **Tests instrumentés (émulateur)** | tests sur l'appareil : assets, logos, TLS + accès réseau aux 14 flux |
+| **Tests instrumentés (émulateur)** | tests sur l'appareil : assets, logos, TLS + accès réseau à tous les flux |
 | **Tests instrumentés (Gradle)** | mêmes tests via `connectedDebugAndroidTest` (rapport HTML) |
 
 ## Avec le Makefile (depuis la racine du dépôt)

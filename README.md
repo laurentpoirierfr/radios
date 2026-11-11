@@ -1,12 +1,14 @@
 # 🎸 Flamenco Radios
 
-Application Android d'écoute des webradios flamenco, pilotée par un fichier de
-configuration (`config/radios.json`) contenant la liste des radios, leurs flux
-et leurs logos en base64.
+Application Android d'écoute de webradios classées par genre (flamenco, jazz…),
+pilotée par un fichier de configuration (`config/radios.json`) contenant les
+genres, leurs catégories, la liste des radios, leurs flux et leurs logos en base64.
 
 ---
 
-## 1. Les 14 radios recensées (flux vérifiés le 11/11/2026)
+## 1. Les 28 radios recensées (flux vérifiés le 11/11/2026)
+
+## 🎸 Flamenco — 14 radios
 
 ### Flamenco pur
 
@@ -37,7 +39,38 @@ et leurs logos en base64.
 | **Onda Mencía Radio** | `https://streaming12.elitecomunicacion.es:8146/stream` | 192 kbps MP3 | Doña Mencía (Córdoba) |
 | **Radio Unión Catalunya** | `http://srv0435.lcinternet.com:9522/stream` | 128 kbps MP3 | Barcelone |
 
-Détails complets (descriptions, genres, logos base64 128×128, sources) :
+## 🎷 Jazz — 14 radios
+
+### Grandes radios jazz — standards, swing, be-bop, actuel
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **TSF Jazz** | `https://tsfjazz.ice.infomaniak.ch/tsfjazz-high.mp3` | 128 kbps MP3 | Île-de-France — Paris |
+| **FIP Jazz** | `https://icecast.radiofrance.fr/fipjazz-hifi.aac` | 192 kbps AAC | Paris (Radio France) |
+| **France Musique — La Jazz** | `https://icecast.radiofrance.fr/francemusiquelajazz-hifi.aac` | 192 kbps AAC | Paris (Radio France) |
+| **Jazz Radio** | `https://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3` | 192 kbps MP3 | Auvergne-Rhône-Alpes — Lyon |
+| **Radio Swiss Jazz** | `https://stream.srg-ssr.ch/srgssr/rsj/mp3/128` | 128 kbps MP3 | Suisse — Bâle (SRG SSR) |
+| **WWOZ 90.7 FM — New Orleans** | `https://wwoz-sc.streamguys1.com/wwoz-hi.mp3` | 128 kbps MP3 | Louisiane — La Nouvelle-Orléans |
+| **Linn Jazz** | `http://radio.linn.co.uk:8000/autodj` | 320 kbps MP3 | Écosse — Glasgow |
+
+### Manouche, latin & piano — webradios thématiques
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **Jazz Radio — Manouche** | `https://jazz-wr02.ice.infomaniak.ch/jazz-wr02-128.mp3` | 128 kbps MP3 | Auvergne-Rhône-Alpes — Lyon |
+| **Radio Art — Gypsy Jazz** | `https://air.radioart.com/fGypsy_jazz.mp3` | 96 kbps MP3 | internationale |
+| **Jazz Radio — Latin Jazz** | `https://jazz-wr09.ice.infomaniak.ch/jazz-wr09-128.mp3` | 128 kbps MP3 | Auvergne-Rhône-Alpes — Lyon |
+| **Jazz Radio — Piano Jazz** | `https://jzr-piano.ice.infomaniak.ch/jzr-piano.mp3` | 128 kbps MP3 | Auvergne-Rhône-Alpes — Lyon |
+
+### Smooth jazz, nu jazz & lounge
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **SmoothJazz.com** | `https://smoothjazz.cdnstream1.com/2585_128.mp3` | 128 kbps MP3 | États-Unis |
+| **The Jazz Groove** | `https://mp3-128.streamthejazzgroove.com/stream` | 128 kbps MP3 | États-Unis |
+| **SomaFM — Sonic Universe** | `https://ice6.somafm.com/sonicuniverse-128-mp3` | 128 kbps MP3 | Californie — San Francisco |
+
+Détails complets (descriptions, étiquettes, logos base64 128×128, sources) :
 [`config/radios.json`](config/radios.json) — documentation :
 [`config/README.md`](config/README.md).
 

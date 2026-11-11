@@ -11,7 +11,7 @@ import com.flamenco.radios.data.Station
  * `StreamTitle` ICY (morceau en cours). [RadioPlayer] se rabat sur le nom de
  * la station tant qu'aucun titre ICY n'est reçu.
  */
-fun Station.toMediaItem(): MediaItem =
+fun Station.toMediaItem(genreName: String? = null): MediaItem =
     MediaItem.Builder()
         .setMediaId(id)
         .setUri(stream)
@@ -19,7 +19,7 @@ fun Station.toMediaItem(): MediaItem =
             MediaMetadata.Builder()
                 .setStation(name)
                 .setArtist(name)
-                .setGenre(genres.firstOrNull())
+                .setGenre(genreName ?: genre)
                 .setDescription(description)
                 .setIsPlayable(true)
                 .setIsBrowsable(false)
