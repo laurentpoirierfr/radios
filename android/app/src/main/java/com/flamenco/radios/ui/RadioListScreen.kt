@@ -1,6 +1,10 @@
 package com.flamenco.radios.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -54,7 +58,17 @@ fun RadioListScreen(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold) },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Image(
+                            painter = painterResource(R.drawable.logo_radio),
+                            contentDescription = null, // décoratif : le titre suit
+                            modifier = Modifier.size(width = 30.dp, height = 36.dp),
+                        )
+                        Spacer(Modifier.width(12.dp))
+                        Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold)
+                    }
+                },
                 scrollBehavior = scrollBehavior,
             )
         },
