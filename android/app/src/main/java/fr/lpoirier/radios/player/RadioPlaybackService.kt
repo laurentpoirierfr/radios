@@ -1,5 +1,6 @@
 package fr.lpoirier.radios.player
 
+import androidx.annotation.OptIn
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Handler
@@ -32,7 +33,7 @@ import kotlinx.coroutines.launch
  * Media3 fournit la notification média, les contrôles casque/Bluetooth/écran
  * verrouillé et le passage en service de premier plan.
  */
-@UnstableApi
+@OptIn(UnstableApi::class)
 class RadioPlaybackService : MediaSessionService() {
 
     private var session: MediaSession? = null

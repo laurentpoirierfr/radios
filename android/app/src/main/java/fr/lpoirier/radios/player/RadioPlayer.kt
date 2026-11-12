@@ -1,5 +1,7 @@
 package fr.lpoirier.radios.player
 
+import androidx.annotation.OptIn
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.common.ForwardingPlayer
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
@@ -9,6 +11,7 @@ import androidx.media3.common.Player
  * - titre affiché = titre ICY, sinon nom de la station (notification, écran verrouillé) ;
  * - « play » après une erreur (état IDLE) relance la connexion au flux.
  */
+@OptIn(UnstableApi::class)
 class RadioPlayer(player: Player) : ForwardingPlayer(player) {
 
     override fun getMediaMetadata(): MediaMetadata {
