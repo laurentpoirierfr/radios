@@ -1,0 +1,136 @@
+{
+  "language": "en",
+  "genres": {
+    "classique": {
+      "name": "Classical",
+      "description": "Classical music: major public broadcasters, baroque, opera and piano webradios, non-stop classical.",
+      "categories": {
+        "classique-reference": "Major public classical stations",
+        "classique-thematique": "Baroque, opera & piano — themed webradios",
+        "classique-detente": "Non-stop & relaxing classical"
+      }
+    },
+    "flamenco": {
+      "name": "Flamenco",
+      "description": "Cante, toque and baile: from pure flamenco to sevillanas and rumba.",
+      "categories": {
+        "flamenco-pur": "Pure flamenco — cante, toque, palmas",
+        "sevillanas-rumba": "Sevillanas, rumba and flamenco-pop",
+        "flamenco-local": "Local stations with flamenco programming"
+      }
+    },
+    "jazz": {
+      "name": "Jazz",
+      "description": "From New Orleans swing to contemporary jazz, by way of gypsy jazz and Latin jazz.",
+      "categories": {
+        "jazz-reference": "Major jazz stations — standards, swing, bebop, new releases",
+        "jazz-thematique": "Gypsy, Latin & piano — themed webradios",
+        "jazz-lounge": "Smooth jazz, nu jazz & lounge"
+      }
+    },
+    "techno": {
+      "name": "Techno",
+      "description": "From Detroit to Berlin: club techno, atmospheric minimal and dub, hard, acid and schranz.",
+      "categories": {
+        "techno-reference": "Major techno stations — Detroit, Berlin, clubs",
+        "techno-minimal-dub": "Minimal, dub & deep — atmospheric styles",
+        "techno-hard": "Hard, acid & schranz — fast and dark styles"
+      }
+    },
+    "culture": {
+      "name": "Culture (French)",
+      "description": "French-language cultural radio: books, ideas, arts, documentaries, fiction and drama.",
+      "categories": {
+        "culture-publique": "Public cultural stations — France, Switzerland, Belgium, Quebec",
+        "culture-associative": "Community radio, arts & sound creation"
+      }
+    },
+    "cultura": {
+      "name": "Culture (Spanish)",
+      "description": "Spanish-language cultural radio: literature, ideas, arts and music, from Spain to Latin America.",
+      "categories": {
+        "cultura-publica": "Public cultural stations — Spain and Latin America",
+        "cultura-universitaria": "University and cultural stations"
+      }
+    }
+  },
+  "stations": {
+    "france-musique": { "region": "Paris (Radio France)", "description": "Radio France's music station: classical music, concerts, opera and jazz, with discovery programmes." },
+    "bbc-radio-3": { "region": "United Kingdom (BBC)", "description": "The BBC's classical station: major live concerts (including the BBC Proms), opera, chamber music and jazz." },
+    "br-klassik": { "region": "Bavaria — Munich", "description": "Bavaria's public classical station: concerts by the Bavarian Radio Symphony Orchestra, opera and chamber music." },
+    "radio-swiss-classic": { "region": "Switzerland (SRG SSR)", "description": "Swiss public station playing non-stop classical music, ad-free, presented in French." },
+    "rtbf-musiq3": { "region": "Brussels (RTBF)", "description": "RTBF's classical station: concerts, opera and great performers, presented in French." },
+    "npo-klassiek": { "region": "Netherlands (NPO)", "description": "The Dutch public classical station: live concerts, including from the Concertgebouw, and the great repertoire." },
+    "rai-radio-classica": { "region": "Italy (Rai)", "description": "Rai's classical channel: non-stop symphonic repertoire, opera and chamber music." },
+    "wqxr": { "region": "New York", "description": "New York's classical station (New York Public Radio): the great repertoire, concerts and opera." },
+    "france-musique-baroque": { "region": "Paris (Radio France)", "description": "France Musique webradio devoted to the baroque repertoire: operas, oratorios, cantatas and chamber music." },
+    "france-musique-opera": { "region": "Paris (Radio France)", "description": "France Musique's opera webradio: famous arias and rarities, great voices and conductors." },
+    "concertzender-baroque": { "region": "Netherlands", "description": "Baroque channel of Concertzender, the Dutch art-music station: Bach, Handel, Vivaldi and their contemporaries." },
+    "your-classical-piano": { "region": "Minnesota (MPR)", "description": "YourClassical piano webradio (Minnesota Public Radio): calm, meditative piano pieces." },
+    "linn-classical": { "region": "Scotland — Glasgow", "description": "Classical webradio from Scottish hi-fi maker Linn, streamed in high quality (320 kbps)." },
+    "radio-classique": { "region": "Paris", "description": "French private classical station: great works, film music and features." },
+    "france-musique-easy": { "region": "Paris (Radio France)", "description": "France Musique webradio with the most accessible classical works, for relaxed listening." },
+    "classic-fm": { "region": "London", "description": "Major British private classical station: famous works, film music and relaxation." },
+    "klassik-radio": { "region": "Germany", "description": "German private station for classical and film music, for relaxed listening." },
+    "venice-classic-radio": { "region": "Italy — Venice", "description": "Ad-free Italian classical webradio: non-stop baroque, classical and romantic music." },
+    "canal-flamenco": { "region": "Andalusia — Seville", "description": "Official flamenco webradio of RTVA (Andalusia's public broadcaster): cante, toque and baile, 24/7." },
+    "radio-art-flamenco": { "region": "International", "description": "Webradio from the international Radio Art network: instrumental flamenco and jazz/flamenco fusion, ad-free." },
+    "energia-flamenca": { "region": "Andalusia — Axarquía (Málaga)", "description": "Flamenco station from the Axarquía district (Málaga): great classics and retro flamenco." },
+    "la-flamenca": { "region": "Valencian Community — Alicante", "description": "Webradio from the Emisoras Musicales group (Alicante): flamenco, rumba and Spanish music." },
+    "flamenco-fm": { "region": "Spain", "description": "100% flamenco webradio: cante jondo, guitar and palmas non-stop." },
+    "frontera-radio": { "region": "Andalusia — Jerez de la Frontera (Cádiz)", "description": "Community and cultural station from Jerez de la Frontera, the cradle of flamenco." },
+    "canal-fiesta": { "region": "Andalusia — Seville", "description": "Andalusian public station devoted to fiesta: sevillanas, flamenco-pop and traditional Andalusian music." },
+    "radio-sevillanas": { "region": "Spain", "description": "Webradio specialising in sevillanas: the great classics and the latest releases." },
+    "radiole": { "region": "National", "description": "Spanish national station (PRISA group): rumba, flamenco-pop and festive Spanish music." },
+    "deluxe-flamenco-flow": { "region": "Basque Country — Vitoria-Gasteiz", "description": "Webradio from Vitoria-Gasteiz: a mix of flamenco, rumba and bachata." },
+    "flamenco-barcelona": { "region": "Catalonia — Barcelona", "description": "“Flamenco Spain” from the Plexus Radio network: flamenco, rumba and Latin sounds." },
+    "onda-sevilla": { "region": "Andalusia — Seville", "description": "Local Seville station (106.2 FM): flamenco, sevillanas, copla and zarzuela." },
+    "onda-mencia": { "region": "Andalusia — Doña Mencía (Córdoba)", "description": "Local station from Doña Mencía (Córdoba): flamenco and varied music programming." },
+    "radio-union-catalunya": { "region": "Catalonia — Barcelona", "description": "Barcelona station: varied Spanish music with plenty of room for flamenco." },
+    "tsf-jazz": { "region": "Île-de-France — Paris", "description": "Paris's 100% jazz station (89.9 FM): standards, new releases, vocals and classics, plus concert news." },
+    "fip-jazz": { "region": "Paris (Radio France)", "description": "FIP's jazz webradio (Radio France): eclectic, ad-free programming, from swing to contemporary jazz." },
+    "france-musique-la-jazz": { "region": "Paris (Radio France)", "description": "France Musique's jazz webradio: the great names and recordings that shaped jazz history, ad-free." },
+    "jazz-radio": { "region": "Auvergne-Rhône-Alpes — Lyon", "description": "French national network devoted to jazz, soul and blues, based in Lyon." },
+    "radio-swiss-jazz": { "region": "Switzerland — Basel (SRG SSR)", "description": "Swiss public station (SRG SSR): non-stop, ad-free jazz and soul, from standards to new releases." },
+    "wwoz": { "region": "Louisiana — New Orleans", "description": "Community station from New Orleans, the cradle of jazz: traditional jazz, brass bands, blues and Louisiana music." },
+    "linn-jazz": { "region": "Scotland — Glasgow", "description": "Webradio from Scottish hi-fi maker Linn: a discerning jazz selection streamed in high quality (320 kbps)." },
+    "jazz-radio-manouche": { "region": "Auvergne-Rhône-Alpes — Lyon", "description": "Jazz Radio webradio devoted to gypsy jazz in the tradition of Django Reinhardt: swing and guitar, a close cousin of flamenco." },
+    "radio-art-gypsy-jazz": { "region": "International", "description": "Radio Art's gypsy jazz channel, from the same broadcaster as Radio Art — Flamenco: non-stop instrumental gypsy swing." },
+    "jazz-radio-latin": { "region": "Auvergne-Rhône-Alpes — Lyon", "description": "Jazz Radio's Latin jazz webradio: bossa nova, Afro-Cuban jazz and Latin rhythms." },
+    "jazz-radio-piano": { "region": "Auvergne-Rhône-Alpes — Lyon", "description": "Jazz Radio webradio devoted to jazz piano: solos, trios and great pianists." },
+    "smoothjazz-com": { "region": "United States", "description": "American smooth jazz webradio: saxophone, guitar and mellow moods, 24/7." },
+    "jazz-groove": { "region": "United States", "description": "American non-profit webradio of melodic, laid-back jazz: cool jazz and mainstream, ad-free." },
+    "somafm-sonic-universe": { "region": "California — San Francisco", "description": "SomaFM channel (San Francisco) blending nu jazz, contemporary jazz and electronic influences, ad-free." },
+    "fg-techno": { "region": "Île-de-France — Paris", "description": "Techno webradio from Radio FG, the Paris electronic station: club techno and new releases, non-stop." },
+    "sunshine-live-techno": { "region": "Baden-Württemberg — Mannheim", "description": "Techno channel of Sunshine Live, Germany's major electronic station: club techno and minimal, 24/7." },
+    "intergalactic-fm": { "region": "South Holland — The Hague", "description": "Community station from The Hague: electro, techno and cold wave in the spirit of Detroit and the pioneers of electronic music." },
+    "pure-fm-berlin": { "region": "Berlin", "description": "Berlin electronic station (106.8 FM): house and techno with the sound of the clubbing capital." },
+    "rautemusik-techno": { "region": "Germany", "description": "Techno channel of the German RauteMusik network: techno and tech house mixed by DJs, 24/7." },
+    "techno-fm": { "region": "United Kingdom", "description": "100% techno British webradio: non-stop DJ sets and underground selections." },
+    "technolovers-minimal": { "region": "Germany", "description": "Minimal channel of the German Technolovers network: minimal techno and tech minimal with stripped-down grooves." },
+    "traxx-tech-minimal": { "region": "Switzerland", "description": "Swiss webradio Traxx FM, tech minimal channel: hypnotic loops and micro-variations." },
+    "minimal-mix-radio": { "region": "Poland", "description": "Polish webradio in 320 kbps: minimal house, tech house, dub and deep techno in continuous mixes." },
+    "deep-radio": { "region": "Netherlands", "description": "Dutch webradio in 320 kbps devoted to deep sounds: deep house and deep techno." },
+    "radio-caprice-dub-techno": { "region": "Russia", "description": "Radio Caprice's dub techno channel: echoes, reverb and deep pads in the tradition of Basic Channel." },
+    "technolovers-hypertechno": { "region": "Germany", "description": "High-energy Technolovers channel: hard techno, dark techno and acid at a fast tempo." },
+    "sunshine-live-schranz": { "region": "Baden-Württemberg — Mannheim", "description": "Sunshine Live's schranz channel: the fastest and most percussive German techno." },
+    "eilo-hard-techno": { "region": "International", "description": "Hard techno channel of the EILO webradio network: non-stop hard and industrial techno." },
+    "radio-caprice-acid": { "region": "Russia", "description": "Radio Caprice's acid channel: acid house, acid techno and the squelchy sound of the Roland TB-303." },
+    "france-culture": { "region": "Paris (Radio France)", "description": "Radio France's cultural station: books, ideas, science, arts, creative documentaries, fiction and radio drama." },
+    "rts-espace-2": { "region": "French-speaking Switzerland (RTS)", "description": "The cultural channel of French-speaking Swiss public radio: literature, arts, ideas, fiction and classical music." },
+    "rtbf-la-premiere": { "region": "Brussels (RTBF)", "description": "The main channel of French-speaking Belgian public radio: ideas, culture, magazines, documentaries and fiction, plus news." },
+    "ici-premiere": { "region": "Quebec — Montreal", "description": "Radio-Canada's talk station in Montreal: culture, society, interviews and major magazine programmes." },
+    "radio-grenouille": { "region": "Provence — Marseille", "description": "Marseille community station (88.8 FM) focused on sound creation, the arts and the city's cultural life." },
+    "duuu": { "region": "Paris", "description": "Paris webradio devoted to the arts: readings, poetry, sound art and recorded concerts." },
+    "radio-campus-paris": { "region": "Paris", "description": "Paris student community station (93.9 FM): culture, cinema, ideas and musical discoveries." },
+    "radio-galere": { "region": "Provence — Marseille", "description": "Marseille community station (88.4 FM): culture, citizen voices and multicultural programmes." },
+    "rne-radio-3": { "region": "Madrid (RTVE)", "description": "RNE's cultural station: alternative music, film, literature and creative work, with author-driven programming." },
+    "rne-radio-clasica": { "region": "Madrid (RTVE)", "description": "RNE's Radio Clásica: classical and contemporary music, concerts and cultural outreach." },
+    "radio-educacion": { "region": "Mexico City", "description": "Mexico's public cultural station (96.5 FM): art, literature, science and music." },
+    "radio-nacional-colombia": { "region": "Bogotá (RTVC)", "description": "Colombian public radio (RTVC): culture, memory, Colombian music and magazine programmes." },
+    "radio-nacional-clasica": { "region": "Buenos Aires", "description": "The classical service of Argentina's Radio Nacional (96.7 FM): art music and cultural outreach." },
+    "radio-unam": { "region": "Mexico City", "description": "The radio of the National Autonomous University of Mexico (96.1 FM): culture, literature, science and music since 1937." },
+    "radio-u-chile": { "region": "Santiago, Chile", "description": "University of Chile radio (102.5 FM): culture, debate, music and current affairs." },
+    "radio-udeg-vallarta": { "region": "Jalisco — Puerto Vallarta", "description": "Station of the University of Guadalajara radio network (104.3 FM): culture, music and university programmes." }
+  }
+}

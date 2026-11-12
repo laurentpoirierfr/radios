@@ -1,0 +1,26 @@
+{
+  "language": "fr",
+  "genres": {
+    "culture": {
+      "name": "Culture (français)"
+    },
+    "cultura": {
+      "name": "Culture (espagnol)",
+      "description": "Radios culturelles en espagnol : littérature, idées, arts et musique, de l'Espagne à l'Amérique latine.",
+      "categories": {
+        "cultura-publica": "Radios culturelles publiques — Espagne et Amérique latine",
+        "cultura-universitaria": "Radios universitaires et culturelles"
+      }
+    }
+  },
+  "stations": {
+    "rne-radio-3": { "description": "La radio culturelle de RNE : musique alternative, cinéma, littérature et création, avec une programmation d'auteur." },
+    "rne-radio-clasica": { "description": "Radio Clásica de RNE : musique classique et contemporaine, concerts et vulgarisation culturelle." },
+    "radio-educacion": { "region": "Mexico", "description": "Radio culturelle publique du Mexique (96.5 FM) : art, littérature, science et musique." },
+    "radio-nacional-colombia": { "description": "Radio publique de Colombie (RTVC) : culture, mémoire, musique colombienne et magazines." },
+    "radio-nacional-clasica": { "description": "Antenne classique de la Radio Nacional argentine (96.7 FM) : musique savante et vulgarisation culturelle." },
+    "radio-unam": { "region": "Mexico", "description": "La radio de l'Université nationale autonome du Mexique (96.1 FM) : culture, littérature, science et musique depuis 1937." },
+    "radio-u-chile": { "region": "Santiago du Chili", "description": "Radio de l'Université du Chili (102.5 FM) : culture, débat, musique et actualité." },
+    "radio-udeg-vallarta": { "description": "Station du réseau radio de l'Université de Guadalajara (104.3 FM) : culture, musique et émissions universitaires." }
+  }
+}

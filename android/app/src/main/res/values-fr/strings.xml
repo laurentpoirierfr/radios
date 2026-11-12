@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all_genres">Tous</string>
+    <string name="see_all">Voir tout →</string>
+    <string name="favorites">Favoris</string>
+    <string name="search_hint">Rechercher une radio</string>
+    <string name="no_result">Aucune radio ne correspond.</string>
+    <string name="play">Lecture</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Arrêter</string>
+    <string name="buffering">Connexion…</string>
+    <string name="live">En direct</string>
+    <string name="add_favorite">Ajouter aux favoris</string>
+    <string name="remove_favorite">Retirer des favoris</string>
+    <string name="close_player">Fermer le lecteur</string>
+    <string name="clear_search">Effacer</string>
+    <string name="volume">Volume</string>
+    <string name="playback_error">Flux indisponible : %1$s</string>
+    <string name="back">Retour</string>
+    <string name="ok">OK</string>
+    <string name="support_title">Soutenir l\'app</string>
+    <string name="support_thanks_title">Merci pour votre soutien !</string>
+    <string name="support_card_text">Gratuite, sans publicité et sans compte. Un petit don aide à la faire vivre.</string>
+    <string name="support_thanks_short">Merci !</string>
+    <string name="support_body">Cette application est gratuite, sans publicité, sans compte et ne collecte aucune donnée. Elle est développée sur mon temps libre.\n\nSi elle vous plaît, vous pouvez soutenir son développement par un petit don. C\'est entièrement facultatif : l\'app reste complète sans.</string>
+    <string name="support_unavailable">Les dons ne sont pas disponibles pour le moment (ils passent par Google Play, qui doit être installé et accessible).</string>
+    <string name="support_footer">Paiement sécurisé par Google Play. Vous pouvez donner plusieurs fois.</string>
+    <string name="tip_coffee">Un café</string>
+    <string name="tip_croissant">Café + croissant</string>
+    <string name="tip_meal">Un repas</string>
+    <string name="support_msg_thanks">Merci beaucoup pour votre soutien ! ❤️</string>
+    <string name="support_msg_pending">Paiement en attente : il sera pris en compte dès sa validation.</string>
+    <string name="support_msg_failed">Le paiement n\'a pas abouti. Merci quand même ! 🙂</string>
+    <plurals name="radio_count">
+        <item quantity="one">%d radio</item>
+        <item quantity="many">%d radios</item>
+        <item quantity="other">%d radios</item>
+    </plurals>
+</resources>

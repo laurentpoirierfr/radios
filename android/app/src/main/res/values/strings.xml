@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Radios</string>
-    <string name="all_genres">Tous</string>
-    <string name="see_all">Voir tout →</string>
-    <plurals name="radio_count">
-        <item quantity="one">%d radio</item>
-        <item quantity="other">%d radios</item>
-    </plurals>
-    <string name="favorites">Favoris</string>
-    <string name="search_hint">Rechercher une radio</string>
-    <string name="no_result">Aucune radio ne correspond.</string>
-    <string name="play">Lecture</string>
+    <string name="app_name" translatable="false">Radios</string>
+    <string name="all_genres">All</string>
+    <string name="see_all">See all →</string>
+    <string name="favorites">Favorites</string>
+    <string name="search_hint">Search for a station</string>
+    <string name="no_result">No station matches.</string>
+    <string name="play">Play</string>
     <string name="pause">Pause</string>
-    <string name="stop">Arrêter</string>
-    <string name="buffering">Connexion…</string>
-    <string name="live">En direct</string>
-    <string name="add_favorite">Ajouter aux favoris</string>
-    <string name="remove_favorite">Retirer des favoris</string>
-    <string name="close_player">Fermer le lecteur</string>
-    <string name="clear_search">Effacer</string>
+    <string name="stop">Stop</string>
+    <string name="buffering">Connecting…</string>
+    <string name="live">Live</string>
+    <string name="add_favorite">Add to favorites</string>
+    <string name="remove_favorite">Remove from favorites</string>
+    <string name="close_player">Close player</string>
+    <string name="clear_search">Clear</string>
     <string name="volume">Volume</string>
-    <string name="playback_error">Flux indisponible : %1$s</string>
+    <string name="playback_error">Stream unavailable: %1$s</string>
+    <string name="back">Back</string>
+    <string name="ok">OK</string>
+    <string name="support_title">Support the app</string>
+    <string name="support_thanks_title">Thank you for your support!</string>
+    <string name="support_card_text">Free, ad-free, no account. A small donation helps keep it going.</string>
+    <string name="support_thanks_short">Thank you!</string>
+    <string name="support_body">This app is free, ad-free, requires no account and collects no data. It is developed in my spare time.\n\nIf you like it, you can support its development with a small donation. It is entirely optional: the app stays complete without it.</string>
+    <string name="support_unavailable">Donations are not available right now (they go through Google Play, which must be installed and reachable).</string>
+    <string name="support_footer">Secure payment via Google Play. You can donate more than once.</string>
+    <string name="tip_coffee">A coffee</string>
+    <string name="tip_croissant">Coffee + croissant</string>
+    <string name="tip_meal">A meal</string>
+    <string name="support_msg_thanks">Thank you so much for your support! ❤️</string>
+    <string name="support_msg_pending">Payment pending: it will be counted once confirmed.</string>
+    <string name="support_msg_failed">The payment did not go through. Thanks anyway! 🙂</string>
+    <plurals name="radio_count">
+        <item quantity="one">%d station</item>
+        <item quantity="other">%d stations</item>
+    </plurals>
 </resources>

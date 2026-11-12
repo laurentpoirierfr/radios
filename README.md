@@ -248,6 +248,16 @@ mode économie de données (bascule vers un flux 64 kbps si la radio en propose)
 
 ---
 
+## Langues et dons
+
+- **Langues** : anglais (par défaut), français, espagnol pour l'interface (`res/values*/strings.xml`).
+  Suit la langue du téléphone, ou réglage par app (Android 13+, `res/xml/locales_config.xml`).
+  Le contenu de `config/radios.json` (genres, catégories, descriptions, régions) est traduit dans
+  `config/i18n/<langue>.json` (voir `config/README.md`).
+- **Soutenir l'app** (❤️ en haut à droite) : dons facultatifs via Google Play Billing, produits consommables
+  `soutien_cafe`, `soutien_croissant`, `soutien_repas` à créer dans la Play Console (`support/SupportManager.kt`,
+  même fichier que dans le projet podcasts).
+
 ## Licence / droits
 
 Les flux appartiennent aux radios qui les diffusent ; les logos sont la

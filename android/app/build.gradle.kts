@@ -37,13 +37,17 @@ android {
 }
 
 /**
- * Copie `config/radios.json` (source de vérité, à la racine du dépôt) dans les
- * assets générés de l'app : aucune duplication manuelle du fichier.
+ * Copie `config/radios.json` et ses traductions `config/i18n/<langue>.json` (source de vérité, à la racine
+ * du dépôt) dans les assets générés de l'app : aucune duplication manuelle des fichiers.
  */
 abstract class CopyRadioConfigTask : DefaultTask() {
     @get:InputFile
     @get:PathSensitive(PathSensitivity.NONE)
     abstract val configFile: RegularFileProperty
+
+    @get:InputDirectory
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val i18nDir: DirectoryProperty
 
     @get:OutputDirectory
     abstract val outputDir: DirectoryProperty
@@ -54,11 +58,15 @@ abstract class CopyRadioConfigTask : DefaultTask() {
         out.deleteRecursively()
         out.mkdirs()
         configFile.get().asFile.copyTo(out.resolve("radios.json"), overwrite = true)
+        i18nDir.get().asFile.listFiles { f -> f.extension == "json" }?.forEach {
+            it.copyTo(out.resolve("i18n/${it.name}"), overwrite = true)
+        }
     }
 }
 
 val copyRadioConfig = tasks.register<CopyRadioConfigTask>("copyRadioConfig") {
     configFile.set(rootProject.layout.projectDirectory.file("config/radios.json"))
+    i18nDir.set(rootProject.layout.projectDirectory.dir("config/i18n"))
     outputDir.set(layout.buildDirectory.dir("generated/radioConfig"))
 }
 
@@ -89,6 +97,9 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.serialization.json)
 
+    // Dons « Soutenir l'app » (achats intégrés consommables).
+    implementation(libs.play.billing)
+
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.serialization.json)
 
@@ -100,4 +111,5 @@ dependencies {
 // Les tests unitaires lisent directement config/radios.json (source de vérité).
 tasks.withType<Test>().configureEach {
     systemProperty("radios.config", rootProject.layout.projectDirectory.file("config/radios.json").asFile.absolutePath)
+    systemProperty("radios.i18n", rootProject.layout.projectDirectory.dir("config/i18n").asFile.absolutePath)
 }

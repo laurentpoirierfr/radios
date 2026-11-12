@@ -10,6 +10,7 @@ lifecycle = "2.10.0"
 datastore = "1.2.1"
 coreKtx = "1.19.0"
 junit = "4.13.2"
+billing = "9.1.0"
 androidxTestExtJunit = "1.2.1"
 androidxTestRunner = "1.6.2"
 
@@ -32,6 +33,8 @@ media3-exoplayer-hls = { group = "androidx.media3", name = "media3-exoplayer-hls
 
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+play-billing = { group = "com.android.billingclient", name = "billing-ktx", version.ref = "billing" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExtJunit" }

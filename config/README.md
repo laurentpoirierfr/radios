@@ -155,3 +155,23 @@ encodage base64). Pour ajouter une radio :
 2. Générer le logo : image carrée ou rognée, 128×128, encodée en
    `data:image/png;base64,…` ou `data:image/webp;base64,…`.
 3. Valider avec la commande ci-dessus.
+
+## Traductions (`i18n/`)
+
+`radios.json` garde ses textes d'origine (en français, sauf le genre `cultura`, en espagnol).
+Chaque langue de l'app a un fichier `i18n/<langue>.json` qui **surcharge** ces textes :
+
+```json
+{
+  "language": "en",
+  "genres":   { "jazz": { "name": "Jazz", "description": "…", "categories": { "jazz-lounge": "…" } } },
+  "stations": { "tsf-jazz": { "description": "…", "region": "Île-de-France — Paris" } }
+}
+```
+
+- Un champ absent garde le texte de `radios.json`.
+- `en.json` (langue par défaut, aussi utilisée pour les langues non prises en charge) doit tout traduire.
+- `es.json` traduit les textes d'origine française, `fr.json` ceux d'origine espagnole (genre `cultura`).
+- **Ajouter une radio** : ajouter aussi sa description et sa région dans `en.json` et `es.json`
+  (ou `fr.json` si le texte d'origine est en espagnol). `make test` signale les oublis côté anglais
+  et toute référence à une radio ou un genre inexistant.

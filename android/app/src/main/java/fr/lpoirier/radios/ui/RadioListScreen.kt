@@ -1,5 +1,7 @@
 package fr.lpoirier.radios.ui
 
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Spacer
@@ -54,6 +56,7 @@ fun RadioListScreen(
     onTogglePlayPause: () -> Unit,
     onOpenPlayer: () -> Unit,
     onSelectGenre: (String?) -> Unit,
+    onOpenSupport: () -> Unit,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     val selectedColor = state.genres.firstOrNull { it.id == state.selectedGenre }?.color
@@ -72,6 +75,12 @@ fun RadioListScreen(
                                 )
                                 Spacer(Modifier.width(12.dp))
                                 Text(stringResource(R.string.app_name), fontWeight = FontWeight.Bold)
+                            }
+                        },
+                        actions = {
+                            val supportLabel = stringResource(R.string.support_title)
+                            IconButton(onClick = onOpenSupport) {
+                                Text("❤️", modifier = Modifier.semantics { contentDescription = supportLabel })
                             }
                         },
                         scrollBehavior = scrollBehavior,

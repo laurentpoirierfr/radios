@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all_genres">Todas</string>
+    <string name="see_all">Ver todo →</string>
+    <string name="favorites">Favoritos</string>
+    <string name="search_hint">Buscar una emisora</string>
+    <string name="no_result">Ninguna emisora coincide.</string>
+    <string name="play">Reproducir</string>
+    <string name="pause">Pausa</string>
+    <string name="stop">Detener</string>
+    <string name="buffering">Conectando…</string>
+    <string name="live">En directo</string>
+    <string name="add_favorite">Añadir a favoritos</string>
+    <string name="remove_favorite">Quitar de favoritos</string>
+    <string name="close_player">Cerrar el reproductor</string>
+    <string name="clear_search">Borrar</string>
+    <string name="volume">Volumen</string>
+    <string name="playback_error">Emisión no disponible: %1$s</string>
+    <string name="back">Atrás</string>
+    <string name="ok">Aceptar</string>
+    <string name="support_title">Apoyar la app</string>
+    <string name="support_thanks_title">¡Gracias por tu apoyo!</string>
+    <string name="support_card_text">Gratis, sin anuncios y sin cuenta. Una pequeña donación ayuda a mantenerla.</string>
+    <string name="support_thanks_short">¡Gracias!</string>
+    <string name="support_body">Esta app es gratuita, sin anuncios, no requiere cuenta y no recopila ningún dato. La desarrollo en mi tiempo libre.\n\nSi te gusta, puedes apoyar su desarrollo con una pequeña donación. Es totalmente opcional: la app sigue completa sin ella.</string>
+    <string name="support_unavailable">Las donaciones no están disponibles en este momento (se realizan a través de Google Play, que debe estar instalado y accesible).</string>
+    <string name="support_footer">Pago seguro a través de Google Play. Puedes donar varias veces.</string>
+    <string name="tip_coffee">Un café</string>
+    <string name="tip_croissant">Café + cruasán</string>
+    <string name="tip_meal">Una comida</string>
+    <string name="support_msg_thanks">¡Muchas gracias por tu apoyo! ❤️</string>
+    <string name="support_msg_pending">Pago pendiente: se tendrá en cuenta en cuanto se confirme.</string>
+    <string name="support_msg_failed">El pago no se completó. ¡Gracias de todos modos! 🙂</string>
+    <plurals name="radio_count">
+        <item quantity="one">%d emisora</item>
+        <item quantity="many">%d emisoras</item>
+        <item quantity="other">%d emisoras</item>
+    </plurals>
+</resources>

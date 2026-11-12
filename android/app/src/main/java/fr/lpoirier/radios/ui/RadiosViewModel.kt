@@ -1,5 +1,6 @@
 package fr.lpoirier.radios.ui
 
+import fr.lpoirier.radios.R
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,8 +13,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.text.Normalizer
@@ -61,7 +62,18 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
 
     private val query = MutableStateFlow("")
 
-    private val allStations = flow { emit(stationsRepo.stations) }.flowOn(Dispatchers.IO)
+    /** Titre de la section favoris, dans la langue de l'app. */
+    private val favoritesTitle: String get() = "★ " + getApplication<Application>().getString(R.string.favorites)
+
+    /** Langue de l'app : quand elle change, stations et genres sont relus traduits. */
+    private val language = MutableStateFlow(stationsRepo.language)
+
+    private val allStations = language.map { stationsRepo.config(it).stations }.flowOn(Dispatchers.IO)
+
+    /** À appeler quand la configuration (langue) de l'activité change. */
+    fun onLanguageChanged() {
+        language.value = stationsRepo.language
+    }
 
     private data class Prefs(val favorites: Set<String>, val lastId: String?, val genre: String?)
 
@@ -133,18 +145,17 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
         player.release()
     }
 
-    private val genreOptions: List<GenreOption> by lazy {
-        stationsRepo.genres.map { (id, genre) ->
+    private val genreOptions: List<GenreOption>
+        get() = stationsRepo.genres.map { (id, genre) ->
             GenreOption(id, genre.name, runCatching { android.graphics.Color.parseColor(genre.color) }.getOrDefault(0))
         }
-    }
 
     private fun showCarousels(q: String, selectedGenre: String?) = selectedGenre == null && q.isBlank()
 
     /** Vue « Tous » : favoris (s'il y en a) puis un carrousel par genre, dans l'ordre de la configuration. */
     private fun buildCarousels(stations: List<Station>, favorites: Set<String>): List<Carousel> = buildList {
         val favs = stations.filter { it.id in favorites }
-        if (favs.isNotEmpty()) add(Carousel(null, FAVORITES_TITLE, null, favs))
+        if (favs.isNotEmpty()) add(Carousel(null, favoritesTitle, null, favs))
         genreOptions.forEach { genre ->
             val list = stations.filter { it.genre == genre.id }
             if (list.isNotEmpty()) add(Carousel(genre.id, genre.name, genre.color, list))
@@ -173,7 +184,7 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
         }
         val sections = mutableListOf<Section>()
         val favs = filtered.filter { it.id in favorites }
-        if (favs.isNotEmpty()) sections += Section(FAVORITES_TITLE, favs)
+        if (favs.isNotEmpty()) sections += Section(favoritesTitle, favs)
 
         // Plusieurs genres visibles : on affiche le nom du genre en tête de son bloc.
         val showGenreHeaders = filtered.map { it.genre }.distinct().size > 1
@@ -193,8 +204,6 @@ class RadiosViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     companion object {
-        const val FAVORITES_TITLE = "★ Favoris"
-
         /** Recherche insensible à la casse et aux accents (« radiole » trouve « Radiolé »). */
         private fun String.normalized(): String =
             Normalizer.normalize(trim().lowercase(), Normalizer.Form.NFD).replace(Regex("\\p{Mn}+"), "")

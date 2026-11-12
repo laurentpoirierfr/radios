@@ -1,5 +1,6 @@
 package fr.lpoirier.radios
 
+import androidx.compose.ui.platform.LocalConfiguration
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
@@ -26,6 +27,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.lpoirier.radios.ui.GenreTheme
 import fr.lpoirier.radios.ui.PlayerScreen
+import fr.lpoirier.radios.ui.SupportScreen
 import fr.lpoirier.radios.ui.RadioListScreen
 import fr.lpoirier.radios.ui.RadiosViewModel
 import fr.lpoirier.radios.ui.theme.RadiosTheme
@@ -46,7 +48,12 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun RadiosRoot(viewModel: RadiosViewModel = viewModel()) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    // Langue changée (réglage Android par app) : contenu de la configuration retraduit.
+    val locales = LocalConfiguration.current.locales
+    LaunchedEffect(locales) { viewModel.onLanguageChanged() }
     var showPlayer by rememberSaveable { mutableStateOf(false) }
+    var showSupport by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
 
     Box {
         RadioListScreen(
@@ -57,6 +64,10 @@ private fun RadiosRoot(viewModel: RadiosViewModel = viewModel()) {
             onTogglePlayPause = viewModel::togglePlayPause,
             onOpenPlayer = { showPlayer = true },
             onSelectGenre = viewModel::selectGenre,
+            onOpenSupport = {
+                context.app.support.connect()
+                showSupport = true
+            },
         )
 
         val station = state.currentStation
@@ -79,6 +90,15 @@ private fun RadiosRoot(viewModel: RadiosViewModel = viewModel()) {
                     )
                 }
             }
+        }
+
+        AnimatedVisibility(
+            visible = showSupport,
+            enter = slideInVertically { it },
+            exit = slideOutVertically { it },
+        ) {
+            BackHandler { showSupport = false }
+            SupportScreen(onBack = { showSupport = false })
         }
     }
 }
