@@ -1,8 +1,18 @@
 {
   "$schema": "./radios.schema.json",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "generated": "2026-11-11",
   "genres": {
+    "classique": {
+      "name": "Classique",
+      "description": "Musique classique : grandes radios publiques, webradios baroque, opéra et piano, classique en continu.",
+      "color": "#1E7A7A",
+      "categories": {
+        "classique-reference": "Grandes radios classiques publiques",
+        "classique-thematique": "Baroque, opéra & piano — webradios thématiques",
+        "classique-detente": "Classique en continu & détente"
+      }
+    },
     "flamenco": {
       "name": "Flamenco",
       "description": "Cante, toque et baile : du flamenco pur aux sevillanas et à la rumba.",
@@ -58,13 +68,389 @@
     "radio.net (logos Canal Flamenco / Canal Fiesta)",
     "Jazz : flux vérifiés le 11/11/2026 (en-têtes ICY + réception audio), logos des sites officiels et de radio.net (FIP, France Musique)",
     "Techno : flux vérifiés le 11/11/2026 (en-têtes ICY + réception audio), logos des sites officiels ; logo générique pour Minimal Mix et Radio Caprice",
-    "Culture / Cultura : flux vérifiés le 12/11/2026 (en-têtes ICY ou playlist HLS + audio), logos des sites officiels, radio.net et TuneIn ; logos génériques signalés dans notes"
+    "Culture / Cultura : flux vérifiés le 12/11/2026 (en-têtes ICY ou playlist HLS + audio), logos des sites officiels, radio.net et TuneIn ; logos génériques signalés dans notes",
+    "Classique : flux vérifiés le 12/11/2026 (en-têtes ICY ou playlist HLS + audio), logos officiels et radio.net ; logo générique pour Venice Classic Radio"
   ],
   "license": {
     "stations": "Flux publics diffusés par chaque radio ; logos © leurs propriétaires respectifs",
     "config": "Licence libre pour le fichier de configuration lui-même"
   },
   "stations": [
+    {
+      "id": "france-musique",
+      "name": "France Musique",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La radio musicale de Radio France : musique classique, concerts, opéra et jazz, avec des émissions de découverte.",
+      "stream": "https://icecast.radiofrance.fr/francemusique-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/francemusique",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "classique",
+        "concerts",
+        "opéra"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,UklGRgAKAABXRUJQVlA4IPQJAACwMQCdASqAAIAAPjEYikOiIaEUCgUAIAMEoA1mnmfoH5AbKX6H8GuW52b7u83Qc7pc+3/b3wAH6Uf6Hqc/iB7AP4X/Uv9B/TfZr/UD3H/pF/dvcA/kv9d6yf9lfYG/Tj1Uf8r+wnwOfsl/4v858A383/s//jzhrsP/svhT4gO7XsntuXoL/GfrL9Z/Kj+wftz8K9Lv6hH4t/Gf6x+R/5M8bxlP6q+oR6lfK/8R/VP2+/vPoaagWBP+gf4n8yPenvTPAPYA/mn9H/3n9S/KD6U/4r/nf4X8r/a5+a/3n/f/4j4Bf5L/RP99/ef3Y/zn//+sL2dftp7J/7Cl+YxkWhIbhdkG473IWvOaao7DM+LokAG6gPbwcxtG7W4dmb5fIfF8d7vjGSZb+PzKxo8txWsAbyW1zuyxWZytfAFdG+XQ0OtsKU63xqmNQRpZGDL2DULsrJWVudCQ7cot1XC9gsalUa99P+fPHkKJRxVnlUR8jOzVMdRExmI9zYd2c1ZtFL59SRkfTsslJM4mVMJCGRo6p4hzuH2AAP78KcZFa0VZiT+rZv1bN1ZQB+9ICNeNpyjhRPVRWAn9J13f8HDph4lQ0Q9Pj4CnUTQnOe/eX1dLWZhcFWAACQ9I5Ey22thfP+PYVu5rlp48Uztckos4tdJo84UMeNAOPEfNgllI8/iEB8LLUEwoUY1Dk17stQpW/rVCY1SoroUO3J2D5MxFmYui4BqfG3Pd+fHNKfoT4q4k2+CKFk5oxWvrg4gn89ryi5MhvlSDx426CPUAMalEbHO1hxAfDGX+9SmWwKmO88FKYzTd2w9aR3AXpSvzjyufYAZLNwWy81rp2P5UaxbrICMNVvNVraB+dCBXOph+yKkHlY9yRmYCsAVCU8o4QoFosAkrtleZH49LPsUF36wFBU+7xaoHznD9oafpaKdZLRRBfqtl6lDC/DEPZr2Wa2JKu/cAAAAb2o+o2NxWN/bOV++f7pCmB41nY/JiFvwoLnJSMrk6Bg6JCvtXIxossd7ZZC/p/p1uK2VR7GIoGt/2Vlfo8HeobxeVGXJa+YbrcjOEWwHaR14q0w5TkhyTCxbavkKklRxh/5GbHbd1uA0ovWoaukLg49lJTih5ZoK3v+0432Eun+6hc60RgfUnnT79HkSwssR8XuNzIH+F/GTySrxrtriRpPRVjHpe7ggmiZhlw1w/Z/NGRn4lCr0AbgFxtaCsK0L9SXWiz+5IDedhlRQwUZCWl9lFTfmeMuD2dAl0ijumwS7N94+DE5IBXDA9WLWAckMzidDi+KbGUJA89uHHS8R/KhWoSpL0UQ1TEW1g9+n/NEOb5IQ8nCCZTPusvckw2l6GA0sPhNG2+9N6hd1N/Q5M5jChkVxHIt0cPt+MNsv6Fwu4e3v99JX/xnePNIc6DJ4WDDUM4b/y1fgJHCCevQiyZMj76zw65/HxiqpKd/088vFspZRbAFIO1rpWhjkm0slB/6Av2ZAwJLhgsgnor+LvP2Rp/lXiMfqdY2gmG973oq/6VYP9U8ynp/hvg+0Ztg/nAXE/v/PuhjigBGmV/189zz7vfxVAOo+0SKr5YcncaPZYvyhy6iwrTk7DzPotFqe0/t2ObB1m/UhpqnphzYfPjQhdYBYWBPYKy0MRfFXlnx13ZNfjpcii+aBbPES1OjPBv3TOZy+TzQpsazuJUtnNsBpvx2vzzcYAmQkf2v1LgFHvcn5XbyaeJHRcsrMVNeshDAPz4Pi6+xguzHKR7l68B8QfuY1/7sIg6hUfXMJCniKc4Fg7vcm0EdrxHAQr0+Lp7Pp754FvDlZHO3pWEvC8Hl6z+B1NUwpMERa6YFZ2DeB9anTVgVEqGkJ3GckTFEMF4LYTell+oxDmeD8kTUBfYuPIgYHZ468vflj7d/KxLiKOr24e2oeqvf1NBOMLOqx7Oonfoi27kMHyIaQ2jhIBeeN/i3aoomCMezCZT7rAgm9H9hQsCV6rSDZrkif/48cYB//d3tgxalqH9TKEHckvVqWtivGZTvHO+o2by6eLdYlRWAeunCttKnFMQ8H4tIKSA4eePk9Ew1pnMQkFqFF5e9YAXtScJCWa6gdirRDvxof7GapE0QxqO2DynKRp2KEg/FkAB45GTrWO9BF/eNMcEpY6twnC/Fj+HswSgDHsNhQ4d7Z9oPvq2TZidq3Lr32VuanjMY+hBfLrwGE1uyMc45TWr6C9FExt8YYnQO0IFQye7gPpZslWR4RdkVoYmTz5Q//3Ve2IH98JEbPttS3C9Eaku6IHCra+3EWIVI0IpPqHX3+Y8LiG3/qudcIdu4Uf/nV3FTVpbf/zjP3gNSLy5mehwK3KLpXX4we6AONFKZKtWQgwsEXO7oMtkN4YxKS9VPi0LwfVsEP7mBKE5dXwoWefzDKkpf4C2lnlMO33Cx3S9DqjS8+8SOHt17rqPQtxlgm11pW5GryTz689iCYqyDAU2+9blrO4Y+0rW0q/uIifcv3RAPPptmXASjPipRZKHvvUCLJadajkw3iBtWOeGZL0PD43BTHqTWzn7Aqk/Ayf0LmYCGfz6S/Syg2Dz8k4erepmmPugQEUQT/N5viG3J0h0zBP+2Cm5dpDs813KwObb/3swIRrQNnPc/luy/5taxSMIPk78ScYRIayqNa3/nIeEANhn9rQK5TLoro0hJDSdtgtVgToDkqPacCJJvGLTD4smIYoAMTr2M0a4daAYahGtV3GubBDcL2j/QMCojuFDOpOnLwZ2cEqHlLsODuiMls0F5ikCZ3055vSPq0QHufNTDDidt0MvPEgW4A3D7WWGnkNhyHufRed3kr/URwt22MuBY4L+aZs5OYBLEgI/mZdua9E+33UF2AjIPy3+GzzMWHWzkWh2HQ3KmzCc4F1PQzVskdRVKlnoUnTiIJp0TNR7h/Rl04qGAqRSYbe9ypgwMXBwQOUgjSEskMKmVM60+ztUZSPdWa4fmEKmaZ5WPw7qzj2ofUjgfft+yTEESbklNxPX8pLqfF6fiHHMQ7UMVQUi6TfCI22ef8rL9z0DQCdshPRMkjrvPy/2C7+osf7yR+JWuyZHJLaK59mTEvXdk1ClWOoUU6A1XFDoxntBwROBsafJ7jyk7aki54MSB7zvbGVik13zdxWFXmNtWfwNR8w6rNuabBYK9GJvW7Dl1Tk1QT51G/Vau6mSuFvBj4IJmupk/7XPZrdTM+lWTVjgjryoJ08zC/9IxL03KtFBNrSFocwDaY89GfpCh1pz2cv4OLoH6ZtrloC0KcoQHTLaueu5hKOqgDmumnRb/in5FRDzkfrdjqpmoB4YIZ3LMkDpHX/3RsPIF007m0XnurUHadti0PNhhL5gIdbRojyOKFumtsTaHrunrpYCmkFULDKsBebhAcj57eEGncsiAAA",
+      "logoSourceUrl": "https://www.radio.net/300/francemusique.png"
+    },
+    {
+      "id": "bbc-radio-3",
+      "name": "BBC Radio 3",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La radio classique de la BBC : grands concerts en direct (dont les BBC Proms), opéra, musique de chambre et jazz.",
+      "stream": "https://as-hls-ww-live.akamaized.net/pool_23461179/live/ww/bbc_radio_three/bbc_radio_three.isml/bbc_radio_three-audio=320000.norewind.m3u8",
+      "homepage": "https://www.bbc.co.uk/radio3",
+      "country": "GB",
+      "region": "Royaume-Uni (BBC)",
+      "codec": "HLS",
+      "bitrateKbps": 320,
+      "tags": [
+        "classique",
+        "concerts",
+        "BBC Proms",
+        "opéra"
+      ],
+      "language": "en",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://sounds.files.bbci.co.uk/3.7.0/networks/bbc_radio_three/colour_default.svg",
+      "notes": "Flux HLS (.m3u8), lu grâce au module media3-exoplayer-hls."
+    },
+    {
+      "id": "br-klassik",
+      "name": "BR-Klassik",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La radio classique publique bavaroise : concerts de l'Orchestre symphonique de la radio bavaroise, opéra et musique de chambre.",
+      "stream": "https://dispatcher.rndfnk.com/br/brklassik/live/mp3/high",
+      "homepage": "https://www.br-klassik.de/",
+      "country": "DE",
+      "region": "Bavière — Munich",
+      "codec": "MP3",
+      "bitrateKbps": 256,
+      "tags": [
+        "classique",
+        "concerts",
+        "symphonique"
+      ],
+      "language": "de",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://api.ardmediathek.de/image-service/images/urn:ard:image:476e47d76c4bbf78?w=512"
+    },
+    {
+      "id": "radio-swiss-classic",
+      "name": "Radio Swiss Classic",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "Radio publique suisse de musique classique en continu, sans publicité, présentée en français.",
+      "stream": "https://stream.srg-ssr.ch/srgssr/rsc_fr/mp3/128",
+      "homepage": "https://www.radioswissclassic.ch/fr",
+      "country": "CH",
+      "region": "Suisse (SRG SSR)",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "classique",
+        "sans publicité"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/swissclassic.png"
+    },
+    {
+      "id": "rtbf-musiq3",
+      "name": "RTBF Musiq3",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La radio classique de la RTBF : concerts, opéra et grands interprètes, présentés en français.",
+      "stream": "https://radios.rtbf.be/musiq3-128.mp3",
+      "homepage": "https://www.rtbf.be/musiq3",
+      "country": "BE",
+      "region": "Bruxelles (RTBF)",
+      "codec": "MP3",
+      "bitrateKbps": 320,
+      "tags": [
+        "classique",
+        "concerts",
+        "opéra"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/musiq3.png"
+    },
+    {
+      "id": "npo-klassiek",
+      "name": "NPO Klassiek",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La radio classique publique néerlandaise : concerts en direct, dont ceux du Concertgebouw, et grand répertoire.",
+      "stream": "https://icecast.omroep.nl/radio4-bb-mp3",
+      "homepage": "https://www.npoklassiek.nl/",
+      "country": "NL",
+      "region": "Pays-Bas (NPO)",
+      "codec": "MP3",
+      "bitrateKbps": 192,
+      "tags": [
+        "classique",
+        "concerts"
+      ],
+      "language": "nl",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.npoklassiek.nl/svg/npo-klassiek-logo.svg"
+    },
+    {
+      "id": "rai-radio-classica",
+      "name": "Rai Radio Classica",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La chaîne classique de la Rai : répertoire symphonique, opéra et musique de chambre en continu.",
+      "stream": "https://icestreaming.rai.it/5.mp3",
+      "homepage": "https://www.raiplaysound.it/",
+      "country": "IT",
+      "region": "Italie (Rai)",
+      "codec": "MP3",
+      "bitrateKbps": 256,
+      "tags": [
+        "classique",
+        "symphonique",
+        "opéra"
+      ],
+      "language": "it",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/raiclassica.png"
+    },
+    {
+      "id": "wqxr",
+      "name": "WQXR New York",
+      "genre": "classique",
+      "category": "classique-reference",
+      "description": "La radio classique de New York (New York Public Radio) : grand répertoire, concerts et opéra.",
+      "stream": "https://stream.wqxr.org/wqxr",
+      "homepage": "https://www.wqxr.org/",
+      "country": "US",
+      "region": "New York",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "classique",
+        "concerts",
+        "opéra"
+      ],
+      "language": "en",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://media2.wnyc.org/i/300/300/c/80/1/wqxr_square_logo.png"
+    },
+    {
+      "id": "france-musique-baroque",
+      "name": "France Musique — La Baroque",
+      "genre": "classique",
+      "category": "classique-thematique",
+      "description": "Webradio de France Musique consacrée au répertoire baroque : opéras, oratorios, cantates et musique de chambre.",
+      "stream": "https://icecast.radiofrance.fr/francemusiquebaroque-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/francemusique",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "baroque",
+        "opéra",
+        "cantates"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/francemusique.png"
+    },
+    {
+      "id": "france-musique-opera",
+      "name": "France Musique — Opéra",
+      "genre": "classique",
+      "category": "classique-thematique",
+      "description": "Webradio opéra de France Musique : airs célèbres et raretés, grandes voix et chefs d'orchestre.",
+      "stream": "https://icecast.radiofrance.fr/francemusiqueopera-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/francemusique",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "opéra",
+        "voix",
+        "airs"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/francemusique.png"
+    },
+    {
+      "id": "concertzender-baroque",
+      "name": "Concertzender — Barok",
+      "genre": "classique",
+      "category": "classique-thematique",
+      "description": "Canal baroque de la Concertzender, radio néerlandaise de musique savante : Bach, Haendel, Vivaldi et leurs contemporains.",
+      "stream": "http://streams.greenhost.nl:8080/barok",
+      "homepage": "https://www.concertzender.nl/",
+      "country": "NL",
+      "region": "Pays-Bas",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "baroque",
+        "musique ancienne"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/concertzenderbarok.png",
+      "notes": "Flux en HTTP clair uniquement (autorisé par network_security_config)."
+    },
+    {
+      "id": "your-classical-piano",
+      "name": "YourClassical — Peaceful Piano",
+      "genre": "classique",
+      "category": "classique-thematique",
+      "description": "Webradio piano de YourClassical (Minnesota Public Radio) : pièces pour piano calmes et méditatives.",
+      "stream": "https://peacefulpiano.stream.publicradio.org/peacefulpiano.mp3",
+      "homepage": "https://www.yourclassical.org/",
+      "country": "US",
+      "region": "Minnesota (MPR)",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "piano",
+        "calme"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,UklGRp4DAABXRUJQVlA4IJIDAABQFgCdASqAAIAAPjEYi0OiIaETC1SIIAMEsoBrju0/VdYq6b+SXL29BR+3f3HX+A9kHo88wDnNeYDyhP2A1mH0AP0t60r9tvSAzBrqo1xH9YrgUDHGb/t/41zffnD/e+4T/If6R/teA3IDyJzKhkIGDkohI2S9fBcuYzD+Oq0w6qIwGVUpoFoDP8GtQdVQ1vCzbfB2SZEkO94qByJ3tmf00AyEMePo2+cL/yzcEAqh8HHRn5rYTDsqOShAAP7+RdOV0iSjhn1ViAFdvbBE/H8NfyGA4Ig1qc6OFUY3l8WF6uHk+6idWj9zwpLpepTGCeZu6C737LPNxy4ZvgwPjeGctEJNC/ywMHYDb4x+H9225zqm1TU+Lus8iNX2BE2lJeF/+3pLxPbR3o7GzJ6n+gpkDT0FMgFMJBW/sHnke/vUk/XP84YEs+RjPRK76e77diG+W5tIrShFlcXC1PVBcnhPVxS9oAb/f03y8H1uc5dhJWvW/+DT+oetoArguCnIq5q27Ws+PXwQFjO70SIdc/RBn8EHGf2V5NX/uu7NLTwsdoI9Eexb7J2Jvdd8VhKPp3W8aW/oV8/OfdAd5jP9ZG9m0JofQ3Pls/9wzV5/V+D87eSsPChZMjxazuOdTi4dtPvuvGvLLOQmiSi6v92TkWCFL5DrPiLJFVLS99HdgEOOsPjzJSi75fj8cpWWOilPEqC1rE9W63oJXZ9aEKS4rk5f5AAjttoHbvsJYFWHL//h+1z/3bXRnxK9wAC1c8/5Xj/8jyQCyLbSM6rIZeH4M071xyl3oOL/bf5u9XWssiAsc1TP8dX1E2APGUT/fIxOfy28uR93b2383JzTfWVMfbCY23zJApKHtRp1ZMS84N2UZHK98zt4FypTMuO2+pHV8gEyBNydg/0W1hRgkGSDA7fqBB99W+k9kVY8SZaxmSs5HW5rIQSX8Hq6KTlQwLgyPAvUsic5o2i4pycZHi1cefDf4AEbB6wg7XWqSOh+oTmUSC2+6/4eVgB2//jpS9sMYoK/+j4Au9dmI4txkE+Rvb4yFbfhdiv4OvnXi8pMKvtN/SlNVQ6JreTns1K3K1nngCX25kQccYSoJINU6JXdpbYSLyC+/QqnsKvhqjmN/sz5naC40x4r9x4wfnatf4ba8noIJG7vH1IVVqae4pVvg+PwUiyr9VtCjQovego2/vuvUPTHrc3P4S4/+PplaTYAAAAAAA==",
+      "logoSourceUrl": "https://www.yourclassical.org/images/YourClassical-Social-Instagram-Profile-800x800.jpg"
+    },
+    {
+      "id": "linn-classical",
+      "name": "Linn Classical",
+      "genre": "classique",
+      "category": "classique-thematique",
+      "description": "Webradio classique du fabricant hi-fi écossais Linn, diffusée en haute qualité (320 kbps).",
+      "stream": "http://radio.linn.co.uk:8004/autodj",
+      "homepage": "https://www.linn.co.uk/linn-radio",
+      "country": "GB",
+      "region": "Écosse — Glasgow",
+      "codec": "MP3",
+      "bitrateKbps": 320,
+      "tags": [
+        "classique",
+        "haute fidélité"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/linnclassical.png",
+      "notes": "Flux en HTTP clair uniquement (autorisé par network_security_config)."
+    },
+    {
+      "id": "radio-classique",
+      "name": "Radio Classique",
+      "genre": "classique",
+      "category": "classique-detente",
+      "description": "Radio privée française de musique classique : grandes œuvres, musiques de films et chroniques.",
+      "stream": "https://radioclassique.ice.infomaniak.ch/radioclassique-high.mp3",
+      "homepage": "https://www.radioclassique.fr/",
+      "country": "FR",
+      "region": "Paris",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "classique",
+        "musiques de films"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/radioclassique.png"
+    },
+    {
+      "id": "france-musique-easy",
+      "name": "France Musique — Classique Easy",
+      "genre": "classique",
+      "category": "classique-detente",
+      "description": "Webradio de France Musique aux œuvres classiques les plus accessibles, pour une écoute détendue.",
+      "stream": "https://icecast.radiofrance.fr/francemusiqueeasyclassique-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/francemusique",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "classique",
+        "détente"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/francemusique.png"
+    },
+    {
+      "id": "classic-fm",
+      "name": "Classic FM",
+      "genre": "classique",
+      "category": "classique-detente",
+      "description": "Grande radio privée britannique de musique classique : œuvres célèbres, musiques de films et détente.",
+      "stream": "https://media-ice.musicradio.com/ClassicFMMP3",
+      "homepage": "https://www.classicfm.com/",
+      "country": "GB",
+      "region": "Londres",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "classique",
+        "musiques de films",
+        "détente"
+      ],
+      "language": "en",
+      "logo": "data:image/webp;base64,UklGRigDAABXRUJQVlA4IBwDAABQEwCdASqAAIAAPjEYiEQiIYkk5BABglpbuFz6+qmQBwAH6gdYz5KFzN8C/Fh9vN6Q6clNp7+77wN8l/yPGDTIv6R/pP6r+QH0l/x3/S8r/0x/yPcG/Un/fhVcpR42GiXEtNEi+1Xmq4zolG3oZhxbv6hNRPGU/X9EnNBAQnSFdrxKsGwHEc/Tu3qGl/x18HZ86qY4fAxylHkx9YhCXholxLOAAP7/y9hwtqMQZYAKHKXZYsk46opD+IZ0x031GxoC3Uaj7J91FuFwUNm8Uf2qO/3/nHWtB3EfQu7iQ0V8ptMv2lsdonxB1H1u8NPx+fR3pk/qu1UprsADOrLzeWbyVkuMjhDWITo3JxtZvcJnpVVKULjXoEeZrbzuCyjNBP9T4ZxojMDpwVRUHX8b46pTBbrZVST8VC/1qPZbsZtTsy8bc0SFvtfr7h6ECkunrOgPrCr/urEZdTT/MEfa/A1DJ4/D7A1cIbHeHLQTmMgWKp5WSLP9p0i2+DXxzbr3sxl+x/+X2IIsH1cofQG9XnCFhNAzqq4HUK4GsvT8EK6O4p/xp/jDrFy6z4IADApTptrIka6/Y/3+z4x2a7Td90W1X9HPAQ//iY/wufzxhAxKv+kB/nStuUJvKnAXnEn+g7ABSTeDwjh4UhBPX/Vs1chHaavGzLF+dQ9/3VdkvOKdX+glefqSn2MRqdEfZOC0Krmn5kLnfEGoRTpTxzRrMbuxKb0XHOwQNikMn2jELRaUiHfee/8ANAelNvdcY+4NWo9f9pOElXdvjw184hGvGu/13b78xzlx8fYw+ibrbEp+4AaYEKHM0mgO5SfcUSRAnkDDdt5076oEO/vUivluuM82Nc2tHd7rdkV+qbRRuNeD85J8dLWqxBKmCGFI4DtZGevn/oVsiapePlPOsTHllQM+oYnSsSWv6jJnieVAu2FN4aFGv6rU82p1MRp0QGyTXGQoqtkkYscu9kQMPFV5YYAkgVvGhn5Yx0v22qF7T0jd0/VPldkf3QIe4+mQKvhA6Z6yWG6Mi3IwNZI8bXOnNEfStOf/A/Hu6AAAAAAA",
+      "logoSourceUrl": "https://www.radio.net/300/classicfm.png"
+    },
+    {
+      "id": "klassik-radio",
+      "name": "Klassik Radio",
+      "genre": "classique",
+      "category": "classique-detente",
+      "description": "Radio privée allemande de musique classique et de musiques de films, pour une écoute détendue.",
+      "stream": "https://live.streams.klassikradio.de/klassikradio-deutschland/stream/mp3",
+      "homepage": "https://klassikradio.de/",
+      "country": "DE",
+      "region": "Allemagne",
+      "codec": "MP3",
+      "bitrateKbps": 192,
+      "tags": [
+        "classique",
+        "musiques de films",
+        "détente"
+      ],
+      "language": "de",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/klassikradio.png"
+    },
+    {
+      "id": "venice-classic-radio",
+      "name": "Venice Classic Radio",
+      "genre": "classique",
+      "category": "classique-detente",
+      "description": "Webradio italienne de musique classique sans publicité : baroque, classique et romantique en continu.",
+      "stream": "https://uk2.streamingpulse.com/ssl/vcr1",
+      "homepage": "https://www.veniceclassicradio.eu/",
+      "country": "IT",
+      "region": "Italie — Venise",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "classique",
+        "baroque",
+        "sans publicité"
+      ],
+      "language": "instrumental",
+      "logo": "data:image/webp;base64,UklGRhIIAABXRUJQVlA4IAYIAACQKwCdASqAAIAAPjEYikMiIaESTHYIIAMEs4Bq6NAbcbzAfwD+YZIt+wHsAfrN6VX6q/B9+wvo7f//WwF1/0b8Wv2x9Z/wP49+rfkr/SNxu9B/4v9PvpP5Af1X9sPZA/CvzB9Jv43fAF+KfyP+kflL+S3tG/kH4k+G3Wz7APgC9UPin+H/Gf+3fsZ7AP65zAH8T/kf9n/LX9/+jf7N9gD+Pf0z/Y/2X8qvpP/Vf9x+X3+99pv5X/dv+h7g38e/mf+U/s3+M/7v95////45kL9of/+cFvm75uw4rMt9soQKKRMdUk4uAozbIEEdtdJmTridOVkNCd8GQFxI0+KRA7XTrLT4Bz0luTLsrpJ1TauADMZ1qDTHtFX8lbqr5tw03vkhwIfnQ0R1VWOy2dAjLocVO7pFsfJgq9zdqId9xmpu/lAuTXvzcZ60wABJJ94bObaL7/hUrh6wesHqn3hoJh9JI2cGX3AA/v5tftUUT8ADr/+si2SvfKsu3f6MB3kkRWqYCz7WcEyOBUIO/xJPvMwfkFujSz0i5YCDzPXUu4HjsH7aKPRvVgPkdt75FVf+qvJoL/dnMaTdpHq6g3vX2sfYS1zfGHsLq3Cv81ueh05LUv4wfNZ8upiEUbIxaunVx+p4dPawbSWfeVFBPp5/RQCPojwkwO8V4oU2b+mqjPMcvgyV4d5VABY5MDKtA4+1CKbOpzY8p2iTQMVhojKTsl+NK8eaEHqKHm/pB0fEKJkYJCt8GmZ6xH968kCAaOuYQo7vdBOyFT915/ebjJwPTroQiwAyfftO44PnYy1o5vdgP6JKiCZABJuB2SwcynGI3WfqWt5/0pePc1JHqhbAZm/8JxBecrp9dDDimZTOwXIfAaUG07ILENGo6BzcFcraEEa9r0xLm3m82X6TCiukNZWvJblMp+1EFbzZjkmwGq2zChZeWSg7JA9F5ylqJHDezy12Gz4YdrkYmGYWQmW1vfjK6+TQaoQ2dAxf718lk47+Xu9vwrBjN7VhwGxhvDCYbOcS5d0nZQkY77ECMco1JJ7xL2bogcr5ewJTC3in6CVFNd6e2gtMluINfLVpQ/bNH4+AAdhieF37MuXPPhXwSfoBBQ7j9Yr4ObjS76mI2xrYK7firpJua0+DwKxhfweMIEc+z0/1RRu37ldhlxNqqer/dctiA3YVCuJakI4KuWRWjjFAYqeZnwNK7dMhoLmZrpFNvxzPakdWvl9CV89EQvJM3bQb3oB5EO91CV5RHPXWD0bkjYk+2MmSLDCeX+vJ9A/clHQH2BFNrmcTOmtk9UCt+/1uf2cspIsmJnRDyuN7UIps6nNjyml064rC5+HJ14h+uTv1sY6gOxZvuoAOg+1KzNFNpgw1KUxoHRNY9kNKKzEPpp/dYb3hdnfDG4Q1gjXAF6/4LwKxp3/31dXsZIsRFl/d8T6x0HdFZYZ/3/j3OEB36tEJZAPowqfZ/GGcbAiOw34qAIM2XDp97WlTCNWDB3cyD5L99T910vWiuCvLTWs5S2YEI//a8PyXlsvNydyWa5/zd94Ck6xPD6ded2YoYMFOF/LWVWVqwk9La2vfQPIuJVZ6FSuGDjdCYZVKLA/9ZFSL0cxb+ukgWIvHhCMu86PUN33xBPXnL8Rnr4aJiCVylt734pCTjD9T4tiUt91jlOMgQN2NuXU5R/BNp8VeFBAqwP6LZnhoQzuqHHargV6vUw0dkk/b9lzcRtoO6WmF0/0HJsERejmLfuIenlp5RVep6C3XsYOilP+O1y/8V5Q8uf0de2cVbA+dKssk5c6a3dXkU5pENMTSG5qxAMJkaPSuBMzYQYr0EilyoW9waEk6GZGWWpIeMvny/G9P2WR5OQYSpavZ19RHMbWJ3P6MP/Ao8+lw7nGKHP7nDAeejnQonDlzPFEp7HDPIX6yaNHFw3jP4abihArAJYLolPmtoWTrh/Uy1HJK/KqnIeqKXolJsO9xU41E3VmsKIcsz1r5QzrZGFSaBUU65wSwUc+h3iBC10nePLCMyVUDP5ctBYt28AvuckvXnM2bgshWlHwEBiQ3dYZ7M+P2AlxUkufb1QF3YoIz9EkpH6P+EfJY0NCXplAShtyCX6X27S+jvNGZTnjr3hPk6TEf9n+P/v/p+IqbvKy5yIU70M/o/4m9erxA0yLnF5rEefRXjIhimB++bnIT/oT7O9nAMogA6F0r99/3lD/MECC9JqA856uRo9Ux9GMD1l8OnxPeglFHdw9f9xE74z5uzFcpo/Q//+/sgFf2q4eOzoF4xydzeERhn62d4K+A4GXodk1IUkYWALjodXt8rvfUaZ7HExR++sa+kiW0Er/1SeJJt5GufOFcT2g9SAq6iO10LoRgiUooXPl0q7+l+3X/ln3yqYldtX907hdrOR5OFK9xMC39s1h/+cr0yV+t/odXb+R/QZrsSU/Z1CxjB1r+e8x+EfZeGmlfbN1fPkN4hnf0wq+Qf3L7SXeYnFAQuNwKFTv70C/xhRRU1KN5CB0Ff7C5zb/FtcjoXng0IGkGEWudKn88Xo3Zk9qK5Zw4syK9ScISDdkF6uXEdUMcLO1Y/9NlIHielbfX2C6GYlsLX5zHsuZndOtLeer+SnlbN/hahksHOYpn9AIrjzKYk5gweUVr1iScyPqo55gAsHGhFXlFj536hdzH9apJfN/Q0BjJDrBmi9AABv/Yxu+SzhufvWW8gPIpbx6P/9e3f9BrJ0N//+vbv+g1k6E3INgAAA==",
+      "notes": "Logo générique : aucun logo officiel exploitable n'a pu être récupéré."
+    },
     {
       "id": "canal-flamenco",
       "name": "Flamenco Radio — Canal Sur (RTVA)",

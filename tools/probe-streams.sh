@@ -30,7 +30,7 @@ probe() {
     br=$(grep -i '^icy-br' "$h" | tail -1 | cut -d' ' -f2- | tr -d '\r' | sed 's/^icy-br://')
     size=$(stat -c%s "$b")
     # HLS : la playlist est du texte ; on télécharge un segment pour vérifier qu'il y a de l'audio.
-    if [[ "$ct" == *mpegurl* ]] && head -c 7 "$b" | grep -q '#EXTM3U'; then
+    if [[ "${ct,,}" == *mpegurl* ]] && head -c 7 "$b" | grep -q '#EXTM3U'; then   # insensible à la casse
         local seg
         seg=$(grep -v '^#' "$b" | grep -v '^[[:space:]]*$' | tail -1)
         [[ "$seg" != http* ]] && seg="${url%/*}/$seg"
