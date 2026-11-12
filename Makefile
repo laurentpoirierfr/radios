@@ -22,7 +22,7 @@ GDRIVE_COPY ?= gdrive-copy.sh
 export JAVA_HOME
 
 .DEFAULT_GOAL := help
-.PHONY: help build apk upload release install run test test-device check-config emulator logcat stop clean
+.PHONY: help build apk upload release install run test test-device check-config check-streams emulator logcat stop clean
 
 help: ## Affiche cette aide
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | \
@@ -65,6 +65,9 @@ check-config: ## Valide config/radios.json contre le schéma JSON (python3 + jso
 		cfg = json.load(open('radios.json')); \
 		jsonschema.validate(cfg, json.load(open('radios.schema.json'))); \
 		print('OK,', len(cfg['stations']), 'stations')"
+
+check-streams: ## Vérifie depuis le PC que tous les flux de la config répondent (sans émulateur)
+	tools/probe-streams.sh --config config/radios.json
 
 emulator: ## Démarre l'émulateur (AVD=Medium_Phone par défaut)
 	$(EMULATOR) -avd $(AVD) > /dev/null 2>&1 &
