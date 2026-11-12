@@ -27,6 +27,7 @@ make apk        # copie l'APK dans dist/radios-<version>-debug.apk (à envoyer p
 make upload     # make apk + envoi sur Google Drive (gdrive-copy.sh / rclone, dossier Transferts/)
 make run        # installe et lance sur l'émulateur/appareil connecté
 make test       # tests unitaires ; make test-device pour les tests instrumentés
+make check-streams  # vérifie depuis le PC que tous les flux de la config répondent
 make emulator   # démarre l'AVD Medium_Phone
 ```
 
@@ -65,8 +66,9 @@ app/src/main/java/fr/lpoirier/radios/
 - Radios avec titre en direct (ICY) : le morceau s'affiche dans le mini-lecteur et l'écran lecteur.
 - Favoris : cœur sur une radio → section « ★ Favoris » en tête, conservée au redémarrage.
 - Recherche : « radiole » trouve « Radiolé » (insensible aux accents).
-- Genres : puces *Tous / Flamenco / Jazz / Techno* sous le titre ; la couleur du genre s'applique
+- Genres : puces *Tous / Flamenco / Jazz / Techno / Culture / Cultura* sous le titre (sur plusieurs lignes si besoin) ; la couleur du genre s'applique
   à la liste et à l'écran lecteur, le choix est conservé au redémarrage. Une recherche
   porte toujours sur tous les genres.
-- Vue *Tous* : favoris puis un carrousel horizontal par genre (tous visibles d'emblée) ;
+- Flux HLS (RNE Radio 3, *Cultura*) : lecture via `media3-exoplayer-hls`.
+- Vue *Tous* : favoris puis un carrousel horizontal par genre ;
   toucher un logo lance/met en pause la radio, « Voir tout → » ouvre la liste du genre.

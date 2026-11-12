@@ -83,6 +83,8 @@ dependencies {
 
     implementation(libs.media3.exoplayer)
     implementation(libs.media3.session)
+    // Flux HLS (.m3u8), ex. RNE Radio 3 / Radio Clásica : détectés automatiquement par ExoPlayer.
+    implementation(libs.media3.exoplayer.hls)
 
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.serialization.json)

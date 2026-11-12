@@ -1,12 +1,12 @@
 # 📻 Radios
 
-Application Android d'écoute de webradios classées par genre (flamenco, jazz, techno…),
+Application Android d'écoute de webradios classées par genre (flamenco, jazz, techno, culture…),
 pilotée par un fichier de configuration (`config/radios.json`) contenant les
 genres, leurs catégories, la liste des radios, leurs flux et leurs logos en base64.
 
 ---
 
-## 1. Les 43 radios recensées (flux vérifiés le 11/11/2026)
+## 1. Les 59 radios recensées (flux vérifiés les 11 et 12/11/2026)
 
 ## 🎸 Flamenco — 14 radios
 
@@ -101,6 +101,49 @@ genres, leurs catégories, la liste des radios, leurs flux et leurs logos en bas
 | **Sunshine Live — Schranz** | `https://stream.sunshine-live.de/schranz/mp3-192/stream.sunshine-live.de/` | 192 kbps MP3 | Bade-Wurtemberg — Mannheim |
 | **EILO — Hard Techno Radio** | `https://eilo.org/streamer.php?ch=hard` | 128 kbps MP3 | internationale |
 | **Radio Caprice — Acid** | `http://79.111.119.111:8000/acid` | 320 kbps AAC | Russie |
+## 📚 Culture — 8 radios
+
+Radios culturelles en français : livres, idées, arts, documentaires, fiction et théâtre.
+
+### Radios culturelles publiques — France, Suisse, Belgique, Québec
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **France Culture** | `https://icecast.radiofrance.fr/franceculture-hifi.aac` | 192 kbps AAC | Paris (Radio France) |
+| **RTS Espace 2** | `https://stream.srg-ssr.ch/srgssr/espace-2/mp3/128` | 128 kbps MP3 | Suisse romande (RTS) |
+| **RTBF La Première** | `https://radios.rtbf.be/laprem1ere-128.mp3` | 160 kbps MP3 | Bruxelles (RTBF) |
+| **ICI Première — Radio-Canada** | `https://playerservices.streamtheworld.com/api/livestream-redirect/CBFFM_SRC.mp3` | 128 kbps MP3 | Québec — Montréal |
+
+### Radios associatives, arts & création sonore
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **Radio Grenouille** | `https://live.radiogrenouille.com:8443/live` | 256 kbps MP3 | Provence — Marseille |
+| ***Duuu** | `https://duuu.out.airtime.pro/duuu_a` | 192 kbps MP3 | Paris |
+| **Radio Campus Paris** | `https://www.radiocampusparis.org/stream/` | 320 kbps MP3 | Paris |
+| **Radio Galère** | `http://www.radiogalere.org:8080/galere.mp3` | 160 kbps MP3 | Provence — Marseille |
+
+## 🎭 Cultura — 8 radios
+
+Radios culturales en español: literatura, ideas, artes y música, de España a América Latina.
+
+### Radios culturales públicas — España y América Latina
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **RNE Radio 3** | `https://rtvelivestream.rtve.es/rtvesec/rne/rne_r3_main.m3u8` | 192 kbps HLS | Madrid (RTVE) |
+| **RNE Radio Clásica** | `https://rtvelivestream.rtve.es/rtvesec/rne/rne_r2_main.m3u8` | 192 kbps HLS | Madrid (RTVE) |
+| **Radio Educación — Cultura 96.5** | `https://s2.mexside.net/8174/stream` | 128 kbps MP3 | Ciudad de México |
+| **Radio Nacional de Colombia** | `http://shoutcast.rtvc.gov.co:8000/` | 64 kbps AAC | Bogotá (RTVC) |
+| **Radio Nacional Clásica** | `https://sa.mp3.icecast.magma.edge-access.net/sc_rad37` | 160 kbps MP3 | Buenos Aires |
+
+### Radios universitarias y culturales
+
+| Radio | Flux | Débit | Localisation |
+|---|---|---|---|
+| **Radio UNAM** | `https://tv.radiohosting.online:9484/stream` | 128 kbps MP3 | Ciudad de México |
+| **Radio Universidad de Chile** | `http://streamuchile.teslati.com/liveruch` | 112 kbps MP3 | Santiago |
+| **Radio Universidad de Guadalajara — Puerto Vallarta** | `https://stream.zeno.fm/8dr2yf092hhvv` | 128 kbps MP3 | Jalisco — Puerto Vallarta |
 Détails complets (descriptions, étiquettes, logos base64 128×128, sources) :
 [`config/radios.json`](config/radios.json) — documentation :
 [`config/README.md`](config/README.md).

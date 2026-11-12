@@ -52,7 +52,8 @@ fun CarouselBlock(
     Column(Modifier.fillMaxWidth().padding(top = 12.dp)) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 4.dp),
+            // Marge droite : « Voir tout » reste à l'écart de l'ascenseur vertical.
+            modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 24.dp),
         ) {
             Column(Modifier.weight(1f)) {
                 Text(

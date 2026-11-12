@@ -72,6 +72,14 @@ consommer `radios.json`.
 | `techno` | `techno-reference` | Grandes radios techno — Detroit, Berlin, clubs | 6 |
 | | `techno-minimal-dub` | Minimal, dub & deep — styles atmosphériques | 5 |
 | | `techno-hard` | Hard, acid & schranz — styles rapides et sombres | 4 |
+| `culture` | `culture-publique` | Radios culturelles publiques — France, Suisse, Belgique, Québec | 4 |
+| | `culture-associative` | Radios associatives, arts & création sonore | 4 |
+| `cultura` | `cultura-publica` | Radios culturales públicas — España y América Latina | 5 |
+| | `cultura-universitaria` | Radios universitarias y culturales | 3 |
+
+Les genres *Culture* (français) et *Cultura* (espagnol) sont des radios parlées :
+documentaires, fiction et théâtre n'ont pas de flux dédié en direct, ils sont repérés
+par les étiquettes `documentaire`, `fiction`, `théâtre` (recherche dans l'app).
 
 La cohérence genre ↔ catégorie (une station ne peut pas utiliser la catégorie
 d'un autre genre) n'est pas exprimable en JSON Schema : elle est vérifiée par
@@ -81,10 +89,21 @@ les tests unitaires (`make test`).
 
 1. Ajouter une entrée dans `genres` (nom, description, couleur, catégories).
 2. Ajouter les stations avec `"genre": "<id>"` et une catégorie de ce genre.
-3. `make check-config && make test`, puis `make test-device` pour vérifier les flux depuis Android.
+3. `make check-config && make check-streams && make test`, puis `make test-device`
+   pour vérifier les flux depuis Android.
+
+### Outils (`tools/`)
+
+| Outil | Rôle |
+|---|---|
+| `tools/probe-streams.sh URL…` / `--config` | vérifie qu'un flux répond et envoie de l'audio (MP3/AAC/OGG, HLS : playlist + segment) ; `make check-streams` l'applique à toute la config |
+| `tools/mp3-bitrate.py URL…` | mesure le débit réel d'un flux MP3 (trames) quand `icy-br` manque ou est faux |
+| `tools/make_logo.py IMAGE` | logo 128×128 en data URI (PNG/JPEG/WebP/ICO/SVG, fond, marge, recadrage) ; `--generic` pour un logo texte |
 
 ### Historique
 
+- **2.2.0** — genres *Culture* (8 radios francophones) et *Cultura* (8 radios
+  hispanophones) ; premiers flux HLS (`codec: "HLS"`, RNE Radio 3 et Radio Clásica).
 - **2.1.0** — ajout du genre techno (15 radios). Logos génériques pour Minimal Mix
   et Radio Caprice (aucun logo officiel récupérable, signalé dans `notes`).
 - **2.0.0** — introduction des genres : `categories` racine → `genres.<id>.categories`,

@@ -1,6 +1,6 @@
 {
   "$schema": "./radios.schema.json",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "generated": "2026-11-11",
   "genres": {
     "flamenco": {
@@ -32,6 +32,24 @@
         "techno-minimal-dub": "Minimal, dub & deep — styles atmosphériques",
         "techno-hard": "Hard, acid & schranz — styles rapides et sombres"
       }
+    },
+    "culture": {
+      "name": "Culture",
+      "description": "Radios culturelles en français : livres, idées, arts, documentaires, fiction et théâtre.",
+      "color": "#2B62B8",
+      "categories": {
+        "culture-publique": "Radios culturelles publiques — France, Suisse, Belgique, Québec",
+        "culture-associative": "Radios associatives, arts & création sonore"
+      }
+    },
+    "cultura": {
+      "name": "Cultura",
+      "description": "Radios culturales en español: literatura, ideas, artes y música, de España a América Latina.",
+      "color": "#C2571A",
+      "categories": {
+        "cultura-publica": "Radios culturales públicas — España y América Latina",
+        "cultura-universitaria": "Radios universitarias y culturales"
+      }
     }
   },
   "sources": [
@@ -39,7 +57,8 @@
     "Sites officiels des radios (flux et logos)",
     "radio.net (logos Canal Flamenco / Canal Fiesta)",
     "Jazz : flux vérifiés le 11/11/2026 (en-têtes ICY + réception audio), logos des sites officiels et de radio.net (FIP, France Musique)",
-    "Techno : flux vérifiés le 11/11/2026 (en-têtes ICY + réception audio), logos des sites officiels ; logo générique pour Minimal Mix et Radio Caprice"
+    "Techno : flux vérifiés le 11/11/2026 (en-têtes ICY + réception audio), logos des sites officiels ; logo générique pour Minimal Mix et Radio Caprice",
+    "Culture / Cultura : flux vérifiés le 12/11/2026 (en-têtes ICY ou playlist HLS + audio), logos des sites officiels, radio.net et TuneIn ; logos génériques signalés dans notes"
   ],
   "license": {
     "stations": "Flux publics diffusés par chaque radio ; logos © leurs propriétaires respectifs",
@@ -948,6 +967,360 @@
       "language": "instrumental",
       "logo": "data:image/webp;base64,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",
       "notes": "Flux en HTTP clair sur une adresse IP. Logo générique : aucun logo officiel exploitable n'a pu être récupéré."
+    },
+    {
+      "id": "france-culture",
+      "name": "France Culture",
+      "genre": "culture",
+      "category": "culture-publique",
+      "description": "La radio culturelle de Radio France : livres, idées, sciences, arts, documentaires de création, fiction et théâtre radiophonique.",
+      "stream": "https://icecast.radiofrance.fr/franceculture-hifi.aac",
+      "homepage": "https://www.radiofrance.fr/franceculture",
+      "country": "FR",
+      "region": "Paris (Radio France)",
+      "codec": "AAC",
+      "bitrateKbps": 192,
+      "tags": [
+        "littérature",
+        "idées",
+        "documentaire",
+        "fiction",
+        "théâtre",
+        "arts"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/franceculture.png"
+    },
+    {
+      "id": "rts-espace-2",
+      "name": "RTS Espace 2",
+      "genre": "culture",
+      "category": "culture-publique",
+      "description": "La chaîne culturelle de la radio publique suisse romande : littérature, arts, idées, fictions et musique classique.",
+      "stream": "https://stream.srg-ssr.ch/srgssr/espace-2/mp3/128",
+      "homepage": "https://www.rts.ch/audio-podcast/",
+      "country": "CH",
+      "region": "Suisse romande (RTS)",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "littérature",
+        "arts",
+        "fiction",
+        "documentaire",
+        "musique classique"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,UklGRvwBAABXRUJQVlA4IPABAADQEQCdASqAAIAAPjEWiUKiISEXTpywIAMEpu3V4DJmQW9G/JD8buRKG6fcB77PUxtyfMB+u36S4ABZRviiaAYQDXQP9UNyomBmzPc9rZwjnu847f01te76iklIGJ/gVxeNr3fb6PQdAS5dPSvzQbelsnSU5w8sTq7g13t+ivmqHnMQAIUw6nQpBp9YgWYkh/A0sxCEYHAAAP7yAP/9tDYIsh2TfMqXBr64AcDwpvJ9snLz9X6U0PWb/5bWjsfyH1jLDsvPv/utgOg3LaBAdylZ7Y/l3ee2Itef6WDO3CWVXYnzrslIwnxfQA0IguEb116WhNknBf69/4zAh+qIl7ltGd942CPr0uJTIbF1EloNLVB3wBg/Bqc4u+3/7+PLafjF6sQk8iiyJ4XxJrkXwd9RH5Wu7dkdAgxZy3KPVYOlDpj1Ltu0n+hmWBwSYAFb/Jr/zT+1/3877iXBGVl/wlJdm/nZ6uaAYlJ1G/4NwwLxYcDC5JHJRk+lt3Z/l/V9/eAbZl8SEYPtWEl0v60E0IMQ30RJCr+vzwD+bT5Rj4vRrRuIFEIEcYO69sjPPmfI6xA8EK8Ee+m6tTuWZgU0l6LJVas0I/7F8PqZ/q62wpOXEh6s0LyVmRFwHXYnkk/bnfNW6hc09DpWMOVMgl4AAAAA",
+      "logoSourceUrl": "https://www.radio.net/300/espace2.png"
+    },
+    {
+      "id": "rtbf-la-premiere",
+      "name": "RTBF La Première",
+      "genre": "culture",
+      "category": "culture-publique",
+      "description": "Première chaîne de la radio publique belge francophone : idées, culture, magazines, documentaires et fictions, avec l'actualité.",
+      "stream": "https://radios.rtbf.be/laprem1ere-128.mp3",
+      "homepage": "https://www.rtbf.be/lapremiere",
+      "country": "BE",
+      "region": "Bruxelles (RTBF)",
+      "codec": "MP3",
+      "bitrateKbps": 160,
+      "tags": [
+        "culture",
+        "idées",
+        "documentaire",
+        "fiction",
+        "magazines"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/rtbflapremiere.png"
+    },
+    {
+      "id": "ici-premiere",
+      "name": "ICI Première — Radio-Canada",
+      "genre": "culture",
+      "category": "culture-publique",
+      "description": "La radio parlée de Radio-Canada à Montréal : culture, société, entrevues et grands magazines.",
+      "stream": "https://playerservices.streamtheworld.com/api/livestream-redirect/CBFFM_SRC.mp3",
+      "homepage": "https://ici.radio-canada.ca/ohdio/premiere",
+      "country": "CA",
+      "region": "Québec — Montréal",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "culture",
+        "société",
+        "magazines",
+        "entrevues"
+      ],
+      "language": "fr",
+      "logo": "data:image/png;base64,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",
+      "notes": "Logo générique : aucun logo officiel exploitable n'a pu être récupéré."
+    },
+    {
+      "id": "radio-grenouille",
+      "name": "Radio Grenouille",
+      "genre": "culture",
+      "category": "culture-associative",
+      "description": "Radio associative marseillaise (88.8 FM) tournée vers la création sonore, les arts et la vie culturelle de la ville.",
+      "stream": "https://live.radiogrenouille.com:8443/live",
+      "homepage": "https://www.radiogrenouille.com/",
+      "country": "FR",
+      "region": "Provence — Marseille",
+      "codec": "MP3",
+      "bitrateKbps": 256,
+      "tags": [
+        "création sonore",
+        "arts",
+        "culture",
+        "documentaire"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://cdn.radiogrenouille.com/2026/09/images.webp"
+    },
+    {
+      "id": "duuu",
+      "name": "*Duuu",
+      "genre": "culture",
+      "category": "culture-associative",
+      "description": "Webradio parisienne consacrée aux arts : lectures, poésie, art sonore et concerts enregistrés.",
+      "stream": "https://duuu.out.airtime.pro/duuu_a",
+      "homepage": "https://duuuradio.fr/",
+      "country": "FR",
+      "region": "Paris",
+      "codec": "MP3",
+      "bitrateKbps": 192,
+      "tags": [
+        "poésie",
+        "lectures",
+        "art sonore",
+        "concerts"
+      ],
+      "language": "fr",
+      "logo": "data:image/png;base64,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",
+      "notes": "Logo générique : aucun logo officiel exploitable n'a pu être récupéré."
+    },
+    {
+      "id": "radio-campus-paris",
+      "name": "Radio Campus Paris",
+      "genre": "culture",
+      "category": "culture-associative",
+      "description": "Radio associative étudiante de Paris (93.9 FM) : culture, cinéma, idées et découvertes musicales.",
+      "stream": "https://www.radiocampusparis.org/stream/",
+      "homepage": "https://www.radiocampusparis.org/",
+      "country": "FR",
+      "region": "Paris",
+      "codec": "MP3",
+      "bitrateKbps": 320,
+      "tags": [
+        "radio étudiante",
+        "culture",
+        "cinéma",
+        "découvertes"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radiocampusparis.org/favicon.svg"
+    },
+    {
+      "id": "radio-galere",
+      "name": "Radio Galère",
+      "genre": "culture",
+      "category": "culture-associative",
+      "description": "Radio associative marseillaise (88.4 FM) : culture, expression citoyenne et émissions multiculturelles.",
+      "stream": "http://www.radiogalere.org:8080/galere.mp3",
+      "homepage": "http://www.radiogalere.org/",
+      "country": "FR",
+      "region": "Provence — Marseille",
+      "codec": "MP3",
+      "bitrateKbps": 160,
+      "tags": [
+        "radio associative",
+        "multiculturel",
+        "culture"
+      ],
+      "language": "fr",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/radiogalere.png",
+      "notes": "Flux en HTTP clair uniquement (autorisé par network_security_config)."
+    },
+    {
+      "id": "rne-radio-3",
+      "name": "RNE Radio 3",
+      "genre": "cultura",
+      "category": "cultura-publica",
+      "description": "La radio cultural de RNE: música alternativa, cine, literatura y creación, con una programación de autor.",
+      "stream": "https://rtvelivestream.rtve.es/rtvesec/rne/rne_r3_main.m3u8",
+      "homepage": "https://www.rtve.es/play/radio/radio-3/",
+      "country": "ES",
+      "region": "Madrid (RTVE)",
+      "codec": "HLS",
+      "bitrateKbps": 192,
+      "tags": [
+        "cultura",
+        "música alternativa",
+        "cine",
+        "literatura"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,UklGRjINAABXRUJQVlA4ICYNAAAwOwCdASqAAIAAPjEWiUKiISETyZ7sIAMEtgBpcDSBL93/KL8o/loq79G+8v9V/5/+y56+o/Lb8m/T/8n+YX+2+av6zeyH8y/7v3Bv0r/0n9j/G7uZeYD+V/2r/i/673UP87/tP8r7mP2T9gD+df4brKv2y9gj9k/Vi/4X/j/6HwhftV+33wJfr9/4c1k7cP8J+RHX0+PfaP91Ohf0j/kfyZ9yf4l9p/wn9r/bD8yOhH4mf2HoM/yr+7flV+UHHt6f+zvqBern0H/beE1qod+PYA/Vr/X+UV4dtAv9F+q1/Z/+H7t/d/+f/6n/wf5f4Ev1w/4bGzJLhMxkhKMG2Mgi4zN7o3RePmzVy46A4nvTjDDbaeULVo63VN0ZUcEu5ds5driQi5ZnHjbElquWRcfXXLFJVuGS2f/tF9t0446BqgUDVHzPoZkbO0ymiRECof6AyswtInuEVh0a2O/3ywWKWGAi/k/GEugVNZ4p5ZLiuP/xlunmM9zGpetMxLGksWe2CRjUjkueBnLFWhCIYV+wuC3MNdjIM4rSIHV9qME1tbWX6/kGT90Xdo17XZB+/5kY4g5z4b5H4UdCY0oFXF/Hgkrqdj5ycGWM22xWhQRPmYzCJcZQEdJ3YY9OLVmKQGNYAAD+/3yAAAIIxrP1Em8obi7JXhFeOq+tFi0ZlvPmbMocH+WM8T8khL2lHc+cP4lyFBxq77nDb90ufayeC6g4VS4BUwd9unlSf50jz88ZyhkTwNkNAFNTLjrbfLjCAEJcXPDUMpTz4eCMkptOWLUeXnKm71c69UWxsHT+T919E9mYcklYmUdGcgLjG6dJaFdU7jwYw9y0tc3kyBScfIhU/rWkyJzrr2eEanBGA8Q+8KfQES87LbQW8F+QAnIvqp/v6CbzMv9qCgZAShwmvtGGkwVIvcwrJ+iZPJsvq66T4N5QaIAgZhsLfAiAoyNfaKBrVU5c7XjwskXhcKLmB7ewckuI9/JsuVz3mCqsoFsbmMw9YCA8oWk+kGwWveqiyIL3wknlrnsANP9vt1i0loj3AooEXFQtzSHddUpjmAVK/xP/ruk8BIkjb0r17jV8YC0pFDK4kL0Xc8QF8SEnIjRxCcQ2rMEmDRuARLl1Kw9121/hQtmttRXIhLDBc3aIW/453MEzIQC5rr+ePlJsuyHp86OWPm6zaduveUxPtO/yiBVWaOuPPRoENidnX4GUj98W5BCfNewvpm+A/nqlW1FWlxfn4imPxdLIVThXv4xbrJ51Jn3uuIobb7xM/ISYxkV3WmDkFZ56+w9A/tIM1dk7EmUQ9H9iFlMk0U/8tKlgbiTwmdE1JPGZeGQtP7Ey9w9DD+dgr8WyKbETdlLDt8eCmL3FNsYLTAzms//MQ+SOMHEZO4Z/xCaOPXvOgCd1Qw607BbqxHXRn+TkBcSc7ZL7ssS/9LDTJsmUGuZRagqVy+zAFjwViA/4IJ45CebR+a7+SZfOccSJHdV3sx6JF9FgwPTPZRlT1fnAF9si6x7fvtuzM07SRT4kWwsHotg3X4Qcnf6AXL5Uii76tOa+Vo6Ygp8l/anc5rpdrKNgBagStXIppisOWQ+mpGrvvlAWKjhvAK8gCgQECs19RotWBSJDnS8n0sjEM6YQ9jFDjd9LWtqgmWeXyz6ljFFo08mdGWBnTyuQuoRNBPc1jzW7xDU92tI4j9yhl1sf9yHccbQ8ZodARF+UYdxQv2tYlf47FXNbHhDr2jePizuoKeHV9/mpMb1d9pKURl7TGV4tEvzX/36DtUfO2k1y7kZBCuzE3tv6PZfO6w8ZCKylX9HxgJ3zEPEX7Wkb7w9muyJQcLF7PFNKurDV/AsOBTN/z/ne6Diw46vynSk45ftXKFP6JbAAqM5mr62u9VVQ4NwVTIwLgxA0ts2rL6O0axQR+59LVdCIdJwKbywI7orzIOh7nXiC8XKKKGkP8ksNZm70pSkLy8U4dov8aewz4POn5+9PCPM8B2azxnr9aQ8a2zP5rOSz6jGbXt0lxB+zZjq7Rt4z20l9/KLYwC17XVj29FEAZLC1ADjQlmnyoQGoZh97CQoMoaXQBdCHHKTX51tjBrlqPL4Ay6L/Lr8h/FPpHtH25IXdw1xsJ1ZoVd3xlc/dF0tM5T4rHZsZ7c2RxhnPTH8dYH3Mr80uqU4hulfwqm/+6/nZ5QyND6ivPTZVPAL1VbUtzWpnHh3Had15jUSnV58/oQiXrZmZ8zEjZWOW9OvFeSPDJa5J+f9wroZdjTI7VGR3C7cjPBS1mIH1XyJ5C9Y9nlfDq4K6yNFtNeXUNnxdSmG06XKxhxfx0WgHaZDDDixbPsV2ACB/S157QA9ihmWr/JX/Vd/QULzuATyh2t/AK+PTaIticpJcl5GJwUfcTRwUNftegq6HHKuDfMqjHF7DaPIYw85ZVAhvrSvhblga3hXYcbahV2Z7BEaVS1fuj71zvzONU/LzaviKuzDSStOyfaO9aHvKgif4PaACpPcBFU32kz84LpGn7+VoPA+gGEOHxi9d1xWl2/ZXlSc0VOXUJEMVtanefWAmKb26HXQJQfuj/h8nq5ciKzWQHZn8oqIOBjJatCz+t4fG9RI8JK+on1desxu3iT30xkfWq/CE/r5zFnCA4mnYglX85B+lDYUwCM7Emo7xK+f4/b8CjmFel2dX757woaf3N3iB3XTY61EerGayqzFHd+kHzmwaKgRE+YvCI6NEJPWvECZBZxZzBr9BnhrWM6fjjqntFDuFve7GkU4kamRIpfmeL+dBs2H9KbYvJvxsqCj28D9AYn8DNou3T0JKjsE96vIV72xHviWhIS67/80YAr//6ib/GCtS0OtSiuQn4M9Gh0fbizr0nzP7cgLRT7k0idjqWcebm3b2YKAbe40DMy5/kVCx24U4jcGMNtdtHH6C9/WkLbfW85Vj5ZBb4iJvaeT4ugdd1qUlnCvCDCbXLy88LSbaeKPiE63jvJPEUONhrgeWFWZ+o0UETi1Hh03YemNtNrcQcMbFp1Zld60UHiwkaCt7JTzJ0bNgyZdILYtM4C9xxA9kkcdtBKxEWy05/oQoeV7q36/4/UULvvVxmeVl8BFBA6pkLl4tUD74/8ISuKBsC3PN7QFR/EIQpPrw7M1T0myPOW7TmQZOmeUd5EFwSW7YJeY7FpHOquLKxLXTQuXsDm6/gyV5aKQ4iK32h2jInPT3/grwWRToaNyU8bAjwjM3JXO+G9wPaMU3Qm16XGnE75Wd1suUwqhJWJVH917U1qJ/eijuvMrcL882ggdtzXnCLWa/hfLUEOsfyAbhiCOWQTSl6wGnlLasj9EMM0FJPHKKAfVyX3y/KtTzoaR2IDfd/BIynyrJZSrezZ/mWd/Lv/8usiP8qwaiaKYDIc+65690QuxZB+gdEqnhUH0cmRBy68UBfuMclCtzcQSZxjP2xMo1kBvHfoR4NiIGiv6IunYLyTRo81cSgrfz5dZhd+Vh60SwOIRj5kJZQxVzEQEi/fwequ9Z2mDlScmY+ODFWK3vKKkJpE5hRqGPDCVgjRij6NPqVBmH3gTgme81/w/4QXwIU3hCNJLYkLtdWXlgVZ0BaHWcfOSBh64ubL2rZqW4KD7RR/3ZUNKW1bqbiZAFik1RqFF23uwbwq2Wi1rPXJt4t69ov4AKcMp1X8BtM8FA4Izjyg0K79//xrvYXjTvnSRKh6/vedB0KhQpfu47KVQ/MuPvq4O2Fw6MjYOuDBHP2XjJI+xNosEOk93MzWIguxoS6f8jjzWaZU/O+g0hbO+J5PhU409b0Zfqs+6Qn1x8J/jgWOdVnR8xGpSbIGDciHXm31HfHGcugrXhLihEdNuhAJpgKxQvyXUIvv2r/eOdGjOCCCZNfblNWRJwa2HvN/BgJFEK05bRApT4rMtvKTK0MeXhybauk8bMzBg0h10pvEip09TCkfzJEysyy1Mg7Lki0DrkKbC775n9OWHgHHlxPCoKjN6h++r3j6a7LS0/tHwqBiHMbFRxMglFU4VTbQqtUT/idO71i8JCSycwE3geft4emYkPtCgehjMtYbq8cTI0hl3bRdodJc0niAULfcp4lBvp5RlUihpi+UtpwFyoNMSHwxsqTaoDoafdNJ3TfTlKtmYLP/LoISnq+JnswJb66W+Xjz7qZS2kBbUyhia4JWH2SLDXnWRjVHrP99HApZPOOF2x7eP3vqvJbgP09eTTGVa2OmcD+JeroJJ1soYj87EU+AlMkwPtDTZq+gM5qusih4PyyQK4d+8lKQR0lbDYlzvD21ykJN9OmLiQOOYZKoEUzb8gFO/5kbE5PquafBPwmEr4V073T5yq6UBvju/57/HleXrfC7AHda8VbGdiED3F9pxu0QLjTWPv/WSFSFAAAABVQW2QbdspdAxOQm/jGc1zq5aqm5XWic7nIZ/HN+xWKBuSZuYDqHz0ufUeKeTjveSdbPk2FUIHU8enrOdodFYpZAOvD0NYf1XSTNaz9n7QONoAAAA=",
+      "logoSourceUrl": "https://www.radio.net/300/rneradio3.png",
+      "notes": "Flux HLS (.m3u8) : lu grâce au module media3-exoplayer-hls ; débit approximatif."
+    },
+    {
+      "id": "rne-radio-clasica",
+      "name": "RNE Radio Clásica",
+      "genre": "cultura",
+      "category": "cultura-publica",
+      "description": "Radio Clásica de RNE: música clásica y contemporánea, conciertos y divulgación cultural.",
+      "stream": "https://rtvelivestream.rtve.es/rtvesec/rne/rne_r2_main.m3u8",
+      "homepage": "https://www.rtve.es/play/radio/radio-clasica/",
+      "country": "ES",
+      "region": "Madrid (RTVE)",
+      "codec": "HLS",
+      "bitrateKbps": 192,
+      "tags": [
+        "música clásica",
+        "conciertos",
+        "cultura"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://www.radio.net/300/rneradioclasica.png",
+      "notes": "Flux HLS (.m3u8) : lu grâce au module media3-exoplayer-hls ; débit approximatif."
+    },
+    {
+      "id": "radio-educacion",
+      "name": "Radio Educación — Cultura 96.5",
+      "genre": "cultura",
+      "category": "cultura-publica",
+      "description": "Emisora cultural pública de México (96.5 FM): arte, literatura, ciencia y música.",
+      "stream": "https://s2.mexside.net/8174/stream",
+      "homepage": "https://radioeducacion.edu.mx/",
+      "country": "MX",
+      "region": "Ciudad de México",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "cultura",
+        "arte",
+        "literatura",
+        "radio pública"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://i.postimg.cc/4d5tgGsH/cultura965.png"
+    },
+    {
+      "id": "radio-nacional-colombia",
+      "name": "Radio Nacional de Colombia",
+      "genre": "cultura",
+      "category": "cultura-publica",
+      "description": "Radio pública de Colombia (RTVC): cultura, memoria, música colombiana y magazines.",
+      "stream": "http://shoutcast.rtvc.gov.co:8000/",
+      "homepage": "https://www.radionacional.co/",
+      "country": "CO",
+      "region": "Bogotá (RTVC)",
+      "codec": "AAC",
+      "bitrateKbps": 64,
+      "tags": [
+        "cultura",
+        "música colombiana",
+        "radio pública"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,UklGRsAOAABXRUJQVlA4ILQOAABwNwCdASqAAIAAPjEWiEKiISEWi7YAIAMEtgBp6uW/OdXo6r+QHsRVV+mf038//lV8dOuCKh6s/An5P+3fjr7QHst/MP/V9wD9M/73/X/3S/wfxTeqP+df7b1Af0T+0frz7w/4ze57/H+oH/XP8Z1jH7c+wN+yvpgfth8Hf9a/137PfAh+un/V/P/uAOpn4S9oP978M/H96+lBXHfyn72fsv7h6Q97/yF1AvxD+Xf5n0G35TgL2h+9cU3iAfmLx0FAD85+hnn/ervYO/nX9v35VuRQ6Mn/xJW/W3cftRFEiPJcjelEYf0A8YpZTR+f80OXm9ZCYLRj+yYRLTL3/Fl9QijB6BbjWnWaLBI9H8djqJuREzsiaYY+iXu42tPvgfyvvFyeHCPfXKVrhwL5d8fWLOV903fIFFQlfbcYPqnR7NL7P3fmbbThKI31Ee1sqQxNTSgty9iq2bZIPpPPQVHU3hx8bSblZnb//NIGKvMzzp/Z3oN25SL93jaNpZnnL79E4e50mwEoXwe2cx2katJbUrcjI4yenmynSr80IvQNamLwgwVtsqfMUtJdpFlPRcdazMP+DtwfAXpE3bqs9TgGUqZwAAD+/3yAP8QKPx5U277xrMHEqpr+VGIgmt2VJXel4tEqhz4jPNeFORVHxSCrpIELXQW6OcJh0FZkHFJuIPnRVFMDImSVY+p8b2rWP0cjw04cVcvMYF/fJIP0WHcjbhkYH8xVG6A+OX04WdW47h/a/wM8Qn7MjlJhqkzXdbY0bBPPYT14xHvmTYHm+dCc1fYxVZyJ+iXqRVzz+Fkz4nc7anjBUSUnPhJS9bdf/oPSBK+LiBFLd4V+BYMHkdjXzDb5yEV737SVOr8zBEw/SmO3ZeFnNTd5SPLEYgpdOWcwxsjpkkiJpkM+lRLQMH7rJ5LhN92Ko6kp2lkWs+C33EJPB4ndoFpn419+FUCr4ESj/rk+37hqInT9uGEOUTX2cKLQ4cvpixjMfC4t5RRhVathBak66+APpbkVVt5kJD8azOCWlF6/LV3+WSsOgHJ/VDPKrcMz0i3SiDZ0hydpX/lO0zg8rmnhaWgwKriG23FgJIrwCdHdxtiX+64KyiMIAT/AukdhMDUpQCHNv9/ehXrzYtJJ3ctMPkqjNa7NxKCBNmaK+fpQuSAu74p2PUY1shs36soMWlsT4s6jM/+vnqikcfn9e/P3Ctu/bHK46s/Te22rB6YxXZPRM/vYk72DV/P+Ao/pn6SX5mlVj95ITxcjVEmbJQjnZyDA6JD5G9XGUSaRteS9uoZXi0wYT6JZX2riCixZ95J8rSxfIMITLy+oC5RSlDhvo3kvK9BWwd7F18BiWPP3hFXB5z9pHUugsqPjS6WxDMfVAVyGnF0Jair5napz70juAjaFNOC809fQ/N1XCqc1A+6e7hZemKcsq9YgCixHPMZ05aykuaDmnZgbaf3gpOf2CySz6U7rW3OBaBpN0crKgeOLFTOhVVlDIoVXqjPFxYniXA8VPukt1lL6qd0Cr1v0flzbcGZ0eTVrh2q2HtIPOwvd4GXEzFdrS0MTrusLvI3zBkHySFaH5e/2VguCqCzAKTZcwectul+lT6vTSec9GXCliiZ1Xxo3e71KF2pyy65bI7dSlhn2LbjRjGDanF/jfg0zqbHgLqoEuB7qrDFWhe+L/31Qi+tmqgADJYdTt68ssGJlwoEq5xqI1xj2aWrk4DJyHqGafbUyY6C+7HYQzl4/Y9ofX51hRCScYL4hs0Bz7iszrWkbGYikP3C4lrAjMR3epf0oKo6EPufLNNq6T3jgmI95F380d9vSivreQsZNaUOtPABZUlZYgdlP6A6kGC3A/OAD00UjeBTCNN6v9+vkp0EQIKq5xqswxzhC0K2CY68ghGX5gB/85N+Go5D58ZEOB/xLpoT3lYLhK9Xdl2W5s3WKh1NX2v/XlBbL8Tiv6UDWrwP+Ze3xLh/xYL7hq3y/cZ6M8IKGBHE71XOmCQmjzEs0oP0B1AEZT5RIaUs4V0srjmUyKNBrENpG5mq6GvcTFTrFeWZBaglZGKW1VK7OvHFzAALz/iPIX19gGXhsVnAIPZCWfH1Adv1vFGrhR6Pur+Nkkk0lSAC/UP/ytKM4ydQBf17QSbHUFLdmmBPolNhl4I5b2jJ24Mg8vD4sFJ+9xwLWHjSJuG54T8O3ec/MZSfpW4c215bf6GZ1mkINj8AKc9yLgh4I1GAxpxLjqvdRMf+avXr1xzBjqMWW8Qhqr+ejSl+kOTyED0f+nuqWfwHhkGvpXmXk1PK9+8qr5/n3cRhEnnn6Uf2oMUuOPyr1suq6/NImTX/0xpQR5Nw+L3dm8vOelkYPn5bCFfy2T22htN4+A6sD7EGH65KIaiLXTxxAXfnkQ9gpPBw/ev228jIWuaH8HYKd9eFB0B+nl3jA4HEzouXMjNtpChB1IsgHlnc6g4QA0RiR6y+nn2cjn0s1KQzLHTrYzd/ggX+XWBFjKgGH2tndiXneUEogU94p2mOOza9cHleNHz8v173FKRET2Iv9P3Q0Ja9ir+0KuvFCISWm2/7PSk6C61+0KH60nn6wKkgUH+2fvIwndJSs2oRUz8aVxjthd/dvx1i4gIgaolGieCZOpGEre3/8yR96wMy4pePJl64vm/1MGEN7Cl1yOaXwEy3AS9/CJU11CwbLv974sh1Dpw5QopytfrGBp75i07YSp6k6ymnPhn2u3RJA0l7gp1RPbsAHayMM3ucoXfQ8/YtnJxTagnt8YKYlR9x/rxWYOhczTbiTPOse759XpnbO2YIiLxVavho4ENyf0Pmw1NrwPj8RdH8f8Kiy/4ac6NVFL7u62xnghqwXWXWm8/NImCZlyw1a0bQa3dodYuyxVjz1hHc6XikQD+uaBKj9gr/hJIG2tubGuLA62BHrJDBtS+WxHXnigOT+mVmt6yTngg3B8B9tycCTHij+pTmx9w4HiLGOQ+Mzut5GlXSRcrovhRVpewUlP3Yb6UcsJdyJ6kgySrYrJp4w1ohC1JPhaPM4Dx/Tch6U2DA7BR0Xa1TfHWH6VH9W2DrOz3JYiT7VblNLb4I2H+MgC4hBlf/qfe44hFKrFjmeLHk2Tpy8Zjl+GqxUM/BpnODcW2QCZoCywbJEooBoR2UCSWgGm6yNf7NsQ+8dqMktXuKKM5qX0rvKUA/Hmp4ICUENTdNaMTQIDoQXel5whq38TQcHPgfyr0c5Q3ywlzkBEPfQV+Kx3WYRhEV8XThM1fGUIkN88UXTtqIzrIrINp8pTSMowjkKxugGgd66D6JQRGInOBJSBZCLs50Lfh7wKCXdMRiHxh2EpOPXVswqGxeJLcZLCkfzGPlIwaxfN2DRiyIUl1C4M1e82plXMZa/82enSmZkjCWlDxpD5ArqIWnLGWGKKnCNolBLHZuJ1vu1WkGV0NUVgnotnIvEfLWL8X9GVrh5Oo94ADpXpjXKRBMhiG6Jcgv+NSDH+8abbVdIoXAfndy9rhTq+yM5rXD64+7VyrsuXsB+vZOYm9zRjOOKIORj+w/2xLP/Heu+dL1ZUjNfIX1M/IFarfmTSAnldZJdyZbKPTPZscS7Ejub/Lj7qtgpgnF5+fh9dAD3FSDh0VD15N6q7GNAbrnXE05lxJIK0ncEDUXBdCFlyENMqIQN5d2okFTcs4Mo8D9bxDJB5jWq4ERDgq/BRPtkK/KzV08IJj21MuDyeRTww3ReQwJKcwTb+SXyecdiZthuyoO70q/ys6tTosrD89jDx6W+fBy8yf8fTLZWYL358brqeN9wC2ao/sotofk1ZND3kbLVL+DeyP+h1y6lv9IlBm5KTDxTcja0f9G9qZfvbkfMIYYjYcKbkzE3a+ovnn3AuAFRwH/y7/p986M/75NWjA7DiQus9zcj7DSGae0u3eqjumYD1G2f/8+GzRo99Lx/AgrQGg6WXpssP+HewuWdW+dP9IXnJbmbC1MY8l2Bbs9e8yRMZwE7xB0lrboDynzeg2uPrq6EnlsG9b447YAN0aGsYpPTzfdlakf+Xg8Otwc/kc/mCAqOXISf0NE+T6uDe4yNA8OLVEYU7N7eglgpZSan2JUouzx62bxlqva3IRImFENTxI4BEdaZfl+xJqZf/w44CxKaXu4dBV4alqN4TKGzlxrwJuqrAc3Pe7fyAhZGtlQZfwhOfkHZBMX4TTbt3q/5phsiTzPj4RFCuEb5/WklHuK35P652Paxo6V+0Lb3owCfjLcXOUOgss0Z/Mkb62iMutPn1/esOklKlmv1rL9qG8eA2Gs+oFqRcYGU3NoBT7OlY6lGniH9PZecSM709wiCuYVptakoSQ3+Xbn4/Hzwce3Lurq222SSsR94yUtpFFXX0q7EcUzxLI6iZZAEtDXM4ywhu91PncwtMvmdGoxVSPKzeOrNct9khJ5dnU+8sgykq9Tqb9Nk01JyjOe7mDMb6EF8Gm2ouf2KjZAvkMyS9c6aDwD4bQx6P1LcCO1TXIsZUnoPk//kb/SDTa7E1DGFC0/2F8UNIaGyspztkFpSAkT4PrWIWG7TIvn5BHPJ2fQWvwDSErt8PIjB7jYCBv+gJ1hvq/I7JRh/NgNbDeCYqZ+zz8yYVwbZyiD4xjczHdidN27a7WVfkpLTAxoFPBBdflMlUjlTNn/8Y1kvW2D0NxJo3s9C42He2oBOxOgYa7hfqb583dqWdO/EtZ0R/1+2Pk9iRnv7gydlp+5DR023f8LdxDdyKULDrASzsuq/sTmnebUPjfbih5lgKneOFEMRegqZZO67yHio7LrY6RdTkvcjhNsgSPjc4uOFleQ8FkMfJwsp5qfrCvNYbL/xG5ehzjwPKzVbkf0444C5EJ9Y0W5m9s3ZggKUpaoe3mVHax087Jjc0hlgL+0vOr6zN5UtRpY5ULKq/gIQFAACUI6Xi/7ynvdPEB392zmJE4s9HcPtfNU16/uWutXgCK8jndNGHYMckX2/owvphd7Yu4uLTx6aF6JTPx3HNWroojdSUeMp+Kbr8EPSXmm08AAAAA==",
+      "logoSourceUrl": "https://radionacional-v3.s3.amazonaws.com/s3fs-public/Favicon-Radio-Nacional.svg",
+      "notes": "Flux en HTTP clair uniquement (autorisé par network_security_config)."
+    },
+    {
+      "id": "radio-nacional-clasica",
+      "name": "Radio Nacional Clásica",
+      "genre": "cultura",
+      "category": "cultura-publica",
+      "description": "Señal clásica de la Radio Nacional Argentina (96.7 FM): música académica y divulgación cultural.",
+      "stream": "https://sa.mp3.icecast.magma.edge-access.net/sc_rad37",
+      "homepage": "https://www.radionacional.com.ar/",
+      "country": "AR",
+      "region": "Buenos Aires",
+      "codec": "MP3",
+      "bitrateKbps": 160,
+      "tags": [
+        "música clásica",
+        "cultura",
+        "radio pública"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://radioarg.net/storage/radios/7853/73050/conversions/SBpKi6a8TTFvVnHfz7P89UvhnfltzR-metabmFjaW9uYWwtY2xhc2ljYS5qcGc=--lg.webp"
+    },
+    {
+      "id": "radio-unam",
+      "name": "Radio UNAM",
+      "genre": "cultura",
+      "category": "cultura-universitaria",
+      "description": "La radio de la Universidad Nacional Autónoma de México (96.1 FM): cultura, literatura, ciencia y música desde 1937.",
+      "stream": "https://tv.radiohosting.online:9484/stream",
+      "homepage": "https://www.radio.unam.mx/",
+      "country": "MX",
+      "region": "Ciudad de México",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "radio universitaria",
+        "cultura",
+        "literatura",
+        "ciencia"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://cdn-radiotime-logos.tunein.com/s24539d.png"
+    },
+    {
+      "id": "radio-u-chile",
+      "name": "Radio Universidad de Chile",
+      "genre": "cultura",
+      "category": "cultura-universitaria",
+      "description": "Radio de la Universidad de Chile (102.5 FM): cultura, debate, música y actualidad.",
+      "stream": "http://streamuchile.teslati.com/liveruch",
+      "homepage": "https://radio.uchile.cl/",
+      "country": "CL",
+      "region": "Santiago",
+      "codec": "MP3",
+      "bitrateKbps": 112,
+      "tags": [
+        "radio universitaria",
+        "cultura",
+        "debate"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,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",
+      "logoSourceUrl": "https://radio.uchile.cl/wp-content/themes/duch-2026/assets/i/favicon-160px.png",
+      "notes": "Flux en HTTP clair uniquement (autorisé par network_security_config)."
+    },
+    {
+      "id": "radio-udeg-vallarta",
+      "name": "Radio Universidad de Guadalajara — Puerto Vallarta",
+      "genre": "cultura",
+      "category": "cultura-universitaria",
+      "description": "Emisora de la red de radio de la Universidad de Guadalajara (104.3 FM): cultura, música y programas universitarios.",
+      "stream": "https://stream.zeno.fm/8dr2yf092hhvv",
+      "homepage": "https://www.udgtv.com/radio-udg/",
+      "country": "MX",
+      "region": "Jalisco — Puerto Vallarta",
+      "codec": "MP3",
+      "bitrateKbps": 128,
+      "tags": [
+        "radio universitaria",
+        "cultura"
+      ],
+      "language": "es",
+      "logo": "data:image/webp;base64,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",
+      "notes": "Logo générique : aucun logo officiel exploitable n'a pu être récupéré."
     }
   ]
 }

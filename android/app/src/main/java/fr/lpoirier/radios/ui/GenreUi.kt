@@ -1,12 +1,11 @@
 package fr.lpoirier.radios.ui
 
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.MaterialTheme
@@ -58,7 +57,11 @@ fun GenreTheme(argb: Int?, content: @Composable () -> Unit) {
     )
 }
 
-/** Rangée de puces : « Tous » puis chaque genre, dans sa couleur. */
+/**
+ * Puces « Tous » puis chaque genre, dans sa couleur. Elles passent à la ligne
+ * quand la largeur manque : tous les genres restent visibles, sans défilement caché.
+ */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun GenreSelector(
     genres: List<GenreOption>,
@@ -66,11 +69,11 @@ fun GenreSelector(
     onSelect: (String?) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
+    FlowRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy((-4).dp), // les puces ont déjà une marge verticale
         modifier = modifier
             .fillMaxWidth()
-            .horizontalScroll(rememberScrollState())
             .padding(horizontal = 16.dp, vertical = 4.dp),
     ) {
         GenreChip(stringResource(R.string.all_genres), selected == null, null) { onSelect(null) }
