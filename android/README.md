@@ -24,6 +24,7 @@ Kotlin · Jetpack Compose (Material 3) · Media3 ExoPlayer + MediaSessionService
 make            # liste des cibles
 make build      # APK debug
 make apk        # copie l'APK dans dist/radios-<version>-debug.apk (à envoyer par mail)
+make upload     # make apk + envoi sur Google Drive (gdrive-copy.sh / rclone, dossier Transferts/)
 make run        # installe et lance sur l'émulateur/appareil connecté
 make test       # tests unitaires ; make test-device pour les tests instrumentés
 make emulator   # démarre l'AVD Medium_Phone
