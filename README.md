@@ -4,6 +4,10 @@ Application Android d'écoute de webradios classées par genre (flamenco, jazz, 
 pilotée par un fichier de configuration (`config/radios.json`) contenant les
 genres, leurs catégories, la liste des radios, leurs flux et leurs logos en base64.
 
+<p align="center">
+  <img src="assets/screenshot-accueil.png" alt="Écran d'accueil de l'application Radios" width="320">
+</p>
+
 ---
 
 ## 1. Les 59 radios recensées (flux vérifiés les 11 et 12/11/2026)
